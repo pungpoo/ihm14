@@ -1,0 +1,111 @@
+<!-- Footer -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <h5>ร่วมจัดโดย</h5>
+        <div class="row mb-2">
+          <div class="col-md-3 col-sm-3"><img src="img/cohost/cohost-mu.png" class="cohost-footer align-items-baseline" data-toggle="tooltip" data-placement="top" title="สถาบันนัตกรรมการเรียนรู้ ม.มหิดล"> </div>
+          <div class="col-md-3 col-sm-3"><img src="img/cohost/cohost-knit.png" class="cohost-footer align-items-baseline" data-toggle="tooltip" data-placement="top" title="สถาบันคลังสมองของชาติ"></div>
+          <div class="col-md-3 col-sm-3"><img src="img/cohost/cohost-ohec.png" class="cohost-footer align-items-baseline" data-toggle="tooltip" data-placement="top" title="สำนักงานคณะกรรมการการอุดมศึกษา"></div>
+          <div class="col-md-3 col-sm-3"><img src="img/cohost/cohost-KKU.png" class="cohost-footer align-items-baseline" data-toggle="tooltip" data-placement="top" title="มหาวิทยาลัยขอนแก่น"></div>
+        </div>
+        <div class="row align-items-baseline">
+          <div class="col-md-3 col-sm-3"><img src="img/cohost/cohost-KU.png" class="cohost-footer align-items-baseline" data-toggle="tooltip" data-placement="top" title="มหาวิทยาลัยเกษตรศาสตร์"></div>
+          <div class="col-md-3 col-sm-3"><img src="img/cohost/cohost-KMITL.png" class="cohost-footer align-items-baseline" data-toggle="tooltip" data-placement="top" title="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี"></div>
+          <div class="col-md-3 col-sm-3"><img src="img/cohost/cohost-kmutt.png" class="cohost-footer align-items-baseline" data-toggle="tooltip" data-placement="top" title="สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง"></div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline social-buttons">
+          <li class="list-inline-item">
+            <a href="https://www.facebook.com/Sotl6-102327021278473/" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.youtube.com/watch?v=iAofH-EoGnw"  target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://il.mahidol.ac.th/th/"  target="_blank">
+              <i class="fab fa-wordpress"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 footer-align">
+        <h5>ติดต่อ</h5>
+        <p><i class="fas fa-map-marker-alt"></i> &nbsp; สถาบันนวัตกรรมการเรียนรู้
+          </br> เลขที่ 999 ถ.พุทธมณฑลสาย
+          4 ต.ศาลายา </br>อ. พุทธมณฑล
+          จ.นครปฐม 73170
+          </br><i class="fas fa-phone-square-alt"></i>&nbsp; โทรศัพท์ : 0-2441-9729
+          </br><i class="fas fa-mobile-alt"></i>&nbsp; มือถือ : 08-6320-5925
+          </br><i class="fas fa-fax"></i>&nbsp; FAX : 0-2441-0479
+          </br><i class="fas fa-envelope"></i> &nbsp;sotl6.2020@gmail.com
+
+        </p>
+        <!-- <ul class="list-inline quicklinks">
+          <li class="list-inline-item">
+            <a href="#">Privacy Policy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">Terms of Use</a>
+          </li>
+        </ul> -->
+      </div>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="col-md-12 mt-4">
+        <span class="copyright">Copyright &copy; SoTL6 2019</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- tooltip -->
+  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+  </script>
+
+  <!-- FB chat -->
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root" style="text-align: left;"></div>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v5.0'
+      });
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <!-- Your customer chat code -->
+  <div class="fb-customerchat" attribution=setup_tool page_id="102327021278473" theme_color="#0084ff"
+    logged_in_greeting="สวัสดีครับ สงสัยเรื่องอะไรสอบถามได้เลยครับ" logged_out_greeting="สวัสดีครับ สงสัยเรื่องอะไรสอบถามได้เลยครับ">
+  </div>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154875851-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-154875851-1');
+  </script>
+</footer>
