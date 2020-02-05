@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SoTL6</title>
+  <title>THRF14</title>
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
@@ -27,10 +27,17 @@
   <?php include "navbar.html"; ?>
   <section>
     <div>
-      <img src="img/SoTL6_Poster.jpg" class="center imgcover">
+      <img src="img/poster13.jpg" class="center imgcover">
       <a class="btn btn-xl text-uppercase js-scroll-trigger center btn-regis" href="registration.php">
         <h2>Registration</h2>
       </a>
+    </div>
+  </section>
+  <section>
+    <div class="text-center">
+      <!-- <a class="btn btn-xl text-uppercase js-scroll-trigger center btn-regis" href="registration.php"> -->
+        <h2 >เวทีวิจัยมนุษยศาสตร์ไทยครั้งที่ 14:The 14th Thai Humanities Research Forum</h2>
+      <!-- </a> -->
     </div>
   </section>
   <!-- keynote -->
