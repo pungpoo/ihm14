@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SOTL6</title>
+  <title>THRF14</title>
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
@@ -27,19 +27,21 @@
         /* margin-top: 120px; */
       }
     }
+
     @media (max-width: 991px) {
       section {
         padding-top: 150px !important;
         /* margin-top: 120px; */
       }
     }
+
     @media (min-width: 320px) and (max-width: 480px) {
-  
-  section {
-    padding-top: 80px;
-  }
-  
-}
+
+      section {
+        padding-top: 80px;
+      }
+
+    }
   </style>
 </head>
 
@@ -53,7 +55,9 @@
       <div class="row">
         <div class=" col-md-12" id="single_regis">
           <div class="card">
-            <h5 class="card-header text-center text-uppercase bg-info">THRF14 - Registration</h5>
+            <h5 class="card-header text-center text-uppercase bg-info">ลงทะเบียนเข้าร่วม
+              "โครงการจัดประชุมวิชาการระดับชาติ เวทีวิจัยมนุษยศาสตร์ไทย ครั้งที่ 14"
+              <br> หัวข้อ iHumanities: เทคโนโลยี สุขภาพ และชีวิต</h5>
             <div class="card-body font-weight-bold">
               <form class="form" id="regisForm" name="regisForm" action="check_regis.php" method="post">
                 <div class="form-row ">
@@ -146,39 +150,13 @@
                   </div>
                 </div>
 
-               <!-- Billing -->
                 <div class="form-row">
-                  <div class="form-group col-12">
-                    <label>รายละเอียดในการออกใบเสร็จ (Billing Information)</label>
-                    <div class="pl-3">
-                      <div class="custom-control custom-radio">
-                        <input type="radio" id="billing1" name="billing_info" class="custom-control-input" value="1"
-                          checked>
-                        <label class="custom-control-label" for="billing1">ใช้ชื่อและที่อยู่ของต้นสังกัด(Affiliation's
-                          name
-                          and address)</label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" id="billing2" name="billing_info" class="custom-control-input" value="2">
-                        <label class="custom-control-label" for="billing2">อื่นๆ โปรดระบุ (Others, Please
-                          specify)</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-row pl-4" id="billing_detail">
-                  <div class="form-group col-md-12">
-                    <textarea class="form-control" id="billing_address" name="billing_address" rows="3"
-                      placeholder="ระบุรายละเอียดในการออกใบเสร็จ (Billing Information)" value=" "></textarea>
-                  </div>
-                </div>
-                <div class="form-row ">
                   <div class="form-group col-6 mt-2">
                     <label>อาหาร (Food)</label>
                     <div class="pl-3">
                       <div class="custom-control custom-radio">
                         <input type="radio" id="food1" name="food" class="custom-control-input" value="1" checked>
-                        <label class="custom-control-label" for="food1" id="food_normal" >ทั่วไป (Not Specific)</label>
+                        <label class="custom-control-label" for="food1" id="food_normal">ทั่วไป (Not Specific)</label>
                       </div>
                       <div class="custom-control custom-radio">
                         <input type="radio" id="food2" name="food" class="custom-control-input" value="2">
@@ -201,170 +179,155 @@
                       placeholder="ระบุอาหารที่แพ้ (Please specify all food allergies)">
                   </div>
                 </div>
-                <!-- Workshop -->
-                <div class="form-row  mt-2">
-                  <div class="form-group col-12 gray mt-2">
-                    <div class="form-row pl-3" style="margin-bottom: -10px;">
-                      <label class="mt-1">Workshop ที่ต้องการเข้าร่วม</label>
-                      <label class="mt-1 "><a href="workshop.php" class="url-blue"
-                          target="_blank">(ดูรายละเอียดเพิ่มเติม)</a></label><br>
+                <div class="form-row bg-gray">
+                  <div class="form-group col-md-12 mt-2">
+                    <label for="">เลือกหัวข้อที่ต้องการเข้าร่วม</label>
+                    <div class="custom-control custom-checkbox ml-3">
+                      <input type="checkbox" id="5day" name="5day" class="custom-control-input" value="1">
+                      <label class="custom-control-label" for="5day">งานมหกรรมวิชาการ 7-11 กันยายน 2563 (5 วัน)</label>
                     </div>
-                    <div class="form-row pl-3">
-                      <label class="text-muted mt-1">I will attend workshop</label>
-                      <label class="mt-1"><a href="workshop.php" class="url-blue" target="_blank">(More
-                          Details)</a></label>
+                    <div class="custom-control custom-checkbox ml-3">
+                      <input type="checkbox" id="2day" name="2day" class="custom-control-input" value="1">
+                      <label class="custom-control-label" for="2day">เฉพาะงานเวทีมนุษศาสตร์ 8-9 กันยายน 2563 (2
+                        วัน)</label>
                     </div>
-                    <!-- Day 1 -->
-                    <div class="form-group ml-3">
-                      <label style="margin-bottom: -5px;">วันพฤหัสบดีที่ 30 เมษายน พ.ศ. 2563 (13.00 - 14.30
-                        น.)</label><br>
-                      <label class=" text-muted">Thursday 30 April, 2020 (13.00 - 14.30 hr.)</label>
-                      <div class="custom-control  custom-radio">
-                        <input type="radio" class="custom-control-input" id="workshop_day1_1" name="workshop_day1"
-                          value="w1">
-                        <label class="custom-control-label" for="workshop_day1_1">Workshop 1 : Design Thinking <span
-                            class="badge badge-warning">เหลือที่นั่งอีก
-                            <?php echo $workshop_balance_w1;?>
-                            ที่</span></label>
-                      </div>
-                      <div class="custom-control  custom-radio">
-                        <input type="radio" class="custom-control-input" id="workshop_day1_2" name="workshop_day1"
-                          value="w2">
-                        <label class="custom-control-label" for="workshop_day1_2">Workshop 2 : Research to
-                          Innovation <span class="badge badge-warning">เหลือที่นั่งอีก
-                          <?php echo $workshop_balance_w2;?>
-                            ที่</span></label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="workshop_day1_3" name="workshop_day1"
-                          value="w3">
-                        <label class="custom-control-label" for="workshop_day1_3">Workshop 3 : Contemplative
-                          education: Learn Unlearn and Relearn <span class="badge badge-warning">เหลือที่นั่งอีก
-                          <?php echo $workshop_balance_w3;?>
-                            ที่</span></label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="workshop_day1_4" name="workshop_day1"
-                          value="w4">
-                        <label class="custom-control-label" for="workshop_day1_4">Workshop 4 : Development and
-                          Implementation-Game design-Board game <span class="badge badge-warning">เหลือที่นั่งอีก
-                          <?php echo $workshop_balance_w4;?> 
-                          ที่</span></label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="workshop_day1_5" name="workshop_day1"
-                          value="wn">
-                        <label class="custom-control-label" for="workshop_day1_5">ไม่เข้าร่วม Workshop</label>
-                      </div>
+                    <div class="custom-control custom-checkbox ml-3">
+                      <input type="checkbox" id="paper" name="paper" class="custom-control-input" value="1">
+                      <label class="custom-control-label" for="paper">ส่งบทความตีพิมพ์
+                        (โปรดเลือกหากต้องการส่งบทความตีพิมพ์)</label>
                     </div>
-                    <!-- Day 2 -->
-                    <div class="form-group ml-3">
-                      <label style="margin-bottom: -5px;">วันพฤหัสบดีที่ 30 เมษายน พ.ศ. 2563 (14.45 - 16.00
-                        น.)</label><br>
-                      <label class=" text-muted">Thursday 30 April, 2020 (14.45 - 16.00 hr.)</label>
-                      <div class="custom-control  custom-radio">
-                        <input type="radio" class="custom-control-input" id="workshop_day2_1" name="workshop_day2"
-                          value="w5">
-                        <label class="custom-control-label" for="workshop_day2_1">Workshop 5 : เนรมิตห้องเรียน 4.0
-                          ด้วยเครื่องมือดิจิทัล <span class="badge badge-warning">เหลือที่นั่งอีก
-                            
-                          <?php echo $workshop_balance_w5;?>
-                            ที่</span></label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="workshop_day2_2" name="workshop_day2"
-                          value="w6">
-                        <label class="custom-control-label" for="workshop_day2_2">Workshop 6 : Micro mastery:
-                          ประสบการณ์การพัฒนาการเรียนรู้เพื่อสร้าง “ความเก่งทีละเล็กทีละน้อย <span
-                            class="badge badge-warning">เหลือที่นั่งอีก 
-                            <?php echo $workshop_balance_w6;?>
-                            ที่</span></label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="workshop_day2_3" name="workshop_day2"
-                          value="w7">
-                        <label class="custom-control-label" for="workshop_day2_3">Workshop 7 :
-                          วิจัยจัดการเรียนการสอน <span class="badge badge-warning">เหลือที่นั่งอีก
-                          <?php echo $workshop_balance_w7;?>
-                            ที่</span></label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="workshop_day2_4" name="workshop_day2"
-                          value="w8">
-                        <label class="custom-control-label" for="workshop_day2_4">Workshop 8 :
-                          สร้างห้องเรียนแห่งอนาคตด้วยเทคโนโลยี iPad และ Personalization of Learning <span
-                            class="badge badge-warning">เหลือที่นั่งอีก
-                            <?php echo $workshop_balance_w8;?>
-                         
-                            ที่</span></label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="workshop_day2_5" name="workshop_day2"
-                          value="wn">
-                        <label class="custom-control-label" for="workshop_day2_5">ไม่เข้าร่วม Workshop</label>
+                  </div>
+                </div>
+
+                <div class="form-row bg-blue mt-2" id="divPaper">
+                  <div class="form-group col-md-12 mt-2">
+                    <label for="">ส่งบทความตีพิมพ์</label>
+                    <div class="form-row ml-4">
+                      <label>โปรดเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme1" name="subtheme" class="custom-control-input" value="1">
+                      <label class="custom-control-label" for="subtheme1">1. สังคมพหุวัฒนธรรม อัตลักษณ์
+                        และภาวะข้ามชาติในยุคดิจิทัล (Multicultural Society, Identity and Transnationalism in the Era of
+                        Digital Technology)</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme2" name="subtheme" class="custom-control-input" value="2">
+                      <label class="custom-control-label" for="subtheme2">2. ภาษาและภาษาศาสตร์ในยุคเทคโนโลยีเปลี่ยนโลก
+                        (Language and Linguistics in the Age of World-disrupting Technology)</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme3" name="subtheme" class="custom-control-input" value="3">
+                      <label class="custom-control-label" for="subtheme3">3. สุนทรียศาสตร์ อารมณ์ และสุขภาวะของสังคม
+                        (Aesthetics, Emotion and Implications on Social Well-Being)</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme4" name="subtheme" class="custom-control-input" value="4">
+                      <label class="custom-control-label" for="subtheme4">4. iMindfulness:
+                        ความตระหนักรู้ในตนสู่หนทางการเปลี่ยนแปลง (iMindfulness: Self-awareness toward
+                        Transformation)</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme5" name="subtheme" class="custom-control-input" value="5">
+                      <label class="custom-control-label" for="subtheme5">5. มนุษย์กับการอยู่ร่วมกับเทคโนโลยี (Humans
+                        and their Co-existence with Technology)</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme6" name="subtheme" class="custom-control-input" value="6">
+                      <label class="custom-control-label" for="subtheme6">6.
+                        โลกออนไลน์กับเสถียรภาพของสังคมและความมั่นคงของประเทศ (Online World, Social Stability and
+                        National Security)</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme7" name="subtheme" class="custom-control-input" value="7">
+                      <label class="custom-control-label" for="subtheme7">7. เทคโนโลยีและการดูแลสุขภาพในสังคมประชาธิปไตย
+                        (Technology and Healthcare in Democratic Society)</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme8" name="subtheme" class="custom-control-input" value="8">
+                      <label class="custom-control-label" for="subtheme8">8. เทคโนโลยีกับสิทธิมนุษยชนและสันติภาพ
+                        (Technologies, Human Rights and Peace)</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme9" name="subtheme" class="custom-control-input" value="9">
+                      <label class="custom-control-label" for="subtheme9">9. เทคโนโลยีกับความสามารถที่แตกต่างของมนุษย์:
+                        แบ่งแยกหรืออยู่ร่วม (Technology and Human (this)Ability: Dividing or Including)</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme10" name="subtheme" class="custom-control-input" value="10">
+                      <label class="custom-control-label" for="subtheme10">10. เทคโนโลยี การดูแลสุขภาพ
+                        กับสังคมผู้สูงอายุ (Technology, Healthcare and Aging Society)</label>
+                    </div>
+                    <div class="custom-control custom-radio ml-4">
+                      <input type="radio" id="subtheme11" name="subtheme" class="custom-control-input" value="11">
+                      <label class="custom-control-label" for="subtheme11">11.
+                        เทคโนโลยีและการแพทย์ที่มีหัวใจความเป็นมนุษย์ (Technology and Humanized Medicine)</label>
+                    </div>
+                    <!-- upload -->
+                    <div class="form-row col-12 mt-2">
+                      <div class="card col-md-8 col-sm-12">
+                        <div class="card-header bg-info">
+                          Upload บทความตีพิมพ์
+                        </div>
+                        <div class="card-body">
+                          <!-- <h5 class="card-title">Upload บทความตีพิมพ์</h5> -->
+                          <!-- <p class="card-text">** maximum 2MB. Type .doc .docx </p> -->
+                          <input type="file" name="paper_upload" id="paper_upload"/>
+                          <p class="card-text">**ไฟล์ขนาดไม่เกิน 2MB. Type .doc .docx </p>
+                          <span id="file_error"></span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- Regis fee -->
-                <div class="form-row pay-rate">
-                  <div class="form-group col-md-8">
-                    <label>อัตราค่าลงทะเบียน</label>
-                    <!-- Group of material radios - option 1 -->
-                    <div class="pl-3">
-                      <div class="custom-control">
-                        <label>- Early Bird 2,500 บาท <sup class="bg-danger border-radius">**Active Now**</sup> </label>
-                      </div>
-                      <div class="custom-control">
-                        <label>- Regular 3,000 บาท</label>
-                      </div>
-                      <div class="custom-control">
-                        <label>- Group (สำหรับผู้ลงทะเบียน 6 ท่าน) 16,000 บาท </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Regis fee -->
             </div>
-            <!-- <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-5 col-4 offset-4"
+          </div>
+          <!-- <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-5 col-4 offset-4"
               value="ยืนยันการลงทะเบียน"> -->
-            <!-- preview -->
-            <input type="button" name="btn" value="ตรวจสอบข้อมูล" id="submitBtn" data-toggle="modal"
-              data-target="#confirm-submit" class="btn btn-success mb-3 col-4 offset-4" />
-            <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog  modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    ข้อมูลการลงทะเบียนของท่าน
-                  </div>
-                  <div class="modal-body">
-                    <label ><b>ชื่อ-นามสกุล (Name-Surname) </b>: <span class="badge badge-info" id="preview_name"></span></label><br>
-                    <label ><b>E-mail </b>: <span class="badge badge-info" id="preview_mail"></span></label><br>
-                    <label ><b>เบอร์โทรศัพท์ (Phone Number) </b>: <span class="badge badge-info" id="preview_phone"></span></label><br>
-                    <label ><b>หน่วยงานต้นสังกัด (Affiliation) </b>: <span class="badge badge-info" id="preview_affiliation"></span></label><br>
-                    <label ><b>ที่อยู่ในการออกใบเสร็จ (Billing Information) </b>: <br><span class="badge badge-info" id="preview_bill_info"></span></label><br>
-                    <label ><b>อาหาร (Food) </b>: <script> </script> <span class="badge badge-info" id="preview_food"></span></label><br>
-                    <label ><b>แพ้อาหาร(Food Allergy) </b>: <span class="badge badge-info" id="preview_food_allergy"></span></label><br>
-                    <label ><b>Workshop 30 April, 2020 (13.00 - 14.30 hr.)</b>: <span class="badge badge-info" id="preview_workshop_day1"></span></label><br>
-                    <label ><b>Workshop 30 April, 2020 (14.45 - 16.00 hr.)</b>: <span class="badge badge-info" id="preview_workshop_day2"></span></label><br>
-                    <label ><b>ค่าลงทะเบียน </b>: <span class="badge badge-info" id="">Early Bird 2,500 บาท</span></label><br>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <!-- <a href="#" id="submit" class="btn btn-success success">Submit</a> -->
-                    <input type="submit" name="submit" id="btnsubmit" class="btn btn-success"
-              value="ยืนยันการลงทะเบียน">
-                  </div>
+          <!-- preview -->
+          <input type="button" name="btn" value="ตรวจสอบข้อมูล" id="submitBtn" data-toggle="modal"
+            data-target="#confirm-submit" class="btn btn-success mb-3 col-6 offset-3 mt-4" />
+          <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog  modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  ข้อมูลการลงทะเบียนของท่าน
+                </div>
+                <div class="modal-body">
+                  <label><b>ชื่อ-นามสกุล (Name-Surname) </b>: <span class="badge badge-info"
+                      id="preview_name"></span></label><br>
+                  <label><b>E-mail </b>: <span class="badge badge-info" id="preview_mail"></span></label><br>
+                  <label><b>เบอร์โทรศัพท์ (Phone Number) </b>: <span class="badge badge-info"
+                      id="preview_phone"></span></label><br>
+                  <label><b>หน่วยงานต้นสังกัด (Affiliation) </b>: <span class="badge badge-info"
+                      id="preview_affiliation"></span></label><br>
+                  <label><b>ที่อยู่ในการออกใบเสร็จ (Billing Information) </b>: <br><span class="badge badge-info"
+                      id="preview_bill_info"></span></label><br>
+                  <label><b>อาหาร (Food) </b>: <script> </script> <span class="badge badge-info"
+                      id="preview_food"></span></label><br>
+                  <label><b>แพ้อาหาร(Food Allergy) </b>: <span class="badge badge-info"
+                      id="preview_food_allergy"></span></label><br>
+                  <label><b>งานที่เข้าร่วม</b>: <span class="badge badge-info"
+                      id="preview_workshop_day1"></span></label><br>
+                  <label><b>บทความตีพิมพ์</b>: <span class="badge badge-info"
+                      id="preview_workshop_day2"></span></label><br>
+                  <label><b>ค่าลงทะเบียน </b>: <span class="badge badge-info" id="">Early Bird 2,500
+                      บาท</span></label><br>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                  <!-- <a href="#" id="submit" class="btn btn-success success">Submit</a> -->
+                  <input type="submit" name="submit" id="btnsubmit" class="btn btn-success" value="ยืนยันการลงทะเบียน">
                 </div>
               </div>
             </div>
-            <!-- preview -->
-
-            </form>
           </div>
+          <!-- preview -->
+          </form>
         </div>
       </div>
+    </div>
     </div>
     </div>
     </div>
@@ -437,19 +400,30 @@
       });
     })
 
-
-    $("#billing_detail").hide();
-    $(document).ready(function () {
-      $("#billing1").click(function () {
-        $("#billing_detail").hide();
-        $("#billing_address").val("");
+    // paper fadeIn
+    $("#divPaper").hide();
+      $(document).ready(function(){
+      $('#paper').change(function(){
+          if(this.checked)
+              $('#divPaper').fadeIn('fast');
+          else
+              $('#divPaper').fadeOut('fast');
+              $('[name ="subtheme"]').prop( "checked", false );
       });
-      $("#billing2").click(function () {
-        $("#billing_detail").show();
-      });
-    })
+    });
 
+  function validate() {
+    $("#file_error").html("");
+    $(".demoInputBox").css("border-color","#F0F0F0");
+    var file_size = $('#pic')[0].files[0].size;
+    if(file_size>2097152) {
+      $("#file_error").html("<font color='#F31616'>รูปภาพของท่านมีขนาดใหญ่เกิน 2 MB</font>");
+      $(".demoInputBox").css("border-color","#FF0000");
+      return false;
+    } 
+    return true;
+  }
   </script>
-</body>
 
+</body>
 </html>

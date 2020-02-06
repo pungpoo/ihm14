@@ -30,7 +30,7 @@
       <div class="row mt-4">
         <div class="col-md-12">
           <div class="card">
-            <h5 class="card-header text-center text-uppercase bg-info">SOTL6 - ขั้นตอนและวิธีการลงทะเบียน</h5>
+            <h5 class="card-header text-center text-uppercase bg-info">ขั้นตอนและวิธีการลงทะเบียน</h5>
             <div class="card-body font-weight-bold">
               <!-- <img src="img/info_regis.png" alt="" class="center responsive"> -->
               <div class="col-md-12 mark mb-2">1. ลงทะเบียนในระบบ</div>
@@ -72,7 +72,7 @@
               <div class="row " style="align-items: center;">
                 <div class="col-md-4 mx-auto">
                   <a href="registration.php" class="btn center btn-regis mb-3"><i class="fas fa-user"></i>
-                    ลงทะเบียนแบบปกติ</a>
+                    ลงทะเบียน</a>
                 </div>
                 <!-- <div class="col-md-4 mx-auto">
                   <a href="registration_group.php" class="btn center btn-regis mb-3"><i class="fas fa-users"></i>
