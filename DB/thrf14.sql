@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2019 at 10:57 AM
+-- Generation Time: Feb 07, 2020 at 10:29 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -19,8 +19,46 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sotl`
+-- Database: `thrf14`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `publications`
+--
+
+CREATE TABLE `publications` (
+  `paper_id` int(11) NOT NULL,
+  `register_id` int(11) NOT NULL,
+  `paper_name` varchar(255) NOT NULL,
+  `paper_subtheme` int(11) NOT NULL,
+  `paper_upload_date` date NOT NULL,
+  `paper_status` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `publications`
+--
+
+INSERT INTO `publications` (`paper_id`, `register_id`, `paper_name`, `paper_subtheme`, `paper_upload_date`, `paper_status`) VALUES
+(1, 0, 'E-00070.pdf', 0, '0000-00-00', ''),
+(2, 0, 'E-00070.pdf', 0, '0000-00-00', ''),
+(3, 0, 'E-00070.pdf', 0, '0000-00-00', ''),
+(4, 0, 'E-00070.pdf', 0, '0000-00-00', ''),
+(5, 0, '2020-02-07-045413.docx', 0, '0000-00-00', ''),
+(6, 0, '2020-02-07-045413.docx', 0, '0000-00-00', ''),
+(7, 0, '2020-02-07-045608.docx', 0, '0000-00-00', ''),
+(8, 0, '2020-02-07-045608.docx', 0, '0000-00-00', ''),
+(9, 0, '2020-02-07-045641.docx', 0, '0000-00-00', ''),
+(10, 0, '2020-02-07-045641.docx', 0, '0000-00-00', ''),
+(11, 0, '2020-02-07-045952.docx', 0, '0000-00-00', ''),
+(12, 0, '2020-02-07-045952.docx', 0, '0000-00-00', ''),
+(13, 0, '2020-02-07-051911.docx', 0, '0000-00-00', ''),
+(14, 0, '2020-02-07-051927.docx', 0, '0000-00-00', ''),
+(15, 0, '2020-02-07-052001.docx', 0, '0000-00-00', ''),
+(16, 0, '2020-02-07-063242.docx', 0, '0000-00-00', ''),
+(17, 0, '2020-02-07-063517.docx', 0, '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -30,27 +68,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `register` (
   `id` int(6) UNSIGNED NOT NULL,
-  `regis_title_name` varchar(30) NOT NULL,
-  `regis_th_name` varchar(50) NOT NULL,
-  `regis_th_lastname` varchar(50) DEFAULT NULL,
-  `regis_eng_name` varchar(100) DEFAULT NULL,
-  `regis_eng_lastname` varchar(100) NOT NULL,
-  `regis_gender` int(1) NOT NULL,
+  `regis_title_name` varchar(255) NOT NULL,
+  `regis_name` varchar(50) NOT NULL,
+  `regis_lastname` varchar(50) DEFAULT NULL,
+  `regis_gender` varchar(1) NOT NULL,
   `regis_age` int(2) NOT NULL,
   `regis_nationality` varchar(100) NOT NULL,
   `regis_mail` varchar(100) NOT NULL,
   `regis_phone` varchar(50) NOT NULL,
   `regis_emergency_phone` varchar(20) DEFAULT NULL,
   `regis_affiliation` varchar(255) NOT NULL,
-  `regis_province` varchar(50) NOT NULL,
+  `regis_affiliation_address` varchar(255) NOT NULL,
   `regis_food` int(1) NOT NULL,
+  `regis_food_other` varchar(255) DEFAULT NULL,
   `regis_food_allergy` varchar(50) DEFAULT NULL,
-  `regis_group` int(2) DEFAULT NULL,
-  `regis_workshop_day1` varchar(2) DEFAULT NULL,
-  `regis_workshop_day2` varchar(2) DEFAULT NULL,
-  `regis_payment_rate` int(1) NOT NULL,
-  `regis_payment_date` date DEFAULT NULL,
-  `regis_payment_status` int(1) NOT NULL DEFAULT '0',
+  `regis_day7-11` int(11) DEFAULT NULL,
+  `regis_day8-9` int(11) DEFAULT NULL,
+  `regis_paper_submission` int(11) DEFAULT NULL,
   `regis_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -58,14 +92,11 @@ CREATE TABLE `register` (
 -- Dumping data for table `register`
 --
 
-INSERT INTO `register` (`id`, `regis_title_name`, `regis_th_name`, `regis_th_lastname`, `regis_eng_name`, `regis_eng_lastname`, `regis_gender`, `regis_age`, `regis_nationality`, `regis_mail`, `regis_phone`, `regis_emergency_phone`, `regis_affiliation`, `regis_province`, `regis_food`, `regis_food_allergy`, `regis_group`, `regis_workshop_day1`, `regis_workshop_day2`, `regis_payment_rate`, `regis_payment_date`, `regis_payment_status`, `regis_date`) VALUES
-(1, 'นาง', 'นำโชค', 'ขุนหมื่นวงค์', 'Warunee', 'tym', 0, 33, '33', 'demo@cszcms.com', '0875980464', '33', 'il', 'นครราชสีมา', 1, '', 0, 'on', 'on', 1, NULL, 0, '2019-12-11 04:58:12'),
-(74, '', '11', '11', '', '', 0, 22, '11', 'qqq@gmail.com', '23', '', '11', 'นครนายก', 1, '', 0, 'w1', 'w5', 1, NULL, 0, '2019-12-12 09:32:50'),
-(75, 'นาง', '22', '22', '', '', 0, 22, '22', 'qqq@gmail.com22', '22', '', '22', 'ปราจีนบุรี', 3, '', 0, 'w2', 'w6', 1, NULL, 0, '2019-12-12 09:32:50'),
-(76, 'ดร.', '33', '33', '', '', 0, 33, '33', '33@gmail.com', '33', '', '33', 'ฉะเชิงเทรา', 1, '', 0, 'w3', 'w7', 1, NULL, 0, '2019-12-12 09:32:50'),
-(77, 'รศ.', '44', '44', '', '', 0, 44, '44', '44@gmail.com', '44', '', '44', '', 1, '', 0, 'w4', 'w8', 1, NULL, 0, '2019-12-12 09:32:50'),
-(78, 'นางสาว', '55', '55', '', '', 0, 55, '55', '55@gmail.com', '55', '55', '55', 'ยะลา', 2, '', 0, 'w4', 'w6', 1, NULL, 0, '2019-12-12 09:32:50'),
-(79, 'ศ.ดร.', '66', '66', '', '', 0, 56, '66', 'demoh@cszcms.com', '66', '', '66', 'สระแก้ว', 1, '55', 0, NULL, NULL, 1, NULL, 0, '2019-12-12 09:32:50');
+INSERT INTO `register` (`id`, `regis_title_name`, `regis_name`, `regis_lastname`, `regis_gender`, `regis_age`, `regis_nationality`, `regis_mail`, `regis_phone`, `regis_emergency_phone`, `regis_affiliation`, `regis_affiliation_address`, `regis_food`, `regis_food_other`, `regis_food_allergy`, `regis_day7-11`, `regis_day8-9`, `regis_paper_submission`, `regis_date`) VALUES
+(1, 'ผศ.ดร. (Asst. Prof. Dr.)', 'ปริวรรต', 'พูลเพิ่ม', 'M', 50, 'ไทย', 'fvetpap@ku.ac.th', '0818049626', '', 'Professional Training and Consultant ', '123/272 ม.เพอร์เฟคพาร์ค บางบัวทอง อ.บางบัวทอง จ.นนทบุรี 11110', 1, '', '', 0, 0, NULL, '2020-01-28 05:23:04'),
+(2, 'นาย (Mr.)', 'ธิติพัฒน์', 'เอี่ยมนิรันดร์', 'M', 55, 'ไทย', 'titipat@hotmail.com', '0836592414', '', 'มสธ.', '39/16 หมู่ 6 ต.บางตลาด อ.ปากเกร็ด นนทบุรี 11120', 1, '', '', 0, 0, NULL, '2020-01-28 01:46:57'),
+(3, 'นาย (Mr.)', 'นำโชค', 'ขุนหมื่นวงค์', 'M', 30, 'ไทย', 'pungpoo23@gmail.com', '0875980464', '', 'สถาบันนวัตกรรมการเรียนรู้', 'สถาบันนวัตกรรมการเรียนรู้', 4, 'เจasv', '', 0, 0, NULL, '2020-01-28 09:08:02'),
+(4, 'นาย (Mr.)', 'นำโชค', 'ขุนหมื่นวงค์', 'M', 30, 'ไทย', 'pungpoo23@gmail.comy', '0875980464', '', 'สถาบันนวัตกรรมการเรียนรู้', 'สถาบันนวัตกรรมการเรียนรู้', 4, 'เจasv', '', 0, 0, NULL, '2020-01-28 09:07:48');
 
 -- --------------------------------------------------------
 
@@ -169,6 +200,12 @@ INSERT INTO `tbl_province` (`﻿province_id`, `country_id`, `province_name_th`, 
 --
 
 --
+-- Indexes for table `publications`
+--
+ALTER TABLE `publications`
+  ADD PRIMARY KEY (`paper_id`);
+
+--
 -- Indexes for table `register`
 --
 ALTER TABLE `register`
@@ -185,10 +222,16 @@ ALTER TABLE `tbl_province`
 --
 
 --
+-- AUTO_INCREMENT for table `publications`
+--
+ALTER TABLE `publications`
+  MODIFY `paper_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
