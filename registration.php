@@ -27,16 +27,13 @@
         /* margin-top: 120px; */
       }
     }
-
     @media (max-width: 991px) {
       section {
         padding-top: 150px !important;
         /* margin-top: 120px; */
       }
     }
-
     @media (min-width: 320px) and (max-width: 480px) {
-
       section {
         padding-top: 80px;
       }
@@ -49,7 +46,6 @@
   <a id="button"></a>
   <?php  include "navbar.html";?>
   <?php  include "connect.php"; ?>
-  <?php  include "workshop_count2.php"; ?>
   <section class="bg-light mb-4" id="regis">
     <div class="container ">
       <div class="row">
@@ -59,7 +55,7 @@
               "โครงการจัดประชุมวิชาการระดับชาติ เวทีวิจัยมนุษยศาสตร์ไทย ครั้งที่ 14"
               <br> หัวข้อ iHumanities: เทคโนโลยี สุขภาพ และชีวิต</h5>
             <div class="card-body font-weight-bold">
-              <form class="form" id="regisForm" name="regisForm" action="check_regis.php" method="post">
+              <form class="form" id="regisForm" name="regisForm" action="check_registration.php" method="post">
                 <div class="form-row ">
                   <div class="form-group col-md-4">
                     <label for="title">คำนำหน้าชื่อ (Title)<red>*</red></label>
@@ -182,16 +178,19 @@
                 <div class="form-row bg-gray">
                   <div class="form-group col-md-12 mt-2">
                     <label for="">เลือกหัวข้อที่ต้องการเข้าร่วม</label>
-                    <div class="custom-control custom-checkbox ml-3">
-                      <input type="checkbox" id="5day" name="5day" class="custom-control-input" value="1">
-                      <label class="custom-control-label" for="5day">งานมหกรรมวิชาการ 7-11 กันยายน 2563 (5 วัน)</label>
+                    <div class="custom-control custom-radio ml-3">
+                      <input type="radio" id="3day" name="workday" class="custom-control-input" value="1">
+                      <label class="custom-control-label" for="3day">งานมหกรรมวิชาการ วันที่ 7,10,11 กันยายน 2563 (3 วัน)</label>
                     </div>
-                    <div class="custom-control custom-checkbox ml-3">
-                      <input type="checkbox" id="2day" name="2day" class="custom-control-input" value="1">
-                      <label class="custom-control-label" for="2day">เฉพาะงานเวทีมนุษศาสตร์ 8-9 กันยายน 2563 (2
-                        วัน)</label>
+                    <div class="custom-control custom-radio ml-3">
+                      <input type="radio" id="2day" name="workday" class="custom-control-input" value="2">
+                      <label class="custom-control-label" for="2day">งานเวทีมนุษศาสตร์ วันที่ 8-9 กันยายน 2563 (2 วัน)</label>
                     </div>
-                    <div class="custom-control custom-checkbox ml-3">
+                    <div class="custom-control custom-radio ml-3">
+                      <input type="radio" id="5day" name="workday" class="custom-control-input" value="3">
+                      <label class="custom-control-label" for="5day">เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5 วัน)</label>
+                    </div>
+                    <div class="custom-control custom-checkbox ml-3" id="paper_check">
                       <input type="checkbox" id="paper" name="paper" class="custom-control-input" value="1">
                       <label class="custom-control-label" for="paper">ส่งบทความตีพิมพ์
                         (โปรดเลือกหากต้องการส่งบทความตีพิมพ์)</label>
@@ -302,8 +301,6 @@
                       id="preview_phone"></span></label><br>
                   <label><b>หน่วยงานต้นสังกัด (Affiliation) </b>: <span class="badge badge-info"
                       id="preview_affiliation"></span></label><br>
-                  <label><b>ที่อยู่ในการออกใบเสร็จ (Billing Information) </b>: <br><span class="badge badge-info"
-                      id="preview_bill_info"></span></label><br>
                   <label><b>อาหาร (Food) </b>: <script> </script> <span class="badge badge-info"
                       id="preview_food"></span></label><br>
                   <label><b>แพ้อาหาร(Food Allergy) </b>: <span class="badge badge-info"
@@ -399,7 +396,41 @@
         $("#food_other").show();
       });
     })
-
+     // fadeIn
+     $("#paper_check").hide();
+      $(document).ready(function(){
+      $('#3day').change(function(){
+          if(this.checked)
+              $('#paper_check').fadeOut('fast');
+          else
+              $('#paper_check').fadeIn('fast');
+              $('[name ="paper"]').prop( "checked", false );
+              $('#divPaper').fadeOut('fast');
+              $('[name ="subtheme"]').prop( "checked", false );
+      });
+    });
+    $(document).ready(function(){
+      $('#2day').change(function(){
+          if(this.checked)
+              $('#paper_check').fadeIn('fast');
+          else
+              $('#paper_check').fadeOut('fast');
+              $('[name ="paper"]').prop( "checked", false );
+              $('#divPaper').fadeOut('fast');
+              $('[name ="subtheme"]').prop( "checked", false );
+      });
+    });
+    $(document).ready(function(){
+      $('#5day').change(function(){
+          if(this.checked)
+              $('#paper_check').fadeIn('fast');
+          else
+              $('#paper_check').fadeOut('fast');
+              $('[name ="paper"]').prop( "checked", false );
+              $('#divPaper').fadeOut('fast');
+              $('[name ="subtheme"]').prop( "checked", false );
+      });
+    });
     // paper fadeIn
     $("#divPaper").hide();
       $(document).ready(function(){

@@ -60,34 +60,40 @@
                         <h5 class="card-header text-center text-uppercase bg-info">SOTL6 - รายชื่อผู้ลงทะเบียน</h5>
                         <div class="card-body font-weight-bold">
                             <form action="" method="post">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="fname_eng">ชื่อ-สกุล</label>
-                                    <input type="text" class="form-control" id="fname" name="fname"
-                                        value="<?php echo $row['regis_name']." ".$row['regis_lastname'];?>" disabled>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="fname_eng">สถานะการชำระเงิน</label>
-                                    <select class="form-control" id="payment_status" name="payment_status">
-                                    <option  value="<?php echo $row['regis_payment_status']; ?>">
-                                            <?php
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="fname_eng">ชื่อ-สกุล</label>
+                                        <input type="text" class="form-control" id="fname" name="fname"
+                                            value="<?php echo $row['regis_name']." ".$row['regis_lastname'];?>"
+                                            disabled>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="fname_eng">สถานะการชำระเงิน</label>
+                                        <select class="form-control" id="payment_status" name="payment_status">
+                                            <option value="<?php echo $row['regis_payment_status']; ?>">
+                                                <?php
                                             if ($row['regis_payment_status'] == 0) {
                                                 echo "รอชำระเงิน";
                                             }elseif($row['regis_payment_status'] == 1) {
                                                 echo "ชำระเงินแล้ว";
                                             }
                                             ?>
-                                    </option>
-                                    <option value = "0">รอชำระเงิน</option>
-                                    <option value = "1">ชำระเงินแล้ว</option>
-                                    <option value = "9">ยกเลิกการลงทะเบียน</option>
-                                    </select>
-                                   
+                                            </option>
+                                            <option value="0">รอชำระเงิน</option>
+                                            <option value="1">ชำระเงินแล้ว</option>
+                                            <option value="9">ยกเลิกการลงทะเบียน</option>
+                                        </select>
+
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                            <input type="submit" name="save" class="btn btn-primary mb-2 btn-block" value="Save">
-                            </div>
+                                <div class="form-row">
+                                <label for="fname_eng">วันที่ทำรายการ</label>
+                                    <input type="datetime" name="update_date" id="update_date">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="submit" name="save" class="btn btn-primary mb-2 btn-block"
+                                        value="Save">
+                                </div>
                             </form>
                         </div>
                     </div>
