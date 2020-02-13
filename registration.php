@@ -27,12 +27,13 @@
         /* margin-top: 120px; */
       }
     }
-    @media (max-width: 991px) {
+    @media (max-width: 480px) and (max-width: 991px) {
       section {
-        padding-top: 150px !important;
+        padding-top: 50px !important;
         /* margin-top: 120px; */
       }
     }
+
     @media (min-width: 320px) and (max-width: 480px) {
       section {
         padding-top: 80px;
@@ -41,7 +42,6 @@
     }
   </style>
 </head>
-
 <body id="page-top">
   <a id="button"></a>
   <?php  include "navbar.html";?>
@@ -142,7 +142,7 @@
                   <div class="form-group col-md-12">
                     <label for="grad-from">ที่อยู่ของหน่วยงาน (Affiliation Address)<red>*</red></label>
                     <textarea class="form-control" id="adds" name="affiliation_address" rows="3"
-                      placeholder="ที่อยู่ของหน่วยงาน (Affiliation Address)"></textarea>
+                      placeholder="ที่อยู่ของหน่วยงาน (Affiliation Address)" required oninvalid="this.setCustomValidity('กรุณาระบุที่อยู่ของหน่วยงานต้นสังกัด')" oninput="setCustomValidity('')"></textarea>
                   </div>
                 </div>
 
@@ -179,25 +179,24 @@
                   <div class="form-group col-md-12 mt-2">
                     <label for="">เลือกหัวข้อที่ต้องการเข้าร่วม</label>
                     <div class="custom-control custom-radio ml-3">
-                      <input type="radio" id="3day" name="workday" class="custom-control-input" value="1">
+                      <input type="radio" id="3day" name="participate" class="custom-control-input" value="1" required>
                       <label class="custom-control-label" for="3day">งานมหกรรมวิชาการ วันที่ 7,10,11 กันยายน 2563 (3 วัน)</label>
                     </div>
                     <div class="custom-control custom-radio ml-3">
-                      <input type="radio" id="2day" name="workday" class="custom-control-input" value="2">
+                      <input type="radio" id="2day" name="participate" class="custom-control-input" value="2">
                       <label class="custom-control-label" for="2day">งานเวทีมนุษศาสตร์ วันที่ 8-9 กันยายน 2563 (2 วัน)</label>
                     </div>
                     <div class="custom-control custom-radio ml-3">
-                      <input type="radio" id="5day" name="workday" class="custom-control-input" value="3">
+                      <input type="radio" id="5day" name="participate" class="custom-control-input" value="3">
                       <label class="custom-control-label" for="5day">เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5 วัน)</label>
                     </div>
                     <div class="custom-control custom-checkbox ml-3" id="paper_check">
-                      <input type="checkbox" id="paper" name="paper" class="custom-control-input" value="1">
+                      <input type="checkbox" id="paper" name="publication" class="custom-control-input" value="1">
                       <label class="custom-control-label" for="paper">ส่งบทความตีพิมพ์
                         (โปรดเลือกหากต้องการส่งบทความตีพิมพ์)</label>
                     </div>
                   </div>
                 </div>
-
                 <div class="form-row bg-blue mt-2" id="divPaper">
                   <div class="form-group col-md-12 mt-2">
                     <label for="">ส่งบทความตีพิมพ์</label>
@@ -264,8 +263,8 @@
                     </div>
                     <!-- upload -->
                     <div class="form-row col-12 mt-2">
-                      <div class="card col-md-8 col-sm-12">
-                        <div class="card-header bg-info">
+                      <div class="card col-md-8 col-sm-12 ml-4">
+                        <div class="card-header ">
                           Upload บทความตีพิมพ์
                         </div>
                         <div class="card-body">
@@ -397,48 +396,54 @@
       });
     })
      // fadeIn
-     $("#paper_check").hide();
+      //$("#paper_check").hide();
+      
       $(document).ready(function(){
       $('#3day').change(function(){
           if(this.checked)
-              $('#paper_check').fadeOut('fast');
+              // $('#paper_check').fadeOut('fast');
+              $("#paper_check").hide(),
+              $('[name ="publication"]').prop( "checked", false ),
+              $('[name ="subtheme"]').prop( "checked", false )
           else
-              $('#paper_check').fadeIn('fast');
-              $('[name ="paper"]').prop( "checked", false );
-              $('#divPaper').fadeOut('fast');
-              $('[name ="subtheme"]').prop( "checked", false );
+              $('#paper_check').fadeIn('fast')
+              $('[name ="paper"]').prop( "checked", false )
+              $('#divPaper').fadeOut('fast')
       });
     });
     $(document).ready(function(){
       $('#2day').change(function(){
           if(this.checked)
-              $('#paper_check').fadeIn('fast');
+              $("#paper_check").show();
+              // $('#paper_check').fadeIn('fast');
           else
               $('#paper_check').fadeOut('fast');
-              $('[name ="paper"]').prop( "checked", false );
-              $('#divPaper').fadeOut('fast');
-              $('[name ="subtheme"]').prop( "checked", false );
+              // $('[name ="paper"]').prop( "checked", false );
+              // $('#divPaper').fadeOut('fast');
+              // $('[name ="subtheme"]').prop( "checked", false );
       });
     });
     $(document).ready(function(){
       $('#5day').change(function(){
           if(this.checked)
-              $('#paper_check').fadeIn('fast');
+              $("#paper_check").show();
           else
               $('#paper_check').fadeOut('fast');
-              $('[name ="paper"]').prop( "checked", false );
-              $('#divPaper').fadeOut('fast');
-              $('[name ="subtheme"]').prop( "checked", false );
       });
     });
+
     // paper fadeIn
+    
     $("#divPaper").hide();
-      $(document).ready(function(){
+
+    $(document).ready(function(){
       $('#paper').change(function(){
           if(this.checked)
-              $('#divPaper').fadeIn('fast');
+              // $('#divPaper').fadeIn('fast'),
+              $("#divPaper").show()
           else
-              $('#divPaper').fadeOut('fast');
+              // $('#divPaper').fadeOut('fast');
+              $("#divPaper").hide()
               $('[name ="subtheme"]').prop( "checked", false );
       });
     });

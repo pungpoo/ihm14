@@ -61,6 +61,12 @@
 </head>
 
 <body id="page-top">
+<?php 
+
+$n=date("Y-m-d-his");
+echo $n;
+
+?>
   <div class="form-row col-12 mt-2">
     <div class="card col-md-8 col-sm-12">
       <div class="card-header bg-info">
