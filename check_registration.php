@@ -18,14 +18,15 @@
         $participate = $_POST["participate"]; 
         $regis_date = date("Y-m-d H:i:s");
 
-        echo $_POST["publication"];
-
-        if(empty($_POST["publication"])){
+        if(empty($_FILES["paper_upload"]["name"])){
             $regis_publication = 0;
-        }else if(!empty($_POST["publication"])){
+        }else if(!empty($_FILES["paper_upload"]["name"])){
             $regis_publication = $_POST["publication"];
             $subtheme = $_POST["subtheme"];
         }
+        $name = $_FILES["paper_upload"]["name"];
+         echo $name;
+         echo $_FILES['paper_upload']['name'];
 
         $stmt_email_check = $conn->query("SELECT regis_mail FROM register where regis_mail = '".$_POST["email"]."' ");
         $email_check = $stmt_email_check->fetch();
@@ -45,12 +46,15 @@
             alert('Email นี้มีผู้ใช้งานแล้ว');
             window.history.back();
             </script>";
-        }else if(!empty($_POST["publication"]) && empty($_POST["subtheme"])){
-            echo "
-            <script>
-            alert('กรุณาเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ');
-            window.history.back();
-            </script>";
+        }else if($_POST["publication"]== 1 && empty($_POST["subtheme"])){
+            if(empty($_FILES["paper_upload"]["tmp_name"])){
+                echo "
+                <script>
+                alert('กรุณาเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ');
+                window.history.back();
+                </script>";
+            }
+           
         }else{
         $stmt = $conn->prepare("INSERT INTO register (
             regis_title_name, 
@@ -91,16 +95,72 @@
             $stmt->bindParam(17, $regis_date);
 
             try {
-               $stmt->execute();
+               //$stmt->execute();
                  $register_number =  $conn->lastInsertId();
-                 $register_number = sprintf('%04d',$register_number);
+                //  $register_number = sprintf('%04d',$register_number);
+                 
+                // Upload process
+                    if($regis_publication == 1){
+                        if(!empty($_FILES['paper_upload']['name'])){
+                            $pic_tmp=$_FILES['paper_upload']['tmp_name'];
+                            //$pic_name=$_FILES['paper_upload']['name'];
+                        
+                            // $type = explode(".",$_FILES['paper_upload']['name']);
+                            // $ext=strtolower(end(explode(".",$pic_name)));
+                            $ext = pathinfo($_FILES['paper_upload']['name'])['extension'];
+
+                            //echo  "ext"."=".$ext;
+                            //echo $_FILES['paper_upload']['name'];
+
+                            if($ext=="docx" or $ext=="doc") { 
+                            $type = strrchr($_FILES['paper_upload']['name'],".");
+                            //$pic_name = date("Y-m-d-his").$type;
+                            $pic_name = "paper_".date("Y-m-d-his").".".$ext;
+                            copy($pic_tmp,"publications/".$pic_name);
+
+                            $stmt_publications = $conn->prepare("INSERT INTO publications (register_id,paper_name,paper_subtheme,paper_upload_date)
+                            VALUES (?,?,?,?)");
+                            $stmt_publications->bindParam(1,$register_number);
+                            $stmt_publications->bindParam(2,$pic_name);
+                            $stmt_publications->bindParam(3,$subtheme);
+                            $stmt_publications->bindParam(4,$regis_date);
+                            $stmt_publications->execute();
+                            $stmt->execute();
+                                // try {
+                                //     $stmt_publications->execute();
+                                //     echo "<script>
+                                //         window.location='index.php';
+                                //         alert('คุณได้ Upload เรียบร้อยแล้ว ');
+                                //         </script>";
+                                // } 
+                                // catch(PDOException $e) {
+                                //     // handle error 
+                                //     echo $e->getmessage();
+                                //     exit();
+                                // }
+                            }else{ 
+                                echo "<script>
+                                    alert('การ Upload ผิดพลาด กรุณาตรวจสอบประเภทไฟล์ของท่าน');
+                                    window.history.back();
+                                    </script>";
+                            }
+                            unlink($pic_tmp);
+                        }
+                    }
+                    else if(empty($_FILES["paper_upload"]["name"])){
+                        echo "<script>
+                        alert('กรุณาเลือกไฟล์ที่ต้องการ Upload 2222');
+                        window.history.back();
+                        </script>";
+                    }
+                // Upload process
 
                // include "sendmail_regis.php";
                 //echo $register_number;
-                echo "<script>
-					window.location='index.php';
-					alert('คุณได้ลงทะเบียนเรียบร้อยแล้ว กรุณาเข้าสู่ระบบ');
-					</script>";
+                // echo "<script>
+				// 	window.location='index.php';
+				// 	alert('คุณได้ลงทะเบียนเรียบร้อยแล้ว กรุณาเข้าสู่ระบบ Prosess1');
+				// 	</script>";
             } 
             catch(PDOException $e) {
                 // handle error 
@@ -112,54 +172,7 @@
             //     }
         }
 
-// Upload process
-        if($_POST["publication"] == 1){
-            if(!empty($_FILES['paper_upload']['tmp_name'])){
-                $pic_tmp=$_FILES['paper_upload']['tmp_name'];
-                $pic_name=$_FILES['paper_upload']['name'];
-               
-                // $type = explode(".",$_FILES['paper_upload']['name']);
-                // $ext=strtolower(end(explode(".",$pic_name)));
-                $ext = pathinfo($_FILES['paper_upload']['name'])['extension'];
-
-                //echo  "ext"."=".$ext;
-                //echo $_FILES['paper_upload']['name'];
-
-                if($ext=="docx" or $ext=="doc") { 
-                $type = strrchr($_FILES['paper_upload']['name'],".");
-                $pic_name = date("Y-m-d-his").$type;
-
-                copy($pic_tmp,"publications/".$pic_name);
-
-                $stmt_publications = $conn->prepare("INSERT INTO publications (register_id,paper_name,paper_subtheme,paper_upload_date)
-                VALUES (?,?,?,?)");
-                $stmt_publications->bindParam(1,"1");
-                $stmt_publications->bindParam(2,$pic_name);
-                $stmt_publications->bindParam(3,$subtheme);
-                $stmt_publications->bindParam(4,$$regis_date);
-                $stmt_publications->execute();
-                    try {
-                        $stmt_publications->execute();
-                        echo "<script>
-                            window.location='index.php';
-                            alert('คุณได้ลงทะเบียนเรียบร้อยแล้ว กรุณาเข้าสู่ระบบ');
-                            </script>";
-                    } 
-                    catch(PDOException $e) {
-                        // handle error 
-                        echo $e->getmessage();
-                        exit();
-                    }
-                }else{ 
-                    echo "<script>
-                        alert('การ Upload ผิดพลาด กรุณาตรวจสอบประเภทไฟล์ของท่าน');
-                        window.history.back();
-                        </script>";
-                }
-                unlink($pic_tmp);
-            }
-        }
-// Upload process
+        
     }
 
 ?>

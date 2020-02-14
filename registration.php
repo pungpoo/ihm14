@@ -55,7 +55,7 @@
               "โครงการจัดประชุมวิชาการระดับชาติ เวทีวิจัยมนุษยศาสตร์ไทย ครั้งที่ 14"
               <br> หัวข้อ iHumanities: เทคโนโลยี สุขภาพ และชีวิต</h5>
             <div class="card-body font-weight-bold">
-              <form class="form" id="regisForm" name="regisForm" action="check_registration.php" method="post">
+              <form class="form" id="regisForm" name="regisForm" action="check_registration.php" enctype="multipart/form-data" method="post">
                 <div class="form-row ">
                   <div class="form-group col-md-4">
                     <label for="title">คำนำหน้าชื่อ (Title)<red>*</red></label>
@@ -271,7 +271,7 @@
                           <!-- <h5 class="card-title">Upload บทความตีพิมพ์</h5> -->
                           <!-- <p class="card-text">** maximum 2MB. Type .doc .docx </p> -->
                           <input type="file" name="paper_upload" id="paper_upload"/>
-                          <p class="card-text">**ไฟล์ขนาดไม่เกิน 2MB. Type .doc .docx </p>
+                          <p class="card-text">**ไฟล์ขนาดไม่เกิน 5MB. Type .doc .docx </p>
                           <span id="file_error"></span>
                         </div>
                       </div>
@@ -452,8 +452,8 @@
     $("#file_error").html("");
     $(".demoInputBox").css("border-color","#F0F0F0");
     var file_size = $('#pic')[0].files[0].size;
-    if(file_size>2097152) {
-      $("#file_error").html("<font color='#F31616'>รูปภาพของท่านมีขนาดใหญ่เกิน 2 MB</font>");
+    if(file_size>5242880) {
+      $("#file_error").html("<font color='#F31616'>รูปภาพของท่านมีขนาดใหญ่เกิน 5 MB</font>");
       $(".demoInputBox").css("border-color","#FF0000");
       return false;
     } 
