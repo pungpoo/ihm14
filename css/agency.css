@@ -14,7 +14,7 @@ p {
 }
 
 a {
-  color: #fed136;
+  color: #080808;
 }
 
 a:hover {
@@ -143,6 +143,7 @@ img::-moz-selection {
 
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
   color: #fed136;
+  background-color: #0367fe;
 }
 
 @media (min-width: 992px) {
@@ -167,7 +168,7 @@ img::-moz-selection {
     padding-bottom: 0;
     font-weight: 600;
     color: whitesmoke !important;
-    background-color: #fec503; 
+    background-color: #5DADE2; 
     /* background-color: dimgray;  */
     
   }

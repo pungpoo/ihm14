@@ -1,33 +1,40 @@
-footer{
+footer {
     background-color: dimgray;
 }
-#mainNav{
-    background-color: transparent;
-    
+
+#mainNav {
+    background-color: #5DADE2;
 }
-#regis{
+
+#regis {
     height: 100%;
 }
-.btn-regis{
+
+.btn-regis {
     background-color: #FF9800;
     color: rgb(247, 243, 243);
 }
-.btn-regis:hover{
+
+.btn-regis:hover {
     background-color: #fed136;
     color: black;
 }
-.gray{
+
+.gray {
     /* background-color: lightslategray; */
     background-color: #D6DBDF;
     border-radius: 5px;
 }
-.pay-rate{
-  /* background-color: lightslategray; */
-  background-color:#C3E2F7;
-  border-radius: 5px;
+
+.pay-rate {
+    /* background-color: lightslategray; */
+    background-color: #C3E2F7;
+    border-radius: 5px;
 }
 
+
 /* Top Page */
+
 #button {
     display: inline-block;
     background-color: #FF9800;
@@ -39,13 +46,13 @@ footer{
     bottom: 30px;
     /* right: 30px; */
     left: 30;
-    transition: background-color .3s, 
-      opacity .5s, visibility .5s;
+    transition: background-color .3s, opacity .5s, visibility .5s;
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
-  }
-  #button::after {
+}
+
+#button::after {
     content: "\f077";
     font-family: FontAwesome;
     font-weight: normal;
@@ -53,182 +60,215 @@ footer{
     font-size: 2em;
     line-height: 50px;
     color: #fff;
-  }
-  #button:hover {
+}
+
+#button:hover {
     cursor: pointer;
     background-color: #333;
-  }
-  #button:active {
+}
+
+#button:active {
     background-color: #555;
-  }
-  #button.show {
+}
+
+#button.show {
     opacity: 1;
     visibility: visible;
-  }
-  
-  /* Styles for the content section */
-  
-  .content {
+}
+
+
+/* Styles for the content section */
+
+.content {
     width: 77%;
     margin: 50px auto;
     font-family: 'Merriweather', serif;
     font-size: 17px;
     color: #6c767a;
     line-height: 1.9;
-  }
-  @media (min-width: 500px) {
+}
+
+@media (min-width: 500px) {
     .content {
-      width: 43%;
+        width: 43%;
     }
     #button {
-      /* margin: 30px; */
-      margin-left: 30px;
+        /* margin: 30px; */
+        margin-left: 30px;
     }
     .cohost-footer {
-      /* width:100%;
+        /* width:100%;
       height: auto; */
-      width: 50px;
-      height: auto;
-      overflow: hidden;
-      text-align: center;
+        width: 50px;
+        height: auto;
+        overflow: hidden;
+        text-align: center;
     }
-  }
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     section {
-      padding-top: 80px;
+        padding-top: 80px;
     }
     .card {
-      margin-top: 70px;
+        margin-top: 70px;
     }
- 
-  }
-  @media (max-width: 576px) {
-      .cohost-footer {
-      width:30%;
-      height: auto;
+}
+
+@media (max-width: 576px) {
+    .cohost-footer {
+        width: 30%;
+        height: auto;
     }
-  }
-  /* 
+}
+
+
+/* 
   #Device = Most of the Smartphones Mobiles (Portrait)
   #Screen = B/w 320px to 479px 
   */
+
 @media (min-width: 320px) and (max-width: 480px) {
-  
-  section {
-    padding-top: 10px;
-  }
-  .cohost-footer {
-    width: 64px;
-    height: 64px;
-    overflow: hidden;
-    text-align: center;
-    /* width:50%; */
-    /* height: auto; */
-  }
-  
+    section {
+        padding-top: 10px;
+    }
+    .cohost-footer {
+        width: 64px;
+        height: 64px;
+        overflow: hidden;
+        text-align: center;
+        /* width:50%; */
+        /* height: auto; */
+    }
 }
-  .content h1 {
+
+.content h1 {
     margin-bottom: -10px;
     color: #03a9f4;
     line-height: 1.5;
-  }
-  .content h3 {
+}
+
+.content h3 {
     font-style: italic;
     color: #96a2a7;
-  }
+}
 
-  /* hide arrow number input */
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button { 
+
+/* hide arrow number input */
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    margin: 0; 
-  }
-  input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
-  }
-  
-  .center {
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
     /*width: 80%; */
-  }
+}
 
-  .mark {
+.mark {
     background-color: #de8028;
     color: black;
     border-radius: 5px;
-  }
-  .mark2 {
+}
+
+.mark2 {
     background-color: #3a773c;
     color: black;
     border-radius: 5px;
-  }
-  .mark3 {
+}
+
+.mark3 {
     background-color: #c4b828;
     color: black;
     border-radius: 5px;
-  } 
-  .mark4 {
+}
+
+.mark4 {
     background-color: #fed136;
     color: black;
     border-radius: 5px;
-  }
+}
 
-  .responsive {
-    width:60%;
-    height: auto;
-    border-radius: 15px;
-  }
-  .responsive-cohost {
-    width:100%;
-    height: auto;
-  }
-  .imgcover {
-  width: 100%;
-  height: auto;
-  background-image: url('../img/header-bg.jpg');
-  background-size: 100% 100%;
-  }
-  
-  .hotel {
+.responsive {
     width: 60%;
     height: auto;
-  }
-  red {
+    border-radius: 15px;
+}
+
+.responsive-cohost {
+    width: 100%;
+    height: auto;
+}
+
+.imgcover {
+    width: 100%;
+    height: auto;
+    background-image: url('../img/header-bg.jpg');
+    background-size: 100% 100%;
+}
+
+.hotel {
+    width: 60%;
+    height: auto;
+}
+
+red {
     color: red;
-  }
-  .border-radius{
+}
+
+.border-radius {
     border-radius: 3px;
-  }
-  .font-black{
+}
+
+.font-black {
     color: #000;
     background-color: #00b700;
-  }
-  .bg-gray{
+}
+
+.bg-gray {
     background-color: #e0e0e0;
     border-radius: 5px;
-  }
-  .bg-blue{
-    background-color: 	#b4e1ff;
+}
+
+.bg-blue {
+    background-color: #b4e1ff;
     border-radius: 5px;
-  }
-.footer-align{
-  text-align: left;
 }
-.url-blue{
-  color: darkblue !important;
+
+.footer-align {
+    text-align: left;
 }
+
+.url-blue {
+    color: darkblue !important;
+}
+
 .card_center {
-  /* margin-left: auto;
+    /* margin-left: auto;
   margin-right: auto; */
-  margin: 0 auto; 
-  float: none; /* Added */
-  margin-bottom: 10px; /* Added */
+    margin: 0 auto;
+    float: none;
+    /* Added */
+    margin-bottom: 10px;
+    /* Added */
 }
-.logo-size{
-  width: 70%;
-  height: auto;
+
+.logo-size {
+    width: 70%;
+    height: auto;
+}
+
+.lh {
+    line-height: 1.5em;
 }
