@@ -96,9 +96,8 @@
 
             try {
                //$stmt->execute();
-                 $register_number =  $conn->lastInsertId();
+               
                 //  $register_number = sprintf('%04d',$register_number);
-                 
                 // Upload process
                     if($regis_publication == 1){
                         if(!empty($_FILES['paper_upload']['name'])){
@@ -115,29 +114,31 @@
                             if($ext=="docx" or $ext=="doc") { 
                             $type = strrchr($_FILES['paper_upload']['name'],".");
                             //$pic_name = date("Y-m-d-his").$type;
-                            $pic_name = "paper_".date("Y-m-d-his").".".$ext;
+                            $pic_name = "paper_".$_POST["subtheme"]."_".date("Y-m-d-his").".".$ext;
                             copy($pic_tmp,"publications/".$pic_name);
 
-                            $stmt_publications = $conn->prepare("INSERT INTO publications (register_id,paper_name,paper_subtheme,paper_upload_date)
-                            VALUES (?,?,?,?)");
-                            $stmt_publications->bindParam(1,$register_number);
-                            $stmt_publications->bindParam(2,$pic_name);
-                            $stmt_publications->bindParam(3,$subtheme);
-                            $stmt_publications->bindParam(4,$regis_date);
-                            $stmt_publications->execute();
-                            $stmt->execute();
-                                // try {
-                                //     $stmt_publications->execute();
-                                //     echo "<script>
-                                //         window.location='index.php';
-                                //         alert('คุณได้ Upload เรียบร้อยแล้ว ');
-                                //         </script>";
-                                // } 
-                                // catch(PDOException $e) {
-                                //     // handle error 
-                                //     echo $e->getmessage();
-                                //     exit();
-                                // }
+                            //$stmt_publications->execute();
+                                try {
+                                    $stmt->execute();
+                                    $register_number =  $conn->lastInsertId();
+
+                                    $stmt_publications = $conn->prepare("INSERT INTO publications (register_id,paper_name,paper_subtheme,paper_upload_date)
+                                    VALUES (?,?,?,?)");
+                                    $stmt_publications->bindParam(1,$register_number);
+                                    $stmt_publications->bindParam(2,$pic_name);
+                                    $stmt_publications->bindParam(3,$subtheme);
+                                    $stmt_publications->bindParam(4,$regis_date);
+                                    $stmt_publications->execute();
+                                    echo "<script>
+                                        window.location='index.php';
+                                        alert('คุณได้ Upload เรียบร้อยแล้ว ');
+                                        </script>";
+                                } 
+                                catch(PDOException $e) {
+                                    // handle error 
+                                    echo $e->getmessage();
+                                    exit();
+                                }
                             }else{ 
                                 echo "<script>
                                     alert('การ Upload ผิดพลาด กรุณาตรวจสอบประเภทไฟล์ของท่าน');
@@ -145,14 +146,20 @@
                                     </script>";
                             }
                             unlink($pic_tmp);
+                        }else if(empty($_FILES["paper_upload"]["name"])){
+                            echo "<script>
+                            alert('กรุณาเลือกไฟล์ที่ต้องการ Upload');
+                            window.history.back();
+                            </script>";
                         }
-                    }
-                    else if(empty($_FILES["paper_upload"]["name"])){
+                    }else if($regis_publication == 0){
+                        $stmt->execute();
                         echo "<script>
-                        alert('กรุณาเลือกไฟล์ที่ต้องการ Upload 2222');
-                        window.history.back();
-                        </script>";
+                            window.location='index.php';
+                            alert('ลงทะเบียนเรียบร้อย');
+                            </script>";
                     }
+                    
                 // Upload process
 
                // include "sendmail_regis.php";

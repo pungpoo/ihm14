@@ -50,6 +50,7 @@
     <div class="container ">
       <div class="row">
         <div class=" col-md-12" id="single_regis">
+        <a href="register_list.php" target="_blank" class="btn btn-xl text-uppercase js-scroll-trigger center btn-warning mb-2"> รายชื่อผู้ลงทะเบียน</a>
           <div class="card">
             <h5 class="card-header text-center text-uppercase bg-info">ลงทะเบียนเข้าร่วม
               "โครงการจัดประชุมวิชาการระดับชาติ เวทีวิจัยมนุษยศาสตร์ไทย ครั้งที่ 14"
