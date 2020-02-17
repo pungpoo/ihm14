@@ -38,7 +38,6 @@
       section {
         padding-top: 80px;
       }
-
     }
   </style>
 </head>
@@ -193,7 +192,7 @@
                     </div>
                     <div class="custom-control custom-checkbox ml-3" id="paper_check">
                       <input type="checkbox" id="paper" name="publication" class="custom-control-input" value="1">
-                      <label class="custom-control-label" for="paper">ส่งบทความตีพิมพ์
+                      <label class="custom-control-label" for="paper">ส่งบทความวิชาการ
                         (โปรดเลือกหากต้องการส่งบทความตีพิมพ์)</label>
                     </div>
                   </div>

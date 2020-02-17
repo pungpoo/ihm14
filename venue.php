@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SOTL6</title>
+    <title>THRF14</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -55,23 +55,23 @@
     <a id="button"></a>
     <?php include "navbar.html"; ?>
     <!-- Team -->
-    <section class="page-section" id="contact">
+    <section class="page-section" id="contact" >
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">สถานที่จัดงาน</h2>
-          <h3 class="section-heading">WINDSOR SUITES HOTEL</h3>
-          <h4 class="section-heading">10/1 Sukhumvit Soi 20, Sukhumvit Road, Bangkok, Thailand</h4>
+        <h2 class="section-heading text-uppercase">สถานที่จัดงาน</h2>
+          <h2 class="section-heading">มหิดลสิทธาคาร มหาวิทยาลัยมหิดล ศาลายา</h2>
+          <h4 class="section-heading text-muted">Prince Mahidol Hall</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
             <div class="col-md-12">
-              <img src="img/windsor.jpg" alt="" class="center responsive mb-2">
+              <img src="img/mup.jpg" alt="" class="center responsive mb-2">
             </div>
             <div class="col-lg-12 text-center">
-            <p class="section-heading"><i class="fas fa-map-marker-alt"></i> GPS 13.733251, 100.563911</p>
+            <!-- <p class="section-heading"><i class="fas fa-map-marker-alt"></i> GPS 13.733251, 100.563911</p> -->
               <div id="success"></div>
               <a class="btn btn-lg btn-regis mt-1" href="http://www.windsorsuiteshotel.com/" target="_blank">
                 <h5>เว็บไซต์โรงแรม</h5>
@@ -79,7 +79,6 @@
               <a class="btn btn-lg btn-regis mt-1" href="https://www.google.co.th/maps/place/Windsor+Suites+Hotel+Bangkok/@13.7332436,100.561325,17z/data=!3m1!4b1!4m2!3m1!1s0x30e29eef17783845:0x660e5ddf664b2323">
                 <h5>Google Map</h5>
               </a>
-              
             </div>
           </div>
         </div>

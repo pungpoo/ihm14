@@ -201,7 +201,7 @@ input[type=number] {
 }
 
 .responsive {
-    width: 60%;
+    width: 100%;
     height: auto;
     border-radius: 15px;
 }
@@ -225,6 +225,9 @@ input[type=number] {
 
 red {
     color: red;
+}
+blue {
+    color:  blue;
 }
 
 .border-radius {

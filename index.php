@@ -41,12 +41,11 @@
     </div>
   </section>
   <!-- keynote -->
-  <section class="bg-light" style="padding-bottom: 50px; padding-top: 50px;">
+  <!-- <section class="bg-light" style="padding-bottom: 50px; padding-top: 50px;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center mb-3">
           <h2 class="section-heading text-uppercase">Keynote Speaker</h2>
-          <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
         </div>
       </div>
       <div class="row">
@@ -71,9 +70,7 @@
             <p class="text-muted">ผู้อำนวยการโครงการมหาวิทยาลัยไซเบอร์ไทย(TCU) </p>
           </div>
         </div>
-        
-        <!-- </div>
-      <div class="row"> -->
+
         <div class="col-sm-6">
           <div class="team-member">
             <img class="mx-auto rounded-circle" src="img/team/dr.Charee.png" alt="">
@@ -89,22 +86,12 @@
           </div>
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="col-sm-6 mx-auto">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/Chailerd.png" alt="">
-            <h5>รองศาสตราจารย์ ดร.นายแพทย์ ชัยเลิศ พิชิตพรชัย</h5>
-            <p class="text-muted">ผู้อำนวยการสถาบันนวัตกรรมการเรียนรู้ มหาวิทยาลัยมหิดล</p>
-          </div>
-        </div>
-      </div> -->
       <div class="col-lg-8 mx-auto text-center">
           <button class="btn btn-regis" onclick="window.location.href='keynote.php'">ดูเพิ่มเติม</button>
-          <!-- <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p> -->
         </div>
     </div>
-    
-  </section>
+
+  </section> -->
   <!-- About -->
   <section class="page-section" id="program">
     <div class="container">
@@ -208,52 +195,37 @@
     </div>
   </section>
   <!-- VENUE -->
-  <section class="page-section" id="contact">
+  <section class="page-section bg-gray" id="contact">
     <div class="container mt-4">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">สถานที่จัดงาน</h2>
-          <h3 class="section-heading">WINDSOR SUITES HOTEL</h3>
-          <h4 class="section-heading">10/1 Sukhumvit Soi 20, Sukhumvit Road, Bangkok, Thailand</h4>
+          <h2 class="section-heading">มหิดลสิทธาคาร มหาวิทยาลัยมหิดล ศาลายา</h2>
+          <h4 class="section-heading text-muted">Prince Mahidol Hall</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
             <div class="col-md-12">
-              <img src="img/windsor.jpg" alt="" class="center responsive mb-2">
+              <img src="img/mup.jpg" alt="" class="center responsive mb-2">
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12 text-center">
-              <div id="success"></div>
-              <a class="btn btn-lg btn-regis mt-1" href="http://www.windsorsuiteshotel.com/" target="_blank">
-                <h5>เว็บไซต์โรงแรม</h5>
-              </a>
-              <a class="btn btn-lg btn-regis mt-1"
+            <button class="btn btn-regis" onclick="window.location.href='program.php'">ดูแผนที่</button>
+
+              <!-- <a class="btn btn-lg btn-regis mt-1"
                 href="https://www.google.co.th/maps/place/Windsor+Suites+Hotel+Bangkok/@13.7332436,100.561325,17z/data=!3m1!4b1!4m2!3m1!1s0x30e29eef17783845:0x660e5ddf664b2323"
                 target="_blank">
-                <h5>Google Map</h5>
-              </a>
+                <h5>แผนที่</h5>
+              </a> -->
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- CO-HOST -->
-  <section class="py-5">
-    <div class="container">
-      <!-- <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">CO-HOST</h2>
-        </div>
-      </div> -->
-      <div class="row col-md-12 center ">
-        <img src="img/SoTL6-co-host.jpg" class="responsive-cohost">
-      </div>
-    </div>
-  </section>
-  <!-- CO-HOST -->
+
 
   <!-- Footer -->
   <?php include "footer.html";?>

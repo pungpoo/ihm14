@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SOTL6</title>
+    <title>THRF14</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -29,44 +29,53 @@
         <div class="container">
             <div class="row mt-4">
                 <div class="col-md-10 mx-auto">
-                    <div class="card  mb-4">
-                        <h5 class="card-header text-center text-uppercase bg-info">SOTL6 - รายชื่อผู้ลงทะเบียน</h5>
+                    <div class="card mb-4">
+                        <h5 class="card-header text-center text-uppercase bg-info">THRF14 - รายชื่อผู้ลงทะเบียน</h5>
                         <div class="card-body font-weight-bold">
+
                             <div class="col-md-12">
-                                <table id="table_register" class="table table-responsive display responsive no-wrap" style="width:100%">
+                            <table id="table_register" class="table table-responsive display responsive no-wrap " style="width:100%">
                                     <thead>
                                         <tr>
                                             <th class="text-center">ลำดับ</th>
-                                            <th class="text-center">รหัสลงทะเบียน</th>
+                                            <!-- <th class="text-center">รหัสลงทะเบียน</th> -->
                                             <th class="text-center">ชื่อ-สกุล</th>
-                                            <th class="text-center">สังกัด</th>
-                                            <th class="text-center">สถานะ</th>
+                                            <th class="text-center">วันที่เข้าร่วม</th>
+                                            <!-- <th class="text-center">โทร.</th> -->
+                                            <!-- <th class="text-center">บทความ</th> -->
+                                            <th class="text-center">สถานะบทความ</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                             $i=1;
-                                            $stmt = $conn->query("SELECT id,regis_title_name,regis_name,regis_lastname,regis_affiliation,regis_payment_status FROM register where regis_payment_status != 9 order by id asc");
+                                            $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_participate,register.regis_publication,
+                                            publications.paper_status
+                                            FROM register 
+                                            LEFT JOIN  publications
+                                            ON  publications.register_id = register.id 
+                                            order by register.id asc");
+                                            $stmt->execute();
                                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                            //print_r($row);
+                                           
+
                                             $title = explode(" ",$row['regis_title_name']);
                                             $title = $title[0];
+                                            $sent_id = $row['id'] ;
                                         ?>
                                         <tr>
                                             <td class="text-center"><?php echo $i;?>
                                             </td>
-                                            <td class="text-center"><?php 
+                                            <!-- <td class="text-center"><?php 
                                                 $register_number = sprintf('%04d',$row['id']);
                                                 echo $register_number;?>
-                                            </td>
-                                            <td><?php echo  $title.$row['regis_name']." ".$row['regis_lastname'];?></td>
-                                            <td><?php echo $row['regis_affiliation'];?></td>
-                                            <?php 
-                                                if ($row['regis_payment_status'] == 0) {
-                                                    echo "<td class='text-center mt-2  badge badge-warning'>รอชำระเงิน</td>";
-                                                }elseif ($row['regis_payment_status'] == 1) {
-                                                    echo "<td class='text-center mt-2  badge badge-info'>ชำระเงินแล้ว</td>";
-                                                }
-                                            ?>
+                                            </td> -->
+                                            <td><?php echo $title.$row['regis_name']." ".$row['regis_lastname'];?></td>
+                                            <td class="text-center"><?php echo $row['regis_participate'];?></td>
+                                            <!-- <td><?php echo $row['regis_phone'];?></td> -->
+                                            <!-- <td class="text-center"> <a href="publications/<?php echo $row['paper_name'];?>" class="badge badge-info">Download</a></td> -->
+                                            <td class="text-center"><p  class="badge badge-warning"><?php echo $row['paper_status'];?></p></td>                             
                                         </tr>
                                         <?php $i++; } ?>
                                     </tbody>
@@ -98,8 +107,7 @@
                 "order": [[0, "asc"]],
                 "columnDefs": [
                     { "width": "5%", "targets": 0 },
-                    { "width": "10%", "targets": 1 },
-                    { "width": "15%", "targets": 4 }
+                    { "width": "40%", "targets": 1 }
                 ]
             });
         });

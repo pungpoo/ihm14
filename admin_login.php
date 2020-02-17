@@ -33,7 +33,7 @@
             if($_POST['username'] == "admin" && $_POST['password'] == "1234") {
                 $_SESSION['id'] = "admin1234";
                 echo "<script> alert('Login Complete'); </script>";
-           header('Refresh:0; url=register_info.php');
+           header('Refresh:0; url=admin_register_info.php');
 
             }else{
                 echo "<script> alert('Login Error'); </script>";

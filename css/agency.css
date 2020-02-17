@@ -602,10 +602,12 @@ header.masthead .intro-text .intro-heading {
 }
 
 section#contact {
-  background-color: #212529;
-  background-image: url("../img/map-image.png");
+  background-color: #a2a2a2;
+  background-image: url("../img/mup_blur.png");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
+
 }
 
 section#contact .section-heading {
