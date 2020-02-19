@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SOTL6</title>
+    <title>THRF14</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -26,18 +26,18 @@
 
 <body id="page-top">
     <a id="button"></a>
-    <?php include "navbar.html"; ?>
+    
     <?php include "connect.php"; ?>
     <?php 
         if (isset($_POST['submit'])) {
             if($_POST['username'] == "admin" && $_POST['password'] == "1234") {
                 $_SESSION['id'] = "admin1234";
                 echo "<script> alert('Login Complete'); </script>";
-           header('Refresh:0; url=admin_register_info.php');
+                header('Refresh:0; url=admin_register_info.php');
 
             }else{
                 echo "<script> alert('Login Error'); </script>";
-        header('Refresh:0; url=index.php');
+                header('Refresh:0; url=admin_login.php');
             }
             
         }
@@ -47,7 +47,7 @@
             <div class="row mt-4">
                 <div class="col-md-10 mx-auto">
                     <div class="card  mb-4">
-                        <h5 class="card-header text-center text-uppercase bg-info">Login</h5>
+                        <h5 class="card-header text-center text-uppercase bg-info">THRF14-Login</h5>
                         <div class="card-body font-weight-bold">
                             <div class="col-md-6 mx-auto">
                                 <form class="form" method="post" action="">
@@ -78,9 +78,6 @@
         </div>
     </section>
     <!-- Footer -->
-    <?php 
-  include "footer.html";
-  ?>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Plugin JavaScript -->

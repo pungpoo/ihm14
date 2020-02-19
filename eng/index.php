@@ -1,7 +1,3 @@
-<?php 
-  session_start();
-  $_SESSION['lg'] = "th";
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,32 +9,26 @@
   <meta name="author" content="">
   <title>THRF14</title>
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
     type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
   <!-- Custom styles for this template -->
-  <link href="css/agency.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../css/agency.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
   <a id="button"></a>
-  <?php 
-  if($_SESSION['lg'] == "th"){
-    include "navbar.html";
-  }else if($_SESSION['lg'] == "us"){
-    include "navbar_eng.html";
-  }
-  ?>
+  <?php include("navbar_eng.html") ?>
   <section>
     <div>
-      <img src="img/poster_wait.png" class="center imgcover">
+      <img src="../img/poster_wait.png" class="center imgcover">
       <a class="btn btn-xl text-uppercase js-scroll-trigger center btn-regis" href="registration.php">
         <h2>Registration</h2>
       </a>
@@ -69,7 +59,7 @@
           <h5 style="text-align: left;">3.
             เพื่อเป็นพื้นที่สำหรับการพบปะและสร้างเครือข่ายระหว่างนักวิชาการสาขามนุษยศาสตร์และสังคมศาสตร์ด้วยกันเอง
             รวมถึงการสื่อสารและสร้างเครือข่ายกับนักวิชาการสาขาวิทยาศาสตร์ เทคโนโลยี และการแพทย์</h5>
-            <a href="img/THRF14_introduction.pdf" class="btn center btn-regis mb-3" target="_blank">
+            <a href="../img/THRF14_introduction.pdf" class="btn center btn-regis mb-3" target="_blank">
             <i class="fas fa-user"></i> Download หลักการและเหตุผล </a>
         </div>
       </div>
@@ -242,7 +232,7 @@
         <div class="col-lg-12">
           <div class="row">
             <div class="col-md-12">
-              <img src="img/mup.jpg" alt="" class="center responsive mb-2">
+              <img src="../img/mup.jpg" alt="" class="center responsive mb-2">
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12 text-center">
@@ -262,16 +252,16 @@
 
 
   <!-- Footer -->
-  <?php include "footer.html";?>
+  <?php include "../footer.html";?>
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/agency.min.js"></script>
+  <script src="../js/agency.min.js"></script>
 
   <script>
     var btn = $('#button');

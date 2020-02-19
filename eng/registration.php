@@ -8,18 +8,18 @@
   <meta name="author" content="">
   <title>THRF14</title>
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
     type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
   <!-- Custom styles for this template -->
-  <link href="css/agency.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../css/agency.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
   <style>
     @media (min-width: 992px) {
       section {
@@ -43,8 +43,8 @@
 </head>
 <body id="page-top">
   <a id="button"></a>
-  <?php  include "navbar.html";?>
-  <?php  include "connect.php"; ?>
+  <?php  include "navbar_eng.html";?>
+  <?php  include "../connect.php"; ?>
   <section class="bg-light mb-4" id="regis">
     <div class="container ">
       <div class="row">
@@ -54,7 +54,7 @@
             <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum  - Registration
              </h5>
             <div class="card-body font-weight-bold">
-              <form class="form" id="regisForm" name="regisForm" action="check_registration.php" enctype="multipart/form-data" method="post">
+              <form class="form" id="regisForm" name="regisForm" action="../check_registration.php" enctype="multipart/form-data" method="post">
                 <div class="form-row ">
                   <div class="form-group col-md-4">
                     <label for="title">คำนำหน้าชื่อ (Title)<red>*</red></label>
@@ -329,13 +329,13 @@
   <?php 
   include "footer.html";
   ?>
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="js/agency.min.js"></script>
-  <script src="js/top_page.js"></script>
-  <script src="js/check_regis.js"></script>
-  <script src="js/preview.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../js/agency.min.js"></script>
+  <script src="../js/top_page.js"></script>
+  <script src="../js/check_regis.js"></script>
+  <script src="../js/preview.js"></script>
   <script type="text/javascript">
     function checkeng() {
       var obj = document.getElementById("fname_eng");

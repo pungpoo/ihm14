@@ -40,16 +40,17 @@
                                             <th class="text-center">ลำดับ</th>
                                             <!-- <th class="text-center">รหัสลงทะเบียน</th> -->
                                             <th class="text-center">ชื่อ-สกุล</th>
-                                            <th class="text-center">วันที่เข้าร่วม</th>
+                                            <!-- <th class="text-center">วันที่เข้าร่วม</th> -->
                                             <!-- <th class="text-center">โทร.</th> -->
                                             <!-- <th class="text-center">บทความ</th> -->
-                                            <th class="text-center">สถานะบทความ</th>
+                                            <th class="text-center">วันที่ลงทะเบียน</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                             $i=1;
-                                            $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_participate,register.regis_publication,
+                                            $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,
+                                            register.regis_participate,register.regis_publication,regis.regis_date,
                                             publications.paper_status
                                             FROM register 
                                             LEFT JOIN  publications
@@ -58,8 +59,6 @@
                                             $stmt->execute();
                                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                             //print_r($row);
-                                           
-
                                             $title = explode(" ",$row['regis_title_name']);
                                             $title = $title[0];
                                             $sent_id = $row['id'] ;
@@ -67,15 +66,11 @@
                                         <tr>
                                             <td class="text-center"><?php echo $i;?>
                                             </td>
-                                            <!-- <td class="text-center"><?php 
-                                                $register_number = sprintf('%04d',$row['id']);
-                                                echo $register_number;?>
-                                            </td> -->
                                             <td><?php echo $title.$row['regis_name']." ".$row['regis_lastname'];?></td>
-                                            <td class="text-center"><?php echo $row['regis_participate'];?></td>
+                                            <!-- <td class="text-center"><?php echo $row['regis_participate'];?></td> -->
                                             <!-- <td><?php echo $row['regis_phone'];?></td> -->
                                             <!-- <td class="text-center"> <a href="publications/<?php echo $row['paper_name'];?>" class="badge badge-info">Download</a></td> -->
-                                            <td class="text-center"><p  class="badge badge-warning"><?php echo $row['paper_status'];?></p></td>                             
+                                            <td class="text-center"><p><?php echo $row['regis_date'];?></p></td>                             
                                         </tr>
                                         <?php $i++; } ?>
                                     </tbody>

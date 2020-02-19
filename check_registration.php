@@ -17,16 +17,17 @@
         $food_allergy = $_POST["food_allergy"];
         $participate = $_POST["participate"]; 
         $regis_date = date("Y-m-d H:i:s");
-
-        if(empty($_FILES["paper_upload"]["name"])){
-            $regis_publication = 0;
-        }else if(!empty($_FILES["paper_upload"]["name"])){
-            $regis_publication = $_POST["publication"];
-            $subtheme = $_POST["subtheme"];
-        }
+        
+    //     if(empty($_POST["publication"])){
+    //         $regis_publication = 0;
+    //    }
+    //     else if($_POST["publication"]==1 && empty($_POST["subtheme"])){
+    //         $regis_publication = 1 ;
+    //         // $subtheme = $_POST["subtheme"];
+    //     }
         $name = $_FILES["paper_upload"]["name"];
-         echo $name;
-         echo $_FILES['paper_upload']['name'];
+        //  echo $name;
+        //  echo $_FILES['paper_upload']['name'];
 
         $stmt_email_check = $conn->query("SELECT regis_mail FROM register where regis_mail = '".$_POST["email"]."' ");
         $email_check = $stmt_email_check->fetch();
@@ -47,14 +48,19 @@
             window.history.back();
             </script>";
         }else if($_POST["publication"]== 1 && empty($_POST["subtheme"])){
-            if(empty($_FILES["paper_upload"]["tmp_name"])){
+            if(empty($_POST["subtheme"])){
                 echo "
                 <script>
                 alert('กรุณาเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ');
                 window.history.back();
                 </script>";
             }
-           
+        }else if (($_POST["publication"]== 1 && !empty($_POST["subtheme"])) && empty($_FILES["paper_upload"]["name"])) {
+            echo "
+            <script>
+            alert('กรุณาเลือกไฟล์ที่ต้องการ Upload');
+            window.history.back();
+            </script>";
         }else{
         $stmt = $conn->prepare("INSERT INTO register (
             regis_title_name, 
@@ -91,15 +97,14 @@
             $stmt->bindParam(13, $food_other);
             $stmt->bindParam(14, $food_allergy);
             $stmt->bindParam(15, $_POST["participate"]);
-            $stmt->bindParam(16, $regis_publication);
+            $stmt->bindParam(16, $_POST["publication"]);
             $stmt->bindParam(17, $regis_date);
-
             try {
                //$stmt->execute();
                
                 //  $register_number = sprintf('%04d',$register_number);
                 // Upload process
-                    if($regis_publication == 1){
+                    if($_POST["publication"] == 1){
                         if(!empty($_FILES['paper_upload']['name'])){
                             $pic_tmp=$_FILES['paper_upload']['tmp_name'];
                             //$pic_name=$_FILES['paper_upload']['name'];
@@ -116,22 +121,21 @@
                             //$pic_name = date("Y-m-d-his").$type;
                             $pic_name = "paper_".$_POST["subtheme"]."_".date("Y-m-d-his").".".$ext;
                             copy($pic_tmp,"publications/".$pic_name);
-
+                            
                             //$stmt_publications->execute();
                                 try {
                                     $stmt->execute();
                                     $register_number =  $conn->lastInsertId();
-
                                     $stmt_publications = $conn->prepare("INSERT INTO publications (register_id,paper_name,paper_subtheme,paper_upload_date)
                                     VALUES (?,?,?,?)");
                                     $stmt_publications->bindParam(1,$register_number);
                                     $stmt_publications->bindParam(2,$pic_name);
-                                    $stmt_publications->bindParam(3,$subtheme);
+                                    $stmt_publications->bindParam(3,$_POST["subtheme"]);
                                     $stmt_publications->bindParam(4,$regis_date);
                                     $stmt_publications->execute();
                                     echo "<script>
-                                        window.location='index.php';
-                                        alert('คุณได้ Upload เรียบร้อยแล้ว ');
+                                        window.location='register_list.php';
+                                        alert('คุณได้ลงทะเบียนเรียบร้อย');
                                         </script>";
                                 } 
                                 catch(PDOException $e) {
@@ -155,13 +159,12 @@
                     }else if($regis_publication == 0){
                         $stmt->execute();
                         echo "<script>
-                            window.location='index.php';
+                            window.location='register_list.php';
                             alert('ลงทะเบียนเรียบร้อย');
                             </script>";
                     }
                     
                 // Upload process
-
                // include "sendmail_regis.php";
                 //echo $register_number;
                 // echo "<script>

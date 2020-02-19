@@ -1,9 +1,10 @@
 <?php
     session_start();
+    // session_destroy();
     if(!isset($_SESSION['id'])){
         header('location:admin_login.php');
     }
-    
+    echo $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +66,6 @@
                                 <form action="" method="post" name="workday" >
                                 <label for="">เลือกตามวันที่เข้าร่วม</label>
                                     <select class="custom-select" name="checkDay" onChange="javascript: submit()" style="width:70%">
-                                        
                                         <option value="1">งานมหกรรมวิชาการ วันที่ 7,10,11 กันยายน 2563 (3 วัน)</option>
                                         <option value="2">งานเวทีมนุษศาสตร์ วันที่ 8-9 กันยายน 2563 (2 วัน)</option>
                                         <option value="3">เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5 วัน)</option>
@@ -91,6 +91,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
+                                            
                                             $i=1;
                                             $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
                                             publications.paper_name,publications.paper_status
@@ -125,7 +126,9 @@
                                         <?php $i++; } ?>
                                     </tbody>
                                 </table>
+                                <a href="logout.php" class="btn btn-danger col-md-12 mt-2">Logout</a>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -133,6 +136,7 @@
         </div>
         </div>
         </div>
+
     </section>
     <!-- Footer -->
     <?php 
