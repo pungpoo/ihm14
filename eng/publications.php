@@ -8,18 +8,18 @@
   <meta name="author" content="">
   <title>THRF4</title>
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
     type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
   <!-- Custom styles for this template -->
-  <link href="css/agency.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../css/agency.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
   <style>
     @media (min-width: 992px) {
       section {
@@ -48,7 +48,7 @@
 
 <body id="page-top">
   <a id="button"></a>
-  <?php include "navbar.html"; ?>
+  <?php include "navbar_eng.html"; ?>
   <section class="bg-light page-section" style="margin-bottom: 150px;">
     <div class="container">
       <div class="row">
@@ -121,14 +121,14 @@
   <?php 
   include "footer.html";
   ?>
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <script src="js/agency.min.js"></script>
-  <script src="js/top_page.js"></script>
-  <script src="js/check_regis.js"></script>
+  <script src="../js/agency.min.js"></script>
+  <script src="../js/top_page.js"></script>
+  <script src="../js/check_regis.js"></script>
 
 </body>
 

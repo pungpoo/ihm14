@@ -39,7 +39,7 @@
 </head>
 <body id="page-top">
     <a id="button"></a>
-    <?php include "navbar_eng.html"; ?>
+    <?php include "navbar.html"; ?>
     <section>
         <div class="container">
             <div class="row">

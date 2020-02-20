@@ -8,6 +8,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,18 +42,25 @@
             FROM register 
             LEFT JOIN  publications
             ON  publications.register_id = register.id 
-            -- where register.regis_participate = '".$_POST['checkDay']."'
+            where register.regis_participate = '".$_POST['checkDay']."'
             order by register.id asc");
-            $stmt->execute();
+            // $stmt->execute();
         }
-        else{
+        else if ($_POST['checkDay'] == 4){
             $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
             publications.paper_name,publications.paper_status
             FROM register 
             LEFT JOIN  publications
             ON  publications.register_id = register.id 
             order by register.id asc");
-            $stmt->execute();
+        }
+        else {
+            $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
+            publications.paper_name,publications.paper_status
+            FROM register 
+            LEFT JOIN  publications
+            ON  publications.register_id = register.id 
+            order by register.id asc");
         }
     ?>
     <section class="bg-light" id="regis" style="margin-bottom: 200px;">
@@ -63,12 +71,17 @@
                         <h5 class="card-header text-center text-uppercase bg-info">THRF14 - รายชื่อผู้ลงทะเบียน</h5>
                         <div class="mx-auto">
                             <div class="mt-4 ml-4">
-                                <form action="" method="post" name="workday" >
-                                <label for="">เลือกตามวันที่เข้าร่วม</label>
-                                    <select class="custom-select" name="checkDay" onChange="javascript: submit()" style="width:70%">
+                                <form action="" method="post" name="workday">
+                                    <label for="">เลือกตามวันที่เข้าร่วม</label>
+                                    <select class="custom-select" name="checkDay" onChange="javascript: submit()"
+                                        style="width:70%">
+                                        <option value=""><?php echo $_POST['checkDay'];?></option>
+                                        <option value="">เลือก</option>
+                                        <option value="4">ผู้รวมงานทั้งหมด</option>
                                         <option value="1">งานมหกรรมวิชาการ วันที่ 7,10,11 กันยายน 2563 (3 วัน)</option>
                                         <option value="2">งานเวทีมนุษศาสตร์ วันที่ 8-9 กันยายน 2563 (2 วัน)</option>
                                         <option value="3">เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5 วัน)</option>
+                                        
                                     </select>
                                     <input type="hidden" name="check" value="True" />
                                 </form>
@@ -93,12 +106,12 @@
                                         <?php
                                             
                                             $i=1;
-                                            $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
-                                            publications.paper_name,publications.paper_status
-                                            FROM register 
-                                            LEFT JOIN  publications
-                                            ON  publications.register_id = register.id 
-                                            order by register.id asc");
+                                            // $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
+                                            // publications.paper_name,publications.paper_status
+                                            // FROM register 
+                                            // LEFT JOIN  publications
+                                            // ON  publications.register_id = register.id 
+                                            // order by register.id asc");
                                             $stmt->execute();
                                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                             //print_r($row);
@@ -116,9 +129,13 @@
                                             <td><?php echo  $title.$row['regis_name']." ".$row['regis_lastname'];?></td>
                                             <td><?php echo $row['regis_mail'];?></td>
                                             <td><?php echo $row['regis_phone'];?></td>
-                                            <td class="text-center"> <a
-                                                    href="publications/<?php echo $row['paper_name'];?>"
-                                                    class="badge badge-info">Download</a></td>
+                                            <td class="text-center"> 
+                                                <?php if (!empty($row['paper_name'])) { ?>
+                                                    <a href="publications/<?php echo $row['paper_name'];?>" class="badge badge-info">Download</a>
+                                                <?php }else { ?>
+                                                    ไม่มีการส่งผลงาน
+                                                <?php }?>
+                                            </td>
                                             <td class="text-center">
                                                 <p class="badge badge-warning"><?php echo $row['paper_status'];?></p>
                                             </td>
@@ -128,7 +145,7 @@
                                 </table>
                                 <a href="logout.php" class="btn btn-danger col-md-12 mt-2">Logout</a>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
