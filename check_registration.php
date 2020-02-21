@@ -18,9 +18,11 @@
         $participate = $_POST["participate"]; 
         $regis_date = date("Y-m-d H:i:s");
         
-    //     if(empty($_POST["publication"])){
-    //         $regis_publication = 0;
-    //    }
+        if(!isset($_POST["publication"])){
+            $regis_publication = 0;
+        }else {
+            $regis_publication = $_POST["publication"];
+        }
     //     else if($_POST["publication"]==1 && empty($_POST["subtheme"])){
     //         $regis_publication = 1 ;
     //         // $subtheme = $_POST["subtheme"];
@@ -47,7 +49,7 @@
             alert('Email นี้มีผู้ใช้งานแล้ว');
             window.history.back();
             </script>";
-        }else if($_POST["publication"]== 1 && empty($_POST["subtheme"])){
+        }else if($regis_publication== 1 && empty($_POST["subtheme"])){
             if(empty($_POST["subtheme"])){
                 echo "
                 <script>
@@ -55,7 +57,7 @@
                 window.history.back();
                 </script>";
             }
-        }else if (($_POST["publication"]== 1 && !empty($_POST["subtheme"])) && empty($_FILES["paper_upload"]["name"])) {
+        }else if (($regis_publication== 1 && !empty($_POST["subtheme"])) && empty($_FILES["paper_upload"]["name"])) {
             echo "
             <script>
             alert('กรุณาเลือกไฟล์ที่ต้องการ Upload');
@@ -133,10 +135,11 @@
                                     $stmt_publications->bindParam(3,$_POST["subtheme"]);
                                     $stmt_publications->bindParam(4,$regis_date);
                                     $stmt_publications->execute();
-                                    echo "<script>
-                                        window.location='register_list.php';
-                                        alert('คุณได้ลงทะเบียนเรียบร้อย');
-                                        </script>";
+                                    include "sendmail_regis.php";
+                                    // echo "<script>
+                                    //     window.location='register_list.php';
+                                    //     alert('คุณได้ลงทะเบียนเรียบร้อย');
+                                    //     </script>";
                                 } 
                                 catch(PDOException $e) {
                                     // handle error 
@@ -156,12 +159,14 @@
                             window.history.back();
                             </script>";
                         }
-                    }else if($regis_publication == 0){
+                    }else if(!isset($_POST["publication"])){
                         $stmt->execute();
-                        echo "<script>
-                            window.location='register_list.php';
-                            alert('ลงทะเบียนเรียบร้อย');
-                            </script>";
+                        echo "ok";
+                        // include "sendmail_regis.php";
+                        // echo "<script>
+                        //     window.location='register_list.php';
+                        //     alert('ลงทะเบียนเรียบร้อย');
+                        //     </script>";
                     }
                     
                 // Upload process

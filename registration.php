@@ -280,7 +280,7 @@
             </div>
           </div>
           <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-12"
-              value="ยืนยันการลงทะเบียน">
+              value="ยืนยันการลงทะเบียน" onclick="cfFunction()">
           <!-- preview -->
           <!-- <input type="button" name="btn" value="ตรวจสอบข้อมูล" id="submitBtn" data-toggle="modal"
             data-target="#confirm-submit" class="btn btn-success mb-3 col-6 offset-3 mt-4" /> -->
@@ -393,46 +393,46 @@
       });
     })
      // fadeIn
-      $("#paper_check").hide();
-      
+      // $("#paper_check").hide();
+      // $( "#paper" ).prop( "disabled", true );
+
       $(document).ready(function(){
       $('#3day').change(function(){
           if(this.checked)
               // $('#paper_check').fadeOut('fast');
-              $("#paper_check").hide(),
+              // $("#paper_check").hide(),
               $('[name ="publication"]').prop( "checked", false ),
-              $('[name ="subtheme"]').prop( "checked", false )
+              $('[name ="subtheme"]').prop( "checked", false ),
+              $( "#paper" ).prop( "disabled", true );
           else
               $('#paper_check').fadeIn('fast')
               $('[name ="paper"]').prop( "checked", false )
-              $('#divPaper').fadeOut('fast')
+              $('#divPaper').fadeOut('fast');
       });
     });
     $(document).ready(function(){
       $('#2day').change(function(){
           if(this.checked)
-              $("#paper_check").show();
+              // $("#paper_check").show(),
               // $('#paper_check').fadeIn('fast');
+              // $('[name ="publication"]').prop("disabled", false),
+              $( "#paper" ).prop( "disabled", false );
           else
-              $('#paper_check').fadeOut('fast');
-              // $('[name ="paper"]').prop( "checked", false );
-              // $('#divPaper').fadeOut('fast');
-              // $('[name ="subtheme"]').prop( "checked", false );
+              $('#paper_check').fadeOut('fast');;
       });
     });
     $(document).ready(function(){
       $('#5day').change(function(){
           if(this.checked)
-              $("#paper_check").show();
+              $("#paper_check").show(),
+              $( "#paper" ).prop( "disabled", false );
           else
               $('#paper_check').fadeOut('fast');
       });
     });
 
     // paper fadeIn
-    
     $("#divPaper").hide();
-
     $(document).ready(function(){
       $('#paper').change(function(){
           if(this.checked)
@@ -456,6 +456,10 @@
     } 
     return true;
   }
+
+  function cfFunction() {
+  confirm("ยืนยันการลงทะเบียน ตามข้อมูลที่ได้ระบุไว้");
+}
   </script>
 
 </body>

@@ -92,9 +92,16 @@
                                                 echo "<td> เข้ารวมทั้ง 2 งาน (วันที่ 7-11 กันยายน 2563)</td>";
                                             }
                                             ?>
-                                            <td class="text-center">
-                                                <p class="badge badge-warning"><?php echo $row['paper_status'];?></p>
+                                          <td class="text-center"> 
+                                                <?php if (!empty($row['paper_status'])) { ?>
+                                                    <p class="badge badge-warning"><?php echo $row['paper_status'];?></p>
+                                                <?php }else { ?>
+                                                    <p class="badge badge-danger">ไม่มีการส่งผลงาน</p>
+                                                <?php }?>
                                             </td>
+                                            <!-- <td class="text-center">
+                                                <p class="badge badge-warning"><?php echo $row['paper_status'];?></p>
+                                            </td> -->
                                             <td class="text-center">
                                                 <p><?php echo  regis_date($row['regis_date']);?></p>
                                             </td>
@@ -140,6 +147,10 @@
                     {
                         "width": "15%",
                         "targets": 3
+                    },
+                    {
+                        "width": "15%",
+                        "targets": 4
                     }
                 ]
             });

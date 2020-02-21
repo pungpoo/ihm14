@@ -70,10 +70,9 @@
             <div class="col-md-12">
               <img src="img/mup.jpg" alt="" class="center responsive mb-2">
             </div>
-            <div class="col-md-12 mt-4 mx-auto">
-              <iframe class="center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.821187498297!2d100.31900521527898!3d13.789650500129412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29389fcc146fb%3A0x51c5c2ffb391ee28!2z4Lih4Lir4Li04LiU4Lil4Liq4Li04LiX4LiY4Liy4LiE4Liy4Lij!5e0!3m2!1sth!2sth!4v1582086669283!5m2!1sth!2sth" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            <div class="col-md-12 mt-4 mx-auto embed-responsive embed-responsive-16by9">
+              <iframe class="center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.821187498297!2d100.31900521527898!3d13.789650500129412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29389fcc146fb%3A0x51c5c2ffb391ee28!2z4Lih4Lir4Li04LiU4Lil4Liq4Li04LiX4LiY4Liy4LiE4Liy4Lij!5e0!3m2!1sth!2sth!4v1582086669283!5m2!1sth!2sth" width="800" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
-
             <div class="col-lg-12 text-center">
             <!-- <p class="section-heading"><i class="fas fa-map-marker-alt"></i> GPS 13.733251, 100.563911</p> -->
               <div id="success"></div>
