@@ -130,7 +130,7 @@ footer {
 
 @media (min-width: 320px) and (max-width: 480px) {
     section {
-        padding-top: 10px;
+        padding-top: 50px;
     }
     .cohost-footer {
         width: 64px;

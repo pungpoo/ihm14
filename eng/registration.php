@@ -192,7 +192,7 @@
                     <div class="custom-control custom-checkbox ml-3" id="paper_check">
                       <input type="checkbox" id="paper" name="publication" class="custom-control-input" value="1">
                       <label class="custom-control-label" for="paper">ส่งบทความวิชาการ
-                        (โปรดเลือกหากต้องการส่งบทความตีพิมพ์)</label>
+                        (โปรดเลือกหากต้องการส่งบทความตีพิมพ์) / Article Submission (please select if you want to submit your article)</label>
                     </div>
                   </div>
                 </div>
@@ -200,7 +200,7 @@
                   <div class="form-group col-md-12 mt-2">
                     <label for="">ส่งบทความตีพิมพ์</label>
                     <div class="form-row ml-4">
-                      <label>โปรดเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ</label>
+                      <label>โปรดเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ (Please select sub-theme for article submission)</label>
                     </div>
                     <div class="custom-control custom-radio ml-4">
                       <input type="radio" id="subtheme1" name="subtheme" class="custom-control-input" value="1">
@@ -264,13 +264,13 @@
                     <div class="form-row col-12 mt-2">
                       <div class="card col-md-8 col-sm-12 ml-4">
                         <div class="card-header ">
-                          Upload บทความตีพิมพ์
+                          Upload Files
                         </div>
                         <div class="card-body">
                           <!-- <h5 class="card-title">Upload บทความตีพิมพ์</h5> -->
                           <!-- <p class="card-text">** maximum 2MB. Type .doc .docx </p> -->
                           <input type="file" name="paper_upload" id="paper_upload"/>
-                          <p class="card-text">**ไฟล์ขนาดไม่เกิน 5MB. Type .doc .docx </p>
+                          <p class="card-text">**File size up to 5MB. Type .doc .docx </p>
                           <span id="file_error"></span>
                         </div>
                       </div>
@@ -280,7 +280,7 @@
             </div>
           </div>
           <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-12"
-              value="ยืนยันการลงทะเบียน">
+              value="ยืนยันการลงทะเบียน" onclick="cfFunction()">
           <!-- preview -->
           <!-- <input type="button" name="btn" value="ตรวจสอบข้อมูล" id="submitBtn" data-toggle="modal"
             data-target="#confirm-submit" class="btn btn-success mb-3 col-6 offset-3 mt-4" /> -->
@@ -335,7 +335,7 @@
   <script src="../js/agency.min.js"></script>
   <script src="../js/top_page.js"></script>
   <script src="../js/check_regis.js"></script>
-  <script src="../js/preview.js"></script>
+
   <script type="text/javascript">
     function checkeng() {
       var obj = document.getElementById("fname_eng");
@@ -393,46 +393,46 @@
       });
     })
      // fadeIn
-      //$("#paper_check").hide();
-      
+      // $("#paper_check").hide();
+      // $( "#paper" ).prop( "disabled", true );
+
       $(document).ready(function(){
       $('#3day').change(function(){
           if(this.checked)
               // $('#paper_check').fadeOut('fast');
-              $("#paper_check").hide(),
+              // $("#paper_check").hide(),
               $('[name ="publication"]').prop( "checked", false ),
-              $('[name ="subtheme"]').prop( "checked", false )
+              $('[name ="subtheme"]').prop( "checked", false ),
+              $( "#paper" ).prop( "disabled", true );
           else
               $('#paper_check').fadeIn('fast')
               $('[name ="paper"]').prop( "checked", false )
-              $('#divPaper').fadeOut('fast')
+              $('#divPaper').fadeOut('fast');
       });
     });
     $(document).ready(function(){
       $('#2day').change(function(){
           if(this.checked)
-              $("#paper_check").show();
+              // $("#paper_check").show(),
               // $('#paper_check').fadeIn('fast');
+              // $('[name ="publication"]').prop("disabled", false),
+              $( "#paper" ).prop( "disabled", false );
           else
-              $('#paper_check').fadeOut('fast');
-              // $('[name ="paper"]').prop( "checked", false );
-              // $('#divPaper').fadeOut('fast');
-              // $('[name ="subtheme"]').prop( "checked", false );
+              $('#paper_check').fadeOut('fast');;
       });
     });
     $(document).ready(function(){
       $('#5day').change(function(){
           if(this.checked)
-              $("#paper_check").show();
+              $("#paper_check").show(),
+              $( "#paper" ).prop( "disabled", false );
           else
               $('#paper_check').fadeOut('fast');
       });
     });
 
     // paper fadeIn
-    
     $("#divPaper").hide();
-
     $(document).ready(function(){
       $('#paper').change(function(){
           if(this.checked)
@@ -456,6 +456,10 @@
     } 
     return true;
   }
+
+  function cfFunction() {
+  confirm("ยืนยันการลงทะเบียน ตามข้อมูลที่ได้ระบุไว้");
+}
   </script>
 
 </body>

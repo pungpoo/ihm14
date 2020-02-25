@@ -38,7 +38,7 @@
   ?>
   <section>
     <div>
-      <img src="img/poster_wait.png" class="center imgcover">
+      <img src="img/poster.jpg" class="center imgcover">
       <a class="btn btn-xl text-uppercase js-scroll-trigger center btn-regis" href="registration.php">
         <h2>Registration</h2>
       </a>

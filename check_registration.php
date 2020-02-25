@@ -161,8 +161,8 @@
                         }
                     }else if(!isset($_POST["publication"])){
                         $stmt->execute();
-                        echo "ok";
-                        // include "sendmail_regis.php";
+                        //echo "ok";
+                        include "sendmail_regis.php";
                         // echo "<script>
                         //     window.location='register_list.php';
                         //     alert('ลงทะเบียนเรียบร้อย');

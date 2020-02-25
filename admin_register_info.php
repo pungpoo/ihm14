@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>THRF14</title>
+    <title>THRF14-ADMIN</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -122,6 +122,7 @@
                                             <th class="text-center">โทร.</th>
                                             <th class="text-center">บทความ</th>
                                             <th class="text-center">สถานะบทความ</th>
+                                            <th class="text-center">#</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -160,6 +161,7 @@
                                             <td class="text-center">
                                                 <p class="badge badge-warning"><?php echo $row['paper_status'];?></p>
                                             </td>
+                                            <td class="text-center"> <a href="status_update.php?id=<?php echo $sent_id;?>" class="badge badge-primary update_data">Update</a></td>
                                         </tr>
                                         <?php $i++; } ?>
                                     </tbody>
@@ -188,6 +190,11 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function () {
+            // update_status
+            $(document).on('click', '.edit_data', function(){
+                var register_ID = $(this).attr("id")
+            });
+
             $('#table_register').DataTable({
                 "order": [
                     [0, "asc"]

@@ -30,8 +30,8 @@
     <?php include "connect.php"; ?>
     <?php 
         if (isset($_POST['submit'])) {
-            if($_POST['username'] == "admin" && $_POST['password'] == "1234") {
-                $_SESSION['id'] = "admin1234";
+            if($_POST['username'] == "admin" && $_POST['password'] == "ihumanities14") {
+                $_SESSION['id'] = "admin";
                 echo "<script> alert('Login Complete'); </script>";
                 header('Refresh:0; url=admin_register_info.php');
 
