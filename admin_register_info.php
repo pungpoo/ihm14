@@ -92,9 +92,10 @@
                                         <option value="3">เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5 วัน)</option>
                                     </select>
                                     <input type="hidden" name="check" value="True" />
+                                    <input type="hidden" name="register_id" id="register_id" />
                                 </form>
                                 <div>
-                                <?php 
+                                    <?php 
                                     if(isset($_POST['checkDay']) && $_POST['checkDay'] != 0){
                                         if($_POST['checkDay'] == 1){
                                             $workday = "งานมหกรรมวิชาการ วันที่ 7,10,11 กันยายน 2563 (3 วัน)";
@@ -151,17 +152,22 @@
                                             <td><?php echo  $title.$row['regis_name']." ".$row['regis_lastname'];?></td>
                                             <td><?php echo $row['regis_mail'];?></td>
                                             <td><?php echo $row['regis_phone'];?></td>
-                                            <td class="text-center"> 
+                                            <td class="text-center">
                                                 <?php if (!empty($row['paper_name'])) { ?>
-                                                    <a href="publications/<?php echo $row['paper_name'];?>" class="badge badge-info">Download</a>
+                                                <a href="publications/<?php echo $row['paper_name'];?>"
+                                                    class="badge badge-info">Download</a>
                                                 <?php }else { ?>
-                                                    ไม่มีการส่งผลงาน
+                                                ไม่มีการส่งผลงาน
                                                 <?php }?>
                                             </td>
                                             <td class="text-center">
                                                 <p class="badge badge-warning"><?php echo $row['paper_status'];?></p>
                                             </td>
-                                            <td class="text-center"> <a href="status_update.php?id=<?php echo $sent_id;?>" class="badge badge-primary update_data">Update</a></td>
+                                            <td class="text-center">
+                                                <input type="button" name="edit" value="Edit"
+                                                    id="<?php echo $row["id"]; ?>"
+                                                    class="btn btn-info btn-xs edit_data" />
+                                            </td>
                                         </tr>
                                         <?php $i++; } ?>
                                     </tbody>
@@ -173,10 +179,41 @@
                 </div>
             </div>
         </div>
-        </div>
-        </div>
+        <!-- </div>
+        </div> -->
     </section>
     <!-- Footer -->
+    <div id="add_data_Modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update สถานะบทความ</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="insert_form">
+                        <label>ชื่อ-สกุล</label>
+                        <input type="text" name="name" id="name" class="form-control" />
+                        <br />
+                        <label>Enter Employee Address</label>
+                        <textarea name="address" id="address" class="form-control"></textarea>
+                        <br />
+                        <label>Select Gender</label>
+                        <select name="gender" id="gender" class="form-control">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <br />
+                        <input type="hidden" name="employee_id" id="employee_id" />
+                        <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php 
   include "footer.html";
   ?>
@@ -191,10 +228,31 @@
     <script>
         $(document).ready(function () {
             // update_status
-            $(document).on('click', '.edit_data', function(){
-                var register_ID = $(this).attr("id")
+            $(document).on('click', '.edit_data', function () {
+                var register_id = $(this).attr("id");
+                $.ajax({
+                    url: "fetch.php",
+                    method: "POST",
+                    data: {
+                        register_id: register_id
+                    },
+                    dataType: "json",
+                    // contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        $('#name').val(data.regis_name);
+                        $('#address').val(data.paper_status);
+                        // $('#gender').val(data.gender);
+                        // $('#designation').val(data.designation);
+                        // $('#age').val(data.age);
+                        // $('#employee_id').val(data.id);
+                        $('#insert').val("Update");
+                        $('#add_data_Modal').modal('show');
+                    }
+                });
             });
 
+
+            // DataTable
             $('#table_register').DataTable({
                 "order": [
                     [0, "asc"]
