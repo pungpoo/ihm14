@@ -1,0 +1,127 @@
+<?php
+    session_start();
+    // session_destroy();
+    if(!isset($_SESSION['id'])){
+        header('location:admin_login.php');
+    }
+    echo $_SESSION['id'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SOTL6</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css" />
+    <!-- Custom styles for this template -->
+    <link href="css/agency.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <a id="button"></a>
+    <?php /*include "navbar.html";*/ ?>
+    <?php include "connect.php"; ?>
+    <?php 
+        $id = $_GET['id'];
+        // $stmt = $conn->query("SELECT * FROM register where id = '".$_GET['id']."' ");
+
+        $stmt = $conn->query("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,
+        publications.paper_name,publications.paper_status
+        FROM register 
+        LEFT JOIN  publications
+        ON  publications.register_id = register.id 
+        where register.id = '".$_GET['id']."' ");
+        $row = $stmt->fetch();
+        // $ee = date("Y-m-d");
+        // echo $ee;
+        if (isset($_POST['save'])) {
+            // $payment_date = date("Y-m-d");
+            // $payment = $_POST['payment_status'];
+            // echo "save";
+            $sql = "UPDATE publications SET paper_status = :paper_status WHERE register_id = :id";
+            $query = $conn->prepare($sql);
+            $query->bindParam(":id",$id);
+            $query->bindParam(":paper_status",$_POST["paper_status"]);
+            if ($query->execute()){
+                echo "<script> alert('Save complete'); </script>";
+                header('Refresh:0; url=admin_register_info.php');
+              } else {
+                echo "<script> alert('Save Error'); </script>";
+                header('Refresh:0; url=admin_register_info.php');
+              }
+        }
+    ?>
+    <section class="bg-light" id="regis" style="margin-bottom: 200px;">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-10 mx-auto">
+                    <div class="card  mb-4">
+                        <h5 class="card-header text-center text-uppercase bg-info">Update สถานะบทความ</h5>
+                        <div class="card-body font-weight-bold">
+                            <form action="" method="post">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="fname_eng">ชื่อ-สกุล</label>
+                                        <input type="text" class="form-control" id="fname" name="fname"
+                                            value="<?php echo $row['regis_name']." ".$row['regis_lastname'];?>"
+                                            disabled>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="fname_eng">สถานะการชำระเงิน</label>
+                                        <select class="form-control" id="paper_status" name="paper_status">
+                                            <option value="<?php echo $row['paper_status']; ?>"><?php echo $row['paper_status']; ?></option>
+                                            <option value="Uploaded">Uploaded</option>
+                                            <option value="Wait for review">Wait for review</option>
+                                            <option value="Accept">Accept</option>
+                                            <option value="Accept with minor revisions">Accept with minor revisions
+                                            </option>
+                                            <option value="Accept with major revisions">Accept with major revisions
+                                            </option>
+                                            <option value="Reject">Reject</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="submit" name="save" class="btn btn-primary mb-2 btn-block" value="Save">
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <?php 
+  include "footer.html";
+  ?>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/agency.min.js"></script>
+    <script src="js/top_page.js"></script>
+    <script src="js/check_regis.js"></script>
+
+</body>
+
+</html>

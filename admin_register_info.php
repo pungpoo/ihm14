@@ -4,7 +4,7 @@
     if(!isset($_SESSION['id'])){
         header('location:admin_login.php');
     }
-    echo $_SESSION['id'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,8 +33,10 @@
 
 <body id="page-top">
     <a id="button"></a>
-    <?php include "navbar.html"; ?>
-    <?php include "connect.php"; ?>
+    <?php 
+        include "navbar.html";
+        include "connect.php"; 
+    ?>
     <?php 
         if(isset($_POST['checkDay'])){
             if ($_POST['checkDay'] == 0){
@@ -55,7 +57,8 @@
             // $stmt->execute();
             }
         }
-        else if ($_POST['checkDay'] == 0){
+        // else if ($_POST['checkDay'] == 0){
+        else if (isset($_POST['checkDay'])){
             $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
             publications.paper_name,publications.paper_status
             FROM register 
@@ -71,6 +74,22 @@
             ON  publications.register_id = register.id 
             order by register.id asc");
         }
+
+        // if($_POST["register_id"] != ''){  
+        if(!empty($_POST["register_id"])){  
+            $sql = "UPDATE publications SET paper_status = :paper_status WHERE id = :id";
+            $query = $conn->prepare($sql);
+            $query->bindParam(":id",$id);
+            $query->bindParam(":paper_status",$_POST["paper_status"]);
+            
+            if ($query->execute()){
+                echo "<script> alert('Save complete'); </script>";
+                // header('Refresh:0; url=admin_register_info.php');
+            } else {
+                echo "<script> alert('Save Error'); </script>";
+                // header('Refresh:0; url=admin_register_info.php');
+            }
+        }  
     ?>
     <section class="bg-light" id="regis" style="margin-bottom: 200px;">
         <div class="container">
@@ -164,18 +183,20 @@
                                                 <p class="badge badge-warning"><?php echo $row['paper_status'];?></p>
                                             </td>
                                             <td class="text-center">
-                                                <input type="button" name="edit" value="Edit"
+                                                <!-- <input type="button" name="edit" value="Edit"
                                                     id="<?php echo $row["id"]; ?>"
-                                                    class="btn btn-info btn-xs edit_data" />
+                                                    class="btn btn-info btn-xs edit_data" /> -->
+                                                    <td class="text-center"> <a href="admin_update_status.php?id=<?php echo $sent_id;?>" class="btn btn-info">Update</a></td>
+
                                             </td>
                                         </tr>
                                         <?php $i++; } ?>
                                     </tbody>
                                 </table>
-                                <a href="logout.php" class="btn btn-danger col-md-12 mt-2">Logout</a>
                             </div>
                         </div>
                     </div>
+                    <a href="logout.php" class="btn btn-danger col-md-12 mt-2">Logout</a>
                 </div>
             </div>
         </div>
@@ -193,18 +214,19 @@
                 <div class="modal-body">
                     <form method="post" id="insert_form">
                         <label>ชื่อ-สกุล</label>
-                        <input type="text" name="name" id="name" class="form-control" />
+                        <input type="text" name="name" id="name" class="form-control" disabled/>
                         <br />
-                        <label>Enter Employee Address</label>
-                        <textarea name="address" id="address" class="form-control"></textarea>
-                        <br />
-                        <label>Select Gender</label>
-                        <select name="gender" id="gender" class="form-control">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                        <label>สถานะบทความ</label>
+                        <select name="paper_status" id="paper_status" class="form-control">
+                            <option value="Uploaded">Uploaded</option>
+                            <option value="Wait for review">Wait for review</option>
+                            <option value="Accept">Accept</option>
+                            <option value="Accept with minor revisions">Accept with minor revisions</option>
+                            <option value="Accept with major revisions">Accept with major revisions</option>
+                            <option value="Reject">Reject</option>
                         </select>
                         <br />
-                        <input type="hidden" name="employee_id" id="employee_id" />
+                        <input type="hidden" name="register_id" id="register_id" />
                         <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-success" />
                     </form>
                 </div>
