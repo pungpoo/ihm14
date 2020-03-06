@@ -58,10 +58,10 @@
             $query->bindParam(":paper_status",$_POST["paper_status"]);
             if ($query->execute()){
                 echo "<script> alert('Save complete'); </script>";
-                header('Refresh:0; url=admin_register_info.php');
+                header('Refresh:0; url=admin_publication_info.php');
               } else {
                 echo "<script> alert('Save Error'); </script>";
-                header('Refresh:0; url=admin_register_info.php');
+                header('Refresh:0; url=admin_publication_info.php');
               }
         }
     ?>

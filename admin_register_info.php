@@ -4,11 +4,9 @@
     if(!isset($_SESSION['id'])){
         header('location:admin_login.php');
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -57,15 +55,6 @@
             // $stmt->execute();
             }
         }
-        // else if ($_POST['checkDay'] == 0){
-        else if (isset($_POST['checkDay'])){
-            $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
-            publications.paper_name,publications.paper_status
-            FROM register 
-            LEFT JOIN  publications
-            ON  publications.register_id = register.id 
-            order by register.id asc");
-        }
         else {
             $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
             publications.paper_name,publications.paper_status
@@ -74,46 +63,6 @@
             ON  publications.register_id = register.id 
             order by register.id asc");
         }
-
-        //Card 2
-        if(isset($_POST['checkDay'])){
-            if ($_POST['checkDay'] == 0){
-                $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
-                publications.paper_name,publications.paper_status
-                FROM register 
-                LEFT JOIN  publications
-                ON  publications.register_id = register.id 
-                order by register.id asc");
-            }else{
-            $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
-            publications.paper_name,publications.paper_status
-            FROM register 
-            LEFT JOIN  publications
-            ON  publications.register_id = register.id 
-            where register.regis_participate = '".$_POST['checkDay']."'
-            order by register.id asc");
-            // $stmt->execute();
-            }
-        }
-        // else if ($_POST['checkDay'] == 0){
-        else if (isset($_POST['checkDay'])){
-            $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
-            publications.paper_name,publications.paper_status
-            FROM register 
-            LEFT JOIN  publications
-            ON  publications.register_id = register.id 
-            order by register.id asc");
-        }
-        else {
-            $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,register.regis_mail,register.regis_phone,
-            publications.paper_name,publications.paper_status
-            FROM register 
-            LEFT JOIN  publications
-            ON  publications.register_id = register.id 
-            order by register.id asc");
-        }
-
-        // if($_POST["register_id"] != ''){  
         if(!empty($_POST["register_id"])){  
             $sql = "UPDATE publications SET paper_status = :paper_status WHERE id = :id";
             $query = $conn->prepare($sql);
@@ -180,7 +129,7 @@
                                             <th class="text-center">โทร.</th>
                                             <th class="text-center">บทความ</th>
                                             <th class="text-center">สถานะบทความ</th>
-                                            <th class="text-center">#</th>
+                                            <!-- <th class="text-center">#</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -220,13 +169,7 @@
                                             <td class="text-center">
                                                 <p class="badge badge-warning"><?php echo $row['paper_status'];?></p>
                                             </td>
-                                            <td class="text-center">
-                                                <!-- <input type="button" name="edit" value="Edit"
-                                                    id="<?php echo $row["id"]; ?>"
-                                                    class="btn btn-info btn-xs edit_data" /> -->
-                                                    <td class="text-center"> <a href="admin_update_status.php?id=<?php echo $sent_id;?>" class="btn btn-info">Update</a></td>
-
-                                            </td>
+                                            <!-- <td class="text-center"> <a href="admin_update_status.php?id=<?php echo $sent_id;?>" class="btn btn-info">Update</a></td> -->
                                         </tr>
                                         <?php $i++; } ?>
                                     </tbody>
@@ -235,100 +178,7 @@
                         </div>
                     </div>
                     <!-- Card 2 -->
-                    <div class="card  mb-4">
-                        <h5 class="card-header text-center text-uppercase bg-info">THRF14 - ผู้ส่งบทความตีพิมพ์</h5>
-                        <div class="text-center mx-auto">
-                            <div class="mt-4 ml-4">
-                                <form action="" method="post" name="workday">
-                                    <label for="">เลือกตามวันที่เข้าร่วม</label>
-                                    <select class="custom-select" name="check_paper" onChange="javascript: submit()"
-                                        style="width:70%">
-                                        <!-- <option value=""><?php echo $_POST['check_paper'];?></option> -->
-                                        <option value="">เลือก</option>
-                                        <option value="0">ผู้รวมงานทั้งหมด</option>
-                                        <option value="1">งานมหกรรมวิชาการ วันที่ 7,10,11 กันยายน 2563 (3 วัน)</option>
-                                        <option value="2">งานเวทีมนุษศาสตร์ วันที่ 8-9 กันยายน 2563 (2 วัน)</option>
-                                        <option value="3">เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5 วัน)</option>
-                                    </select>
-                                    <input type="hidden" name="check" value="True" />
-                                    
-                                </form>
-                                <div>
-                                    <?php 
-                                    if(isset($_POST['check_paper']) && $_POST['check_paper'] != 0){
-                                        if($_POST['check_paper'] == 1){
-                                            $workday = "งานมหกรรมวิชาการ วันที่ 7,10,11 กันยายน 2563 (3 วัน)";
-                                        }else if($_POST['check_paper'] == 2){
-                                            $workday = "งานเวทีมนุษศาสตร์ วันที่ 8-9 กันยายน 2563 (2 วัน)";
-                                        }else if($_POST['check_paper'] == 3){
-                                            $workday = "เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5 วัน)";
-                                        }
-                                        echo "<label class='center'> $workday </label>";
-                                    }
-                                ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body font-weight-bold">
-                            <div class="col-md-12">
-                                <table id="table_register" class="table table-responsive display responsive no-wrap"
-                                    style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <!-- <th class="text-center">ลำดับ</th> -->
-                                            <th class="text-center">รหัสลงทะเบียน</th>
-                                            <th class="text-center">ชื่อ-สกุล</th>
-                                            <th class="text-center">บทความ</th>
-                                            <th class="text-center">หัวข้อบทความ</th>
-                                            <th class="text-center">สถานะบทความ</th>
-                                            <th class="text-center">#</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $i=1;
-                                            $stmt->execute();
-                                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                                            //print_r($row);
-                                            $title = explode(" ",$row['regis_title_name']);
-                                            $title = $title[0];
-                                            $sent_id = $row['id'] ;
-                                        ?>
-                                        <tr>
-                                            <!-- <td class="text-center"><?php echo $i;?> -->
-                                            </td>
-                                            <td class="text-center"><?php 
-                                                $register_number = sprintf('%04d',$row['id']);
-                                                echo $register_number;?>
-                                            </td>
-                                            <td><?php echo  $title.$row['regis_name']." ".$row['regis_lastname'];?></td>
-                                            <td><?php echo $row['regis_mail'];?></td>
-                                            <td><?php echo $row['regis_phone'];?></td>
-                                            <td class="text-center">
-                                                <?php if (!empty($row['paper_name'])) { ?>
-                                                <a href="publications/<?php echo $row['paper_name'];?>"
-                                                    class="badge badge-info">Download</a>
-                                                <?php }else { ?>
-                                                ไม่มีการส่งผลงาน
-                                                <?php }?>
-                                            </td>
-                                            <td class="text-center">
-                                                <p class="badge badge-warning"><?php echo $row['paper_status'];?></p>
-                                            </td>
-                                            <td class="text-center">
-                                                <!-- <input type="button" name="edit" value="Edit"
-                                                    id="<?php echo $row["id"]; ?>"
-                                                    class="btn btn-info btn-xs edit_data" /> -->
-                                                    <td class="text-center"> <a href="admin_update_status.php?id=<?php echo $sent_id;?>" class="btn btn-info">Update</a></td>
-
-                                            </td>
-                                        </tr>
-                                        <?php $i++; } ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="admin_publication_info.php" class="btn btn-info col-md-12 mt-2">ดูหน้าผู้ส่งบทความ</a>
                     <a href="logout.php" class="btn btn-danger col-md-12 mt-2">Logout</a>
                 </div>
             </div>

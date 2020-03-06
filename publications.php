@@ -58,7 +58,7 @@
         </a>
         </div>
         <div class="row mb-2">
-        <a class="btn btn-lg js-scroll-trigger center btn-regis mt-2" href="registration.php">
+        <a class="btn btn-lg js-scroll-trigger center btn-regis mt-2" href="publications_upload.php">
           <h2>Upload บทความวิชาการใหม่ (สำหรับผู้ที่ต้องการแก้ไขบทความ)</h2>
         </a>
       </div>
@@ -84,7 +84,7 @@
             <li class="ml-4">มีบทคัดย่อภาษาไทยและภาษาอังกฤษ</li>
             <li class="ml-4">มีความยาว 15 หน้ากระดาษ A4 (รวมบรรณานุกรม) ใช้ Font Thai Saraban PSK ขนาด 16</li>
             <li class="ml-4">ใช้วิธีการเขียนอ้างอิงและบรรณานุกรมแบบ APA</li>
-            2. กำหนดรับบทความ ตั้งแต่วันนี้ จนถึงวันที่ 17 เมษายน พ.ศ. 2563 <br>
+            2. กำหนดรับบทความ ตั้งแต่วันนี้ จนถึงวันที่ 31 พฤษภาคม พ.ศ. 2563 <br>
             3. ส่งไฟล์ Microsoft Word (doc, docx) ของบทความฉบับสมบูรณ์ โดย upload ไฟล์ในหน้า<a href="registration.php"
               target="_blank">
               <blue>ระบบลงทะเบียน</blue>
