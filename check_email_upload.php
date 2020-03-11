@@ -1,9 +1,16 @@
 <?php
     // **** Check Email **** //
+    // if(isset($_POST["email"])) {
+    //     $value = trim($_POST["email"]);
+    //     $Records = new Records();
+    //     echo $Records->searchDate($value);
+    // }
+
     if(isset($_POST["email"])) {
-        $value = trim($_POST["email"]);
+        $email = trim($_POST["email"]);
+        // $phone = trim($_POST["phone"]);
         $Records = new Records();
-        echo $Records->searchDate($value);
+        echo $Records->searchDate($email);
     }
     // **** End Check Email **** //
  class Records{
@@ -25,11 +32,12 @@
             echo "Connection failed: " . $e->getMessage();
             }
     }
-    public function searchDate($value) {
+    public function searchDate($email) {
         try {
             $conn = $this->dbCon();
-            $stmt = $conn->prepare("SELECT `regis_mail` FROM `register` WHERE `regis_mail` = :value");
-            $stmt->bindParam(':value', $value, PDO::PARAM_STR);
+            $stmt = $conn->prepare("SELECT `regis_mail` FROM `register` WHERE `regis_mail` = :mail AND  `regis_mail` = :phone");
+            $stmt->bindParam(':mail', $mail, PDO::PARAM_STR);
+            $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
             $stmt->execute();
             $count = $stmt->rowCount();
             $result = 0;

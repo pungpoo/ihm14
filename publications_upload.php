@@ -64,7 +64,6 @@
         //   echo $email_check[0];
         // }
   ?>
-
   <section class="bg-light mb-4" id="regis">
     <div class="container ">
       <div class="row">
@@ -73,17 +72,14 @@
             <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum - Upload บทความวิชาการ
             </h5>
             <div class="card-body font-weight-bold">
-              <form class="form" id="uploadForm" name="uploadForm" action=""
-                enctype="multipart/form-data" method="post">
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="fname_th">Email<red>*</red></label>
-                    <input type="text" class="form-control" id="email" name="email" value=""
+                    <input type="text" class="form-control" id="email" name="email"
                       placeholder="ระบุ Email ที่ใช้ลงทะเบียน" required
                       oninvalid="this.setCustomValidity('ระบุ Email ที่ใช้ลงทะเบียน')" oninput="setCustomValidity('')">
-                      <span id="check_email"></span>
                   </div>
-                 
+
                   <div class="form-group col-md-6">
                     <label for="lname_th">เบอร์โทรศัพท์<red>*</red></label>
                     <input type="text" class="form-control" id="phone" name="phone"
@@ -94,17 +90,89 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-sm-12">
-                    <button class="form-control btn btn-warning" id="checkmail" name="checkmail"  onclick="Email_check()"> ตรวจสอบข้อมูล</button>
+                    <!-- <button class="form-control btn btn-warning" id="checkmail" name="checkmail" > ตรวจสอบข้อมูล</button> -->
+                    <input class="form-control btn btn-warning" type="button" id="checkmail" name="checkmail"
+                      value="ตรวจสอบข้อมูล" />
                   </div>
                 </div>
             </div>
             <!-- upload -->
+            <div id="upload-part">
+            <form class="form" id="uploadForm" name="uploadForm" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="form-row ml-4">
+                <h5 class="mb-2" id="check_email"></h5>
+              </div>
+              <div class="form-row ml-4">
+                <h6>โปรดเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ (Please select sub-theme for article
+                  submission)</h6>
+              </div>
+              <div class="custom-control custom-radio ml-4">
+                <input type="radio" id="subtheme1" name="subtheme" class="custom-control-input" value="1">
+                <label class="custom-control-label" for="subtheme1">1. สังคมพหุวัฒนธรรม อัตลักษณ์
+                  และภาวะข้ามชาติในยุคดิจิทัล (Multicultural Society, Identity and Transnationalism in the Era of
+                  Digital Technology)</label>
+              </div>
+              <div class="custom-control custom-radio ml-4">
+                <input type="radio" id="subtheme2" name="subtheme" class="custom-control-input" value="2">
+                <label class="custom-control-label" for="subtheme2">2. ภาษาและภาษาศาสตร์ในยุคเทคโนโลยีเปลี่ยนโลก
+                  (Language and Linguistics in the Age of World-disrupting Technology)</label>
+              </div>
+              <div class="custom-control custom-radio ml-4">
+                <input type="radio" id="subtheme3" name="subtheme" class="custom-control-input" value="3">
+                <label class="custom-control-label" for="subtheme3">3. สุนทรียศาสตร์ อารมณ์ และสุขภาวะของสังคม
+                  (Aesthetics, Emotion and Implications on Social Well-Being)</label>
+              </div>
+              <div class="custom-control custom-radio ml-4">
+                <input type="radio" id="subtheme4" name="subtheme" class="custom-control-input" value="4">
+                <label class="custom-control-label" for="subtheme4">4. iMindfulness:
+                  ความตระหนักรู้ในตนสู่หนทางการเปลี่ยนแปลง (iMindfulness: Self-awareness toward
+                  Transformation)</label>
+              </div>
+              <div class="custom-control custom-radio ml-4">
+                <input type="radio" id="subtheme5" name="subtheme" class="custom-control-input" value="5">
+                <label class="custom-control-label" for="subtheme5">5. มนุษย์กับการอยู่ร่วมกับเทคโนโลยี (Humans
+                  and their Co-existence with Technology)</label>
+              </div>
+              <div class="custom-control custom-radio ml-4">
+                <input type="radio" id="subtheme6" name="subtheme" class="custom-control-input" value="6">
+                <label class="custom-control-label" for="subtheme6">6.
+                  โลกออนไลน์กับเสถียรภาพของสังคมและความมั่นคงของประเทศ (Online World, Social Stability and
+                  National Security)</label>
+              </div>
+              <div class="custom-control custom-radio ml-4">
+                <input type="radio" id="subtheme7" name="subtheme" class="custom-control-input" value="7">
+                <label class="custom-control-label" for="subtheme7">7. เทคโนโลยีและการดูแลสุขภาพในสังคมประชาธิปไตย
+                  (Technology and Healthcare in Democratic Society)</label>
+              </div>
+              <div class="custom-control custom-radio ml-4">
+                <input type="radio" id="subtheme8" name="subtheme" class="custom-control-input" value="8">
+                <label class="custom-control-label" for="subtheme8">8. เทคโนโลยีกับสิทธิมนุษยชนและสันติภาพ
+                  (Technologies, Human Rights and Peace)</label>
+              </div>
+              <div class="custom-control custom-radio ml-4">
+                <input type="radio" id="subtheme9" name="subtheme" class="custom-control-input" value="9">
+                <label class="custom-control-label" for="subtheme9">9. เทคโนโลยีกับความสามารถที่แตกต่างของมนุษย์:
+                  แบ่งแยกหรืออยู่ร่วม (Technology and Human (this)Ability: Dividing or Including)</label>
+              </div>
+              <div class="custom-control custom-radio ml-4">
+                <input type="radio" id="subtheme10" name="subtheme" class="custom-control-input" value="10">
+                <label class="custom-control-label" for="subtheme10">10. เทคโนโลยี การดูแลสุขภาพ
+                  กับสังคมผู้สูงอายุ (Technology, Healthcare and Aging Society)</label>
+              </div>
+              <div class="custom-control custom-radio ml-4 mb-2">
+                <input type="radio" id="subtheme11" name="subtheme" class="custom-control-input" value="11">
+                <label class="custom-control-label" for="subtheme11">11.
+                  เทคโนโลยีและการแพทย์ที่มีหัวใจความเป็นมนุษย์ (Technology and Humanized Medicine)</label>
+              </div>
+            </div>
             <div class="form-group mr-4 ml-4" id="upload">
-              <div class="card col-md-12 col-sm-12">
-                <div class="card-header ">
+              <div class="card">
+                <div class="card-header">
                   Upload Files
                 </div>
                 <div class="card-body">
+
                   <input type="file" name="paper_upload" id="paper_upload" />
                   <p class="card-text">**File size up to 5MB. Type .doc .docx </p>
                   <span id="file_error"></span>
@@ -115,8 +183,10 @@
         </div>
       </div>
     </div>
-    <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-12"
-      value="ยืนยันการลงทะเบียน" onclick="cfFunction()">
+    <!-- <input class="form-control btn btn-warning" type="button" id="submit" name="submit"  value="save" /> -->
+
+    <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
+      value="Upload บทความ">
     </form>
   </section>
   <!-- Footer -->
@@ -128,33 +198,74 @@
   <script src="js/top_page.js"></script>
   <script type="text/javascript">
     // $("#upload").hide();
+    // id =  data[0];
+    // $( "#checkmail" ).prop( "disabled", true );
+
+
 
     $(document).ready(function () {
-      $('#checkmail').click(function () {
-        var value = $(this).val();
-        Email_check(value);
-      });
-    });
-    function Email_check(val) {
-      $.post('check_email_upload.php', {
-        'email': val,'phone': val
-      }, function (data) {
-        if (data == "Found") {
-          alert("Email นี้มีผู้ใช้ในระบบแล้ว");
-          $('#check_email').html(
-            "<span style='color:red; font-weight:bold;'>&nbsp;&nbsp;&nbsp; Email นี้มีผู้ใช้ในระบบแล้ว</span>");
-          // $("#btnsubmit").attr("disabled", true);
-        } else {
-          $('#check_email').html(
-            "<span style='color:green; font-weight:bold;'>&nbsp;&nbsp;&nbsp; Email นี้สามารถใช้ได้ </span>");
-          // $('#btnsubmit').attr("disabled", false);
-        }
-      }).fail(function (xhr, ajaxOptions, throwError) {
-        alert(throwError);
-      });
-    }
-  </script>
 
+      $('#email,#phone').focusout(function(){
+        if($('#email').val() && $('#phone').val()){
+        console.log("Not Empty");
+          $( "#checkmail" ).prop( "disabled", false );
+      }
+      });
+      $('#checkmail').click(function () {
+
+        if(!$('#email').val() || !$('#phone').val()){
+        alert('กรุณากรอกข้อมูล');
+        return false;
+       }
+        var email = $('#email').val();
+        var phone = $('#phone').val();
+        $.ajax({
+          url: "check_email_upload2.php",
+          type: "POST",
+          data: {
+            email: email,
+            phone: phone
+          },
+          dataType: 'json',
+          success: function (data) {
+            $('#check_email').html(data);
+            $('#check_email').html("Upload ในนามของคุณ" + data[1] + " " + data[2]);
+            id = data[0]
+            console.log(data);
+            return uid=data[0];
+          }
+        });
+      });
+
+      // upload
+    $("#uploadForm").on('submit', function(e){
+    // $('#submit').click(function () {
+        // console.log(id);
+        // var id = "132";
+     var subtheme = $("input:radio[name=subtheme]:checked").val();
+        $.ajax({
+          url: "check_publications_upload.php",
+          type: "POST",
+           data: {subtheme:subtheme},
+          // data: new FormData(this),
+          dataType: 'json',
+          // contentType: false,
+          // cache: false,
+          // processData:false,
+          success: function (data) {
+            // $('#check_email').html(res);
+            // $('#check_email').html("Upload ในนามของคุณ" + data[1] + " " + data[2]);
+            alert(data);
+            console.log("Save ok");
+            console.log(data);
+          }
+        });
+      });
+
+    });
+
+
+  </script>
 </body>
 
 </html>
