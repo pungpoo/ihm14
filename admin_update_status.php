@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SOTL6</title>
+    <title>THRF14</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
@@ -33,7 +33,7 @@
 
 <body id="page-top">
     <a id="button"></a>
-    <?php /*include "navbar.html";*/ ?>
+    <?php include "navbar.html"; ?>
     <?php include "connect.php"; ?>
     <?php 
         $id = $_GET['id'];

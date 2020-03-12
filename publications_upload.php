@@ -55,7 +55,7 @@
 <body id="page-top">
   <a id="button"></a>
   <?php  
-        // include "navbar.html";
+        include "navbar.html";
         include "connect.php";
 
         // if(isset($_POST["checkmail"])){
@@ -79,7 +79,6 @@
                       placeholder="ระบุ Email ที่ใช้ลงทะเบียน" required
                       oninvalid="this.setCustomValidity('ระบุ Email ที่ใช้ลงทะเบียน')" oninput="setCustomValidity('')">
                   </div>
-
                   <div class="form-group col-md-6">
                     <label for="lname_th">เบอร์โทรศัพท์<red>*</red></label>
                     <input type="text" class="form-control" id="phone" name="phone"
@@ -90,7 +89,7 @@
                 </div>
                 <div class="form-row">
                   <div class="form-group col-sm-12">
-                    <!-- <button class="form-control btn btn-warning" id="checkmail" name="checkmail" > ตรวจสอบข้อมูล</button> -->
+                    <!-- <button class="form-control btn btn-warning" id="checkmail" name="checkmail" > ตรวจสอบข้อมูล</button> -->     
                     <input class="form-control btn btn-warning" type="button" id="checkmail" name="checkmail"
                       value="ตรวจสอบข้อมูล" />
                   </div>
@@ -98,10 +97,13 @@
             </div>
             <!-- upload -->
             <div id="upload-part">
-            <form class="form" id="uploadForm" name="uploadForm" enctype="multipart/form-data">
+            <form class="upload-form" id="uploadForm" name="uploadForm" enctype="multipart/form-data" method="post" action="check_publications_upload.php">
             <div class="form-row">
-              <div class="form-row ml-4">
-                <h5 class="mb-2" id="check_email"></h5>
+              <div class="form-row ml-4 col-12">
+                <h5 class="mb-2 bg-blue" id="check_email"></h5>
+              </div>
+              <div class="form-row ml-4  col-12">
+                <h6  id="upload-history"> ประวัติการ Upload</h6>
               </div>
               <div class="form-row ml-4">
                 <h6>โปรดเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ (Please select sub-theme for article
@@ -172,7 +174,6 @@
                   Upload Files
                 </div>
                 <div class="card-body">
-
                   <input type="file" name="paper_upload" id="paper_upload" />
                   <p class="card-text">**File size up to 5MB. Type .doc .docx </p>
                   <span id="file_error"></span>
@@ -184,7 +185,9 @@
       </div>
     </div>
     <!-- <input class="form-control btn btn-warning" type="button" id="submit" name="submit"  value="save" /> -->
-
+    <!-- <label id="Callback_id2"></label>  
+    <input type="text" id="inputId" name="inputId" />  -->
+    <input type="hidden" id="inputId" name="inputId" >      
     <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
       value="Upload บทความ">
     </form>
@@ -200,7 +203,7 @@
     // $("#upload").hide();
     // id =  data[0];
     // $( "#checkmail" ).prop( "disabled", true );
-
+    $("#upload-history").hide();
 
 
     $(document).ready(function () {
@@ -227,9 +230,13 @@
             phone: phone
           },
           dataType: 'json',
-          success: function (data) {
+          success: function (data,x) {
             $('#check_email').html(data);
-            $('#check_email').html("Upload ในนามของคุณ" + data[1] + " " + data[2]);
+            $('#check_email').html("เข้าสู่ระบบโดยคุณ" + data.data[1] + " " + data.data[2] + data.x[0]);
+            $('#Callback_id2').html(data[0]);
+            $('#inputId').val(data[0]);
+            $("#upload-history").show();
+            
             id = data[0]
             console.log(data);
             return uid=data[0];
@@ -238,15 +245,17 @@
       });
 
       // upload
-    $("#uploadForm").on('submit', function(e){
-    // $('#submit').click(function () {
-        // console.log(id);
-        // var id = "132";
-     var subtheme = $("input:radio[name=subtheme]:checked").val();
+    // $("#uploadForm").on('submit', function(e){
+    $('#submit').click(function () {
+    // var fname = new FormData($('.upload-form')['name=paper_upload']);
+
+    //  var subtheme = $("input:radio[name=subtheme]:checked").val();
+    var callback_id = $("#callback_id").val();
         $.ajax({
           url: "check_publications_upload.php",
           type: "POST",
-           data: {subtheme:subtheme},
+          // data: {subtheme:subtheme}, 
+          data: {callback_id:callback_id}, 
           // data: new FormData(this),
           dataType: 'json',
           // contentType: false,
@@ -263,7 +272,18 @@
       });
 
     });
-
+    // check file size
+    function validate() {
+    $("#file_error").html("");
+    $(".demoInputBox").css("border-color","#F0F0F0");
+    var file_size = $('#pic')[0].files[0].size;
+    if(file_size>5242880) {
+      $("#file_error").html("<font color='#F31616'>รูปภาพของท่านมีขนาดใหญ่เกิน 5 MB</font>");
+      $(".demoInputBox").css("border-color","#FF0000");
+      return false;
+    } 
+    return true;
+  }
 
   </script>
 </body>
