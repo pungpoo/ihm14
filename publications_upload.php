@@ -181,16 +181,19 @@
                     </div>
                   </div>
                 </div>
+                <input type="hidden" id="inputId" name="inputId">
+                <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
+                  value="Upload บทความ">
             </div>
+            <!-- <input type="hidden" id="inputId" name="inputId">
+            <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
+              value="Upload บทความ"> -->
           </div>
         </div>
       </div>
       <!-- <input class="form-control btn btn-warning" type="button" id="submit" name="submit"  value="save" /> -->
       <!-- <label id="Callback_id2"></label>  
     <input type="text" id="inputId" name="inputId" />  -->
-      <input type="hidden" id="inputId" name="inputId">
-      <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
-        value="Upload บทความ">
       </form>
   </section>
   <!-- Footer -->
