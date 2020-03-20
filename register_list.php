@@ -66,11 +66,13 @@
                                             include ("datethai.php");
                                             $i=1;
                                             $stmt = $conn->prepare("SELECT register.id,register.regis_title_name,register.regis_name,register.regis_lastname,
-                                            register.regis_participate,register.regis_publication,register.regis_date,publications.paper_status
+                                            register.regis_participate,register.regis_publication,register.regis_date,publications.paper_id,publications.paper_status
                                             FROM register 
                                             LEFT JOIN  publications
                                             ON  publications.register_id = register.id 
-                                            order by register.id asc");
+                                            order by register.id asc 
+                                            ");
+                                             
                                             $stmt->execute();
                                             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                             //print_r($row);
@@ -131,6 +133,8 @@
     <script src="js/check_regis.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.js"></script>
     <script>
+// table.rows( { selected: true } ).data()[0][0]
+
         $(document).ready(function () {
             $('#table_register').DataTable({
                 "order": [
