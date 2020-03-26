@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,34 +36,62 @@
   <section>
     <div class="text-center">
       <!-- <a class="btn btn-xl text-uppercase js-scroll-trigger center btn-regis" href="registration.php"> -->
-      <h2 class="mb-4">เวทีวิจัยมนุษยศาสตร์ไทยครั้งที่ 14:The 14th Thai Humanities Research Forum</h2>
+      <h3 class="mb-4">The 14th Thai Humanities Research Forum "iHumanities: Technology, Health and Life"</h3>
       <div class="jumbotron jumbotron-fluid ">
         <div class="container">
           <!-- <h1 class="display-4"></h1> -->
-          <h4 class="mb-4">
-            การจัดเวทีวิจัยครั้งนี้มีความมุ่งหมายที่จะส่งเสริมการเรียนรู้และไตร่ตรองเกี่ยวกับผลกระทบดังกล่าวโดยอาศัยมุมมองจากสาขาวิชามนุษยศาสตร์และสังคมศาสตร์
-            กิจกรรมหลักประกอบด้วยการปาฐกถา การเสวนากลุ่ม และการนำเสนอผลงาน เป็นต้น
-            โครงการดังกล่าวน่าจะสร้างความตระหนักถึงความซับซ้อนและกว้างขวางของผลกระทบจากปัญญาประดิษฐ์และเทคโนโลยีสมัยใหม่
-            รวมถึงจุดประกายความร่วมมือแบบสหสาขาวิชาระหว่างมนุษยศาสตร์และสังคมศาสตร์กับวิทยาศาสตร์
-            เทคโนโลยีและแพทย์ศาสตร์ต่อไป
-          </h4>
-          <h4 class="mb-4 mx-auto">วัตถุประสงค์</h4>
-          <h5 style="text-align: left;">1.
-            เพื่อเป็นเวทีสำหรับการแลกเปลี่ยนมุมมองทางวิชาการเกี่ยวกับมนุษยศาสตร์และสังคมศาสตร์ในบริบทของการปฏิสัมพันธ์ในหลากหลายรูปแบบกับวิทยาศาสตร์
-            เทคโนโลยี และการแพทย์ รวมถึงบริบทของสังคมที่ได้รับอิทธิพลและผลกระทบจากวิทยาศาสตร์ เทคโนโลยี และการแพทย์</h5>
-          <h5 style="text-align: left;">2.
-            เพื่อเผยแพร่องค์ความรู้และนวัตกรรมด้านมนุษยศาสตร์และสังคมศาสตร์ในประเด็นที่สัมพันธ์กับการศึกษาวิจัยด้านวิทยาศาสตร์
-            เทคโนโลยี และการแพทย์ รวมถึงประเด็นที่สัมพันธ์กับอิทธิพลและผลกระทบทางสังคมจากวิทยาศาสตร์ เทคโนโลยี
-            และการแพทย์</h5>
-          <h5 style="text-align: left;">3.
-            เพื่อเป็นพื้นที่สำหรับการพบปะและสร้างเครือข่ายระหว่างนักวิชาการสาขามนุษยศาสตร์และสังคมศาสตร์ด้วยกันเอง
-            รวมถึงการสื่อสารและสร้างเครือข่ายกับนักวิชาการสาขาวิทยาศาสตร์ เทคโนโลยี และการแพทย์</h5>
-            <a href="../img/THRF14_introduction.pdf" class="btn center btn-regis mb-3" target="_blank">
-            <i class="fas fa-user"></i> Download หลักการและเหตุผล </a>
+          <h6 class="mb-4" style="text-align: justify;">
+            <font size="6em;">Human</font> beings are marked with their abilities for creation and modification of
+            physical environment to satisfy their needs. Through human imagination coupled with progress in mathematical
+            and scientific knowledge, more and more sophisticated inventions and innovations are produced and integrated
+            as indispensable parts of daily life. In addition, in the near future, it is predicted that artificial
+            intelligence driven by machine learning and deep learning will be widely and deeply involved in every aspect
+            of human life.
+          </h6>
+          <h6 class="mb-4" style="text-align: justify;">
+            Even now, human beings have already found themselves in a situation whereby existence without technology is
+            unimaginable. Apart from the technological dependence, the situation is seen to be more complicated with an
+            awareness that technologies are not passive instruments. While human beings use technologies to serve their
+            purposes, the technologies in turn influence their perspectives and behaviors. Moreover, according to the
+            non-neutrality thesis, technologies are value-laden coming with socio-cultural and political baggage. The
+            reciprocal influences and non-neutrality have become evident since the digital revolution in the mid-21st
+            century.
+          </h6>
+          <h6 class="mb-4" style="text-align: justify;">
+            Vital questions arise as to how flesh-and-blood human beings should make sense of and live in the world, in
+            which technological influences permeate through all dimensions of their life from even before birth until or
+            even beyond death, from as deep as consciousness and emotions to the physical body, and from the private to
+            the public and environmental spheres. A myriad of significant issues are involved such as those related to
+            health and well-being, biodiversity, arts and aesthetics, and ethical values like human rights, disabilities
+            rights, peace and violence, liberal democracy and multiculturalism.
+          </h6>
+          <h6 class="mb-4" style="text-align: justify;">
+            The technological impacts on human life and well-being are both positive and negative. An aim of the 14th
+            Thai Humanities Research Forum is to provide an opportunity to promote learning and reflection on these
+            impacts, whose complexity can only be grasped through interdisciplinary endeavor. An exchange is encouraged
+            not only among disciplines in the Humanities and Social Science but also between these disciplines and those
+            in Science and Technology. It is expected that the event will raise awareness and create better
+            understanding of the technological impacts through cross-disciplinary collaboration.
+          </h6>
+
+          <h4 class="mb-4">Objectives</h4>
+          <h6 style="text-align: justify;"><i class="fas fa-angle-double-right"></i>
+            To provide a forum for exchanges across disciplines in the fields of Humanities and Social Science in the
+            context of interaction with the fields of Science, Technology and Medicine on one hand, and that of the
+            social impacts of science, technology and healthcare service on the other</h6>
+          <h6 style="text-align: justify;"><i class="fas fa-angle-double-right"></i>
+            To present knowledge and innovations in the fields of Humanities and Social Science that are related to
+            progress in the fields of Science, Technology and Medicine, and in response to social impacts of science,
+            technology and healthcare service</h6>
+          <h6 style="text-align: justify;"><i class="fas fa-angle-double-right"></i>
+            To offer a space for meeting and networking among scholars in the fields of Humanities and Social Science,
+            including communication and networking with scholars in the fields of Science, Technology and Medicine</h6>
+          <!-- <a href=".
+        </div>./img/THRF14_introduction.pdf" class="btn center btn-regis mb-3" target="_blank">
+            <i class="fas fa-user"></i> Download หลักการและเหตุผล </a> -->
         </div>
+        <!-- </a> -->
       </div>
-      <!-- </a> -->
-    </div>
   </section>
   <!-- keynote -->
   <!-- <section class="bg-light" style="padding-bottom: 50px; padding-top: 50px;">
@@ -222,10 +249,10 @@
   <section class="page-section bg-gray" id="contact">
     <div class="container mt-4">
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">สถานที่จัดงาน</h2>
-          <h2 class="section-heading">มหิดลสิทธาคาร มหาวิทยาลัยมหิดล ศาลายา</h2>
-          <h4 class="section-heading text-muted">Prince Mahidol Hall</h4>
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">venue</h2>
+          <h2 class="section-heading">Prince Mahidol Hall</h2>
+          <h4 class="section-heading ">Mahidol University Salaya</h4>
         </div>
       </div>
       <div class="row">
@@ -236,7 +263,7 @@
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12 text-center">
-              <button class="btn btn-regis" onclick="window.location.href='venue.php'">ดูแผนที่</button>
+              <button class="btn btn-regis" onclick="window.location.href='venue.php'">View map</button>
 
               <!-- <a class="btn btn-lg btn-regis mt-1"
                 href="https://www.google.co.th/maps/place/Windsor+Suites+Hotel+Bangkok/@13.7332436,100.561325,17z/data=!3m1!4b1!4m2!3m1!1s0x30e29eef17783845:0x660e5ddf664b2323"

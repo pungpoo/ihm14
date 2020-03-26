@@ -235,17 +235,20 @@
           },
           dataType: 'json',
           success: function (data) {
+            if (data  == false){
+              // console.log('error');
+              alert('ไม่พบข้อมูลการลงทะเบียน');
+            }else{
             $('#check_email').html(data);
             $('#check_email').html("เข้าสู่ระบบโดยคุณ" + data[1] + " " + data[2]);
             $('#Callback_id2').html(data[0]);
             $('#inputId').val(data[0]);
             // $("#upload-history").show();
             $("#upload-part").show();
-
-
-            id = data[0]
+            id = data[0];
             console.log(data);
             return uid = data[0];
+            }
           }
         });
       });

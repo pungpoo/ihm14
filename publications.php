@@ -58,7 +58,7 @@
         </a>
       </div>
       <div class="row mb-2">
-        <a class="btn btn-lg center btn-regis mt-2" href="publications_status_check.php">
+        <a class="btn btn-lg center btn-regis mt-2" href="publications_check_status.php">
           <h4>ตรวจสอบสถานะบทความ</h4>
         </a>
       </div>

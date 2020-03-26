@@ -87,15 +87,30 @@
                     value="ตรวจสอบข้อมูล" />
                 </div>
               </div>
+              <!-- Check Result -->
+              <div id="check-part">
+                <div class="form-row col-12">
+                  <h5 class="mb-2 bg-blue mx-auto" id="check_status"></h5>
+                </div>
+                <div class="form-row p-4">
+                  <div class="col-6">
+                    <h6 class="mb-2mx-auto" id="paper_name"></h6>
+                    <span id="download_paper"></span>
+                  </div>
+                  <div class="col-6">
+                  <h6 class="mb-2 mx-auto" id="paper_status"></h6>
+                    
+                  </div>
+                </div>
+              </div>
             </div>
-
           </div>
         </div>
       </div>
       <input type="hidden" id="inputId" name="inputId">
       <!-- <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
         value="Upload บทความ"> -->
-      <a href="publications_upload.php" class="btn btn-success mb-2 mt-2 col-6 offset-3">ไปที่หน้า Upload บทความ</a>
+      <!-- <a href="publications_upload.php" class="btn btn-success mb-2 mt-2 col-6 offset-3">ไปที่หน้า Upload บทความ</a> -->
       </form>
   </section>
   <!-- Footer -->
@@ -126,7 +141,7 @@
         var email = $('#email').val();
         var phone = $('#phone').val();
         $.ajax({
-          url: "check_email_upload2.php",
+          url: "check_publications_status.php",
           type: "POST",
           data: {
             email: email,
@@ -134,18 +149,26 @@
           },
           dataType: 'json',
           success: function (data) {
-            $('#check_email').html(data);
-            $('#check_email').html("เข้าสู่ระบบโดยคุณ" + data[1] + " " + data[2]);
-            $('#Callback_id2').html(data[0]);
-            $('#inputId').val(data[0]);
-            // $("#upload-history").show();
-            $("#upload-part").show();
+            if (data  == false){
+              // console.log('error');
+              alert('ไม่พบข้อมูลการลงทะเบียน');
+            }else{
+                // $('#check_status').html(data);
+               
+                $('#check_status').html("ผู้ส่งบทความวิชาการ คุณ" + data[1] + " " + data[2]);
+                $('#paper_name').html("บทความ : " + data[3]).attr("href", 'publications/'+data[3]);
+                $('#paper_status').html("สถานะบทความ : <font color='red'>" + data[4] +"</font>");
+                // $('#paper_name2').attr("href", 'publications/'+data[3]);
 
-
-            id = data[0]
-            console.log(data);
-            return uid = data[0];
-          }
+                $('#download_paper').html("<a href='publications/"+data[3]+"' class='badge badge-info'>Download</a> ");
+                // $('#Callback_id2').html(data[0]);
+                // $('#inputId').val(data[0]);
+                $("#upload-part").show();
+                id = data[0]
+                console.log(data);
+                return uid = data[0];
+              }
+            }
         });
       });
 

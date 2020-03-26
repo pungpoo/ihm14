@@ -10,10 +10,8 @@ $x = array("Volvo", "BMW", "Toyota");
             $stmt = $conn->prepare("SELECT id,regis_name,regis_lastname,regis_publication FROM `register` WHERE `regis_mail` = '".$email."' AND `regis_phone` = '".$phone."' ");
             $stmt->execute();
             $row = $stmt->fetch();
-
-           
-                $result = $row;
-                echo json_encode($result);
+            $result = $row;
+            echo json_encode($result);
             
 
  

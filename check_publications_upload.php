@@ -23,21 +23,23 @@ if(isset($_POST['submit'])) {
             $moved = move_uploaded_file($tmp_name,"publications/".$file_name);
             // UPDATE publications SET paper_name=:name, paper_subtheme=:surname, paper_upload_date=:sex WHERE id=:id
             if($moved) {
-                $regis_date = date("Y-m-d H:i:s");
+                $regis_date = date("Y-m-d");
                 // $stmt_publications = $conn->prepare("INSERT INTO publications (register_id,paper_name,paper_subtheme,paper_upload_date)
                 // VALUES (?,?,?,?)");
-                $stmt_publications = $conn->prepare("UPDATE publications SET paper_name=:paper_name, paper_subtheme=:paper_subtheme, paper_upload_date=:paper_upload_date WHERE paper_id=:id");
+                $stmt_publications = $conn->prepare("UPDATE publications SET paper_name=:paper_name, paper_subtheme=:paper_subtheme, paper_upload_date=:paper_upload_date WHERE register_id=:id");
                 $stmt_publications->bindParam(':id',$_POST["inputId"]);
                 $stmt_publications->bindParam(':paper_name',$file_name);
                 $stmt_publications->bindParam(':paper_subtheme',$_POST["subtheme"]);
                 $stmt_publications->bindParam(':paper_upload_date',$regis_date); 
                 $upload_status = $stmt_publications->execute();
                 // include "sendmail_regis.php";
-                if ($upload_status) {
-                    echo 'It worked!';
-                 } else {
-                    echo 'It failed!';
-                 }
+                // if ($upload_status) {
+                //     echo 'Status :'.$upload_status;
+                //     echo $_POST["inputId"]."-".$file_name."-".$_POST["subtheme"]."-".$regis_date;
+                //     echo 'It worked!';
+                //  } else {
+                //     echo 'It failed!';
+                //  }
 
                 echo "<script>
                 alert('การ Upload เสร็จสมบูรณ์');
