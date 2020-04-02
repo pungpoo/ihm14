@@ -99,10 +99,22 @@
                   </div>
                   <div class="col-6">
                   <h6 class="mb-2 mx-auto" id="paper_status"></h6>
-                    
                   </div>
                 </div>
               </div>
+              <!-- Revision -->
+              <div id="check-revision" class="bg-gray">
+                <!-- <div class="form-row col-12">
+                  <h5 class="mb-2 bg-blue mx-auto" id="check_revision"></h5>
+                </div> -->
+                <div class="form-row p-4">
+                  <div class="col-12">
+                    <h6 class="mb-2mx-auto" id="revision_file_name"></h6>
+                    <span id="download_paper_revision"></span>
+                  </div>
+                </div>
+              </div>
+              <!-- Revision -->
             </div>
           </div>
         </div>
@@ -111,7 +123,6 @@
       <!-- <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
         value="Upload บทความ"> -->
       <!-- <a href="publications_upload.php" class="btn btn-success mb-2 mt-2 col-6 offset-3">ไปที่หน้า Upload บทความ</a> -->
-      </form>
   </section>
   <!-- Footer -->
   <?php include "footer.html"; ?>
@@ -123,6 +134,7 @@
   <script type="text/javascript">
     $("#upload-history").hide();
     $("#upload-part").hide();
+    $("#check-revision").hide();
 
     $(document).ready(function () {
 
@@ -154,19 +166,23 @@
               alert('ไม่พบข้อมูลการลงทะเบียน');
             }else{
                 // $('#check_status').html(data);
-               
-                $('#check_status').html("ผู้ส่งบทความวิชาการ คุณ" + data[1] + " " + data[2]);
-                $('#paper_name').html("บทความ : " + data[3]).attr("href", 'publications/'+data[3]);
-                $('#paper_status').html("สถานะบทความ : <font color='red'>" + data[4] +"</font>");
-                // $('#paper_name2').attr("href", 'publications/'+data[3]);
-
-                $('#download_paper').html("<a href='publications/"+data[3]+"' class='badge badge-info'>Download</a> ");
-                // $('#Callback_id2').html(data[0]);
-                // $('#inputId').val(data[0]);
+                $('#check_status').html("ผู้ส่งบทความวิชาการ คุณ" + data[0][1] + " " + data[0][2]);
+                $('#paper_name').html("บทความ : " + data[0][4]+" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
+                $('#paper_status').html("สถานะบทความ : <font color='red'>" + data[0][5] +"</font>");
+                // $('#download_paper').html(" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
                 $("#upload-part").show();
-                id = data[0]
+                
+                if(data[1] != false){
+                  $("#check-revision").show();
+                }
+                
+                $('#revision_file_name').html("บทความ(revision version) : " + data[1][2]+" &nbsp; &nbsp;<a href='publications/"+data[1][2]+"'class='badge badge-info'>Download</a> ");
+                // $('#download_paper_revision').html("<a href='publications/"+data[1][2]+"' class='badge badge-info'>Download</a> ");
+
+                id = data[0][0]
                 console.log(data);
-                return uid = data[0];
+                console.log(id);
+                return uid = data[0][0];
               }
             }
         });

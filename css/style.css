@@ -105,6 +105,7 @@ footer {
         text-align: center;
     }
 }
+
 @media (max-width: 768px) {
     section {
         padding-top: 80px;
@@ -113,12 +114,15 @@ footer {
         margin-top: 70px;
     }
 }
+
 @media (max-width: 576px) {
     .cohost-footer {
         width: 30%;
         height: auto;
     }
 }
+
+
 /* 
   #Device = Most of the Smartphones Mobiles (Portrait)
   #Screen = B/w 320px to 479px 
@@ -222,12 +226,15 @@ input[type=number] {
 red {
     color: red;
 }
+
 blue {
-    color:  blue;
+    color: blue;
 }
-white{
+
+white {
     color: white;
 }
+
 .border-radius {
     border-radius: 3px;
 }
@@ -273,7 +280,12 @@ white{
 .lh {
     line-height: 1.5em;
 }
-.th-us{
+
+.th-us {
     width: 10%;
     height: auto;
+}
+
+.hide-font {
+    color: rgba(0, 0, 0, 0);
 }
