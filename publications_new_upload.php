@@ -168,9 +168,6 @@
                     <label class="custom-control-label" for="subtheme11">11.
                       เทคโนโลยีและการแพทย์ที่มีหัวใจความเป็นมนุษย์ (Technology and Humanized Medicine)</label>
                   </div>
-                  <div class="custom-control  ml-4 mb-2">
-                    <label style="color: red;"><b>**หมายเหตุ หากท่าน Upload ในหน้านี้ไฟล์ใหม่จะแทนที่ไฟล์เก่าของท่านที่มีอยู่ในระบบ</b></label>
-                  </div>
                 </div>
                 <div class="form-group mr-4 ml-4" id="upload">
                   <div class="card">

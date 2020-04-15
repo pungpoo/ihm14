@@ -132,6 +132,7 @@
   <script src="js/agency.min.js"></script>
   <script src="js/top_page.js"></script>
   <script type="text/javascript">
+    // console.log("Hello");
     $("#upload-history").hide();
     $("#upload-part").hide();
     $("#check-revision").hide();

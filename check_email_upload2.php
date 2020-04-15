@@ -11,6 +11,5 @@ $phone = $_POST["phone"];
             $row = $stmt->fetch();
             $result = $row;
             echo json_encode($result);
-
 }
 ?>

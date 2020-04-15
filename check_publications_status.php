@@ -1,4 +1,5 @@
 <?php
+
 include "connect.php";
 if (isset($_POST['email'])){
 $email = $_POST["email"];
@@ -12,8 +13,6 @@ $phone = $_POST["phone"];
     $stmt->execute();
     $result = $stmt->fetch();
     $paper_id = $result['paper_id'];
-   
-
     $stmt_revision = $conn->prepare("SELECT publications.paper_id,revision.revision_id,revision.revision_file_name 
         FROM revision
         LEFT JOIN  publications
@@ -22,12 +21,8 @@ $phone = $_POST["phone"];
         ");
     $stmt_revision->execute();
     $result_revision = $stmt_revision->fetch();
-
     $result = array($result, $result_revision);
-
     echo json_encode($result);
-
-
 }
 
 ?>
