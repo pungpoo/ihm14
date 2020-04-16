@@ -162,10 +162,17 @@
           },
           dataType: 'json',
           success: function (data) {
-            if (data  == false){
-              // console.log('error');
-              alert('ไม่พบข้อมูลการลงทะเบียน');
-            }else{
+            if (!data[0][3]){
+              console.log(data);
+              alert('ไม่พบข้อมูลบทความวิชาการของท่าน');
+                $("#upload-part").hide();
+                $('#check_status').html("");
+                $('#paper_name').html("");
+                $('#paper_status').html("");
+                // $('#download_paper').html(" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
+                
+            }
+            else{
                 // $('#check_status').html(data);
                 $('#check_status').html("ผู้ส่งบทความวิชาการ คุณ" + data[0][1] + " " + data[0][2]);
                 $('#paper_name').html("บทความ : " + data[0][4]+" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
@@ -182,7 +189,7 @@
 
                 id = data[0][0]
                 console.log(data);
-                console.log(id);
+                // console.log(id);
                 return uid = data[0][0];
               }
             }

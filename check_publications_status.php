@@ -18,10 +18,12 @@ $phone = $_POST["phone"];
         LEFT JOIN  publications
         ON publications.paper_id = revision.paper_id
         WHERE publications.paper_id = '".$paper_id."' 
+        order by revision_id DESC LIMIT 1
         ");
     $stmt_revision->execute();
     $result_revision = $stmt_revision->fetch();
     $result = array($result, $result_revision);
+
     echo json_encode($result);
 }
 

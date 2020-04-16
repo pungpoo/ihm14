@@ -69,7 +69,7 @@
       <div class="row">
         <div class=" col-md-12" id="single_regis">
           <div class="card">
-            <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum - Upload บทความวิชาการ
+            <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum - Upload บทความวิชาการ <font color="#800000">(ฉบับแก้ไข)</font>
             </h5>
             <div class="card-body font-weight-bold">
               <div class="form-row">
@@ -106,6 +106,9 @@
                   <div class="form-row ml-4  col-12">
                     <h6 id="upload-history"> ประวัติการ Upload</h6>
                   </div>
+                  <div class="form-row mx-auto col-12" id="submitfalse"> 
+                  <h6 class="center bg-red" id="submitfalse_msg"></h6>
+                </div>
                   <div class="form-row ml-4">
                     <h6>โปรดเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ (Please select sub-theme for article
                       submission)</h6>
@@ -185,8 +188,12 @@
                   </div>
                 </div>
                 <input type="hidden" id="inputId" name="inputId">
-                <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
-                  value="Upload บทความ">
+                <input type="hidden" id="regis_publication" name="regis_publication">
+                <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3" value="Upload บทความ">
+                
+                <div class="form-row mx-auto col-12" id="11"> 
+                  <h6 class="center bg-red" ></h6>
+                </div>
             </div>
             <!-- <input type="hidden" id="inputId" name="inputId">
             <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
@@ -198,6 +205,13 @@
       <!-- <label id="Callback_id2"></label>  
     <input type="text" id="inputId" name="inputId" />  -->
       </form>
+      <pre>
+                muanmard_m@yahoo.co.th
+          0877946087
+
+                busakorn.wjs@gmail.com
+          0842354496
+      </pre>
   </section>
   <!-- Footer -->
   <?php include "footer.html"; ?>
@@ -230,7 +244,7 @@
         var email = $('#email').val();
         var phone = $('#phone').val();
         $.ajax({
-          url: "check_email_upload2.php",
+          url: "ajax_check_publications_upload.php",
           type: "POST",
           data: {
             email: email,
@@ -246,41 +260,34 @@
             $('#check_email').html("เข้าสู่ระบบโดยคุณ" + data[1] + " " + data[2]);
             $('#Callback_id2').html(data[0]);
             $('#inputId').val(data[0]);
+            $('#regis_publication').val(data.regis_publication);
+
             // $("#upload-history").show();
             $("#upload-part").show();
+
+            // if (!data.paper_status) {
+            //   alert('0000');
+            // }
+
+            if (!data[5]) {
+              $("#btnsubmit").prop("disabled", false);
+              $("#submitfalse_msg").hide();
+              $("#submitfalse").html("");
+            }else if(data[5] != "Uploaded" ){
+              $("#btnsubmit").prop("disabled", true);
+              $("#submitfalse").show();
+              $("#submitfalse_msg").html("บทความของท่านอยู่ในขั้นตอนการ Review ไม่สามารถทำการ Upload ได้");
+              
+            }else{
+              $("#btnsubmit").prop("disabled", false);
+              $("#submitfalse_msg").hide();
+              $("#submitfalse").html("");
+            }
+
             id = data[0];
             console.log(data);
             return uid = data[0];
             }
-          }
-        });
-      });
-
-      // upload
-      // $("#uploadForm").on('submit', function(e){
-      $('#submit').click(function () {
-        // var fname = new FormData($('.upload-form')['name=paper_upload']);
-
-        //  var subtheme = $("input:radio[name=subtheme]:checked").val();
-        var callback_id = $("#callback_id").val();
-        $.ajax({
-          url: "check_publications_upload.php",
-          type: "POST",
-          // data: {subtheme:subtheme}, 
-          data: {
-            callback_id: callback_id
-          },
-          // data: new FormData(this),
-          dataType: 'json',
-          // contentType: false,
-          // cache: false,
-          // processData:false,
-          success: function (data) {
-            // $('#check_email').html(res);
-            // $('#check_email').html("Upload ในนามของคุณ" + data[1] + " " + data[2]);
-            alert(data);
-            console.log("Save ok");
-            console.log(data);
           }
         });
       });

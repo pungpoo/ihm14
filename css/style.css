@@ -254,6 +254,13 @@ white {
     border-radius: 5px;
 }
 
+.bg-red {
+    background-color: #bd0000;
+    border-radius: 5px;
+    padding: 2px;
+    color: azure;
+}
+
 .footer-align {
     text-align: left;
 }

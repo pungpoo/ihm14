@@ -195,6 +195,8 @@
       <!-- <label id="Callback_id2"></label>  
     <input type="text" id="inputId" name="inputId" />  -->
       </form>
+      <p>muanmard_m@yahoo.co.th</p>
+      <p>0877946087</p>
   </section>
   <!-- Footer -->
   <?php include "footer.html"; ?>
@@ -227,7 +229,7 @@
         var email = $('#email').val();
         var phone = $('#phone').val();
         $.ajax({
-          url: "check_email_upload2.php",
+          url: "check_publication_upload.php",
           type: "POST",
           data: {
             email: email,
@@ -239,6 +241,10 @@
               // console.log('error');
               alert('ไม่พบข้อมูลการลงทะเบียน');
             }else{
+              if(data[3] == 1){
+                alert('มีแล้ว');
+              }
+
             $('#check_email').html(data);
             $('#check_email').html("เข้าสู่ระบบโดยคุณ" + data[1] + " " + data[2]);
             $('#Callback_id2').html(data[0]);
