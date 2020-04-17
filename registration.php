@@ -27,6 +27,7 @@
         /* margin-top: 120px; */
       }
     }
+
     @media (max-width: 480px) and (max-width: 991px) {
       section {
         padding-top: 50px !important;
@@ -41,6 +42,7 @@
     }
   </style>
 </head>
+
 <body id="page-top">
   <a id="button"></a>
   <?php  include "navbar.html";?>
@@ -49,12 +51,18 @@
     <div class="container ">
       <div class="row">
         <div class=" col-md-12" id="single_regis">
-        <a href="register_list.php" target="_blank" class="btn btn-xl js-scroll-trigger center btn-warning mb-2"> รายชื่อผู้ลงทะเบียน (Registrant)</a>
+          <a href="register_list.php" target="_blank" class="btn btn-xl js-scroll-trigger center btn-warning mb-2">
+            รายชื่อผู้ลงทะเบียน (Registrant)</a>
+          <button type="button" class="btn btn-xl js-scroll-trigger center btn-info mb-2 " style="color: #000;  width: 100%;" data-toggle="modal"
+            data-target="#regis_guide">
+            ดูขั้นตอนการลงทะเบียนและการ Upload บทความวิชาการ
+          </button>
           <div class="card">
-            <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum  - Registration
-             </h5>
+            <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum - Registration
+            </h5>
             <div class="card-body font-weight-bold">
-              <form class="form" id="regisForm" name="regisForm" action="check_registration.php" enctype="multipart/form-data" method="post">
+              <form class="form" id="regisForm" name="regisForm" action="check_registration.php"
+                enctype="multipart/form-data" method="post">
                 <div class="form-row ">
                   <div class="form-group col-md-4">
                     <label for="title">คำนำหน้าชื่อ (Title)<red>*</red></label>
@@ -141,7 +149,9 @@
                   <div class="form-group col-md-12">
                     <label for="grad-from">ที่อยู่ของหน่วยงาน (Affiliation Address)<red>*</red></label>
                     <textarea class="form-control" id="adds" name="affiliation_address" rows="3"
-                      placeholder="ที่อยู่ของหน่วยงาน (Affiliation Address)" required oninvalid="this.setCustomValidity('กรุณาระบุที่อยู่ของหน่วยงานต้นสังกัด')" oninput="setCustomValidity('')"></textarea>
+                      placeholder="ที่อยู่ของหน่วยงาน (Affiliation Address)" required
+                      oninvalid="this.setCustomValidity('กรุณาระบุที่อยู่ของหน่วยงานต้นสังกัด')"
+                      oninput="setCustomValidity('')"></textarea>
                   </div>
                 </div>
 
@@ -179,20 +189,24 @@
                     <label for="">เลือกหัวข้อที่ต้องการเข้าร่วม</label>
                     <div class="custom-control custom-radio ml-3">
                       <input type="radio" id="3day" name="participate" class="custom-control-input" value="1" required>
-                      <label class="custom-control-label" for="3day">งานมหกรรมวิชาการ วันที่ 7,10,11 กันยายน 2563 (3 วัน)</label>
+                      <label class="custom-control-label" for="3day">งานมหกรรมวิชาการ วันที่ 7,10,11 กันยายน 2563 (3
+                        วัน)</label>
                     </div>
                     <div class="custom-control custom-radio ml-3">
                       <input type="radio" id="2day" name="participate" class="custom-control-input" value="2">
-                      <label class="custom-control-label" for="2day">งานเวทีมนุษศาสตร์ วันที่ 8-9 กันยายน 2563 (2 วัน)</label>
+                      <label class="custom-control-label" for="2day">งานเวทีมนุษศาสตร์ วันที่ 8-9 กันยายน 2563 (2
+                        วัน)</label>
                     </div>
                     <div class="custom-control custom-radio ml-3">
                       <input type="radio" id="5day" name="participate" class="custom-control-input" value="3">
-                      <label class="custom-control-label" for="5day">เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5 วัน)</label>
+                      <label class="custom-control-label" for="5day">เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5
+                        วัน)</label>
                     </div>
                     <div class="custom-control custom-checkbox ml-3" id="paper_check">
                       <input type="checkbox" id="paper" name="publication" class="custom-control-input" value="1">
                       <label class="custom-control-label" for="paper">ส่งบทความวิชาการ
-                        (โปรดเลือกหากต้องการส่งบทความตีพิมพ์) / Article Submission (please select if you want to submit your article)</label>
+                        (โปรดเลือกหากต้องการส่งบทความตีพิมพ์) / Article Submission (please select if you want to submit
+                        your article)</label>
                     </div>
                   </div>
                 </div>
@@ -200,7 +214,8 @@
                   <div class="form-group col-md-12 mt-2">
                     <label for="">ส่งบทความตีพิมพ์</label>
                     <div class="form-row ml-4">
-                      <label>โปรดเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ (Please select sub-theme for article submission)</label>
+                      <label>โปรดเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ (Please select sub-theme for
+                        article submission)</label>
                     </div>
                     <div class="custom-control custom-radio ml-4">
                       <input type="radio" id="subtheme1" name="subtheme" class="custom-control-input" value="1">
@@ -269,7 +284,7 @@
                         <div class="card-body">
                           <!-- <h5 class="card-title">Upload บทความตีพิมพ์</h5> -->
                           <!-- <p class="card-text">** maximum 2MB. Type .doc .docx </p> -->
-                          <input type="file" name="paper_upload" id="paper_upload"/>
+                          <input type="file" name="paper_upload" id="paper_upload" />
                           <p class="card-text">**File size up to 5MB. Type .doc .docx </p>
                           <span id="file_error"></span>
                         </div>
@@ -280,7 +295,7 @@
             </div>
           </div>
           <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-12"
-              value="ยืนยันการลงทะเบียน" onclick="cfFunction()">
+            value="ยืนยันการลงทะเบียน" onclick="cfFunction()">
           <!-- preview -->
           <!-- <input type="button" name="btn" value="ตรวจสอบข้อมูล" id="submitBtn" data-toggle="modal"
             data-target="#confirm-submit" class="btn btn-success mb-3 col-6 offset-3 mt-4" /> -->
@@ -325,6 +340,33 @@
     </div>
     </div>
   </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="regis_guide" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ขั้นตอนการลงทะเบียนและส่งบทความวิชาการ</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><i class="fas fa-angle-double-right"></i> ลงทะเบียนในระบบ <a href="registration.php" class="mark"> >>Click<<</a></p>
+          <p><i class="fas fa-angle-double-right"></i> 
+            ในส่วนของการส่งบทความวิชาการ หากท่านต้องการส่งบทความวิชาการ ให้เลือกหัวข้องานที่ต้องการเข้าร่วม 
+            <br><strong>"งานเวทีมนุษศาสตร์ วันที่ 8-9 กันยายน 2563 (2 วัน)"</strong> หรือ <strong>"เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5 วัน)"</strong> 
+            <br>และช่องทำการเลือก <strong> "ส่งบทความวิชาการ"</strong>  จะปรากฎส่วนของการ Upload บทความวิชาการขึ้นมา ให้ทำการเลือกหัวข้อย่อยของบทความวิชาการและทำการเลือกไฟล์ที่ต้องการ Upload
+            <strong> โดยไฟล์ที่ Upload ต้องเป็นไฟล์นามสกุล doc หรือ docx เท่านั้น และต้องมีขนาดไม่เกิน 5 MB.</strong> 
+            <img src="img/regis_guide.png" alt="">
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Footer -->
   <?php 
   include "footer.html";
@@ -392,75 +434,76 @@
         $("#food_other").show();
       });
     })
-     // fadeIn
-      // $("#paper_check").hide();
-      // $( "#paper" ).prop( "disabled", true );
+    // fadeIn
+    // $("#paper_check").hide();
+    // $( "#paper" ).prop( "disabled", true );
 
-      $(document).ready(function(){
-      $('#3day').change(function(){
-          if(this.checked)
-              // $('#paper_check').fadeOut('fast');
-              // $("#paper_check").hide(),
-              $('[name ="publication"]').prop( "checked", false ),
-              $('[name ="subtheme"]').prop( "checked", false ),
-              $( "#paper" ).prop( "disabled", true );
-          else
-              $('#paper_check').fadeIn('fast')
-              $('[name ="paper"]').prop( "checked", false )
-              $('#divPaper').fadeOut('fast');
+    $(document).ready(function () {
+      $('#3day').change(function () {
+        if (this.checked)
+          // $('#paper_check').fadeOut('fast');
+          // $("#paper_check").hide(),
+          $('[name ="publication"]').prop("checked", false),
+          $('[name ="subtheme"]').prop("checked", false),
+          $("#paper").prop("disabled", true);
+        else
+          $('#paper_check').fadeIn('fast')
+        $('[name ="paper"]').prop("checked", false)
+        $('#divPaper').fadeOut('fast');
       });
     });
-    $(document).ready(function(){
-      $('#2day').change(function(){
-          if(this.checked)
-              // $("#paper_check").show(),
-              // $('#paper_check').fadeIn('fast');
-              // $('[name ="publication"]').prop("disabled", false),
-              $( "#paper" ).prop( "disabled", false );
-          else
-              $('#paper_check').fadeOut('fast');;
+    $(document).ready(function () {
+      $('#2day').change(function () {
+        if (this.checked)
+          // $("#paper_check").show(),
+          // $('#paper_check').fadeIn('fast');
+          // $('[name ="publication"]').prop("disabled", false),
+          $("#paper").prop("disabled", false);
+        else
+          $('#paper_check').fadeOut('fast');;
       });
     });
-    $(document).ready(function(){
-      $('#5day').change(function(){
-          if(this.checked)
-              $("#paper_check").show(),
-              $( "#paper" ).prop( "disabled", false );
-          else
-              $('#paper_check').fadeOut('fast');
+    $(document).ready(function () {
+      $('#5day').change(function () {
+        if (this.checked)
+          $("#paper_check").show(),
+          $("#paper").prop("disabled", false);
+        else
+          $('#paper_check').fadeOut('fast');
       });
     });
 
     // paper fadeIn
     $("#divPaper").hide();
-    $(document).ready(function(){
-      $('#paper').change(function(){
-          if(this.checked)
-              // $('#divPaper').fadeIn('fast'),
-              $("#divPaper").show()
-          else
-              // $('#divPaper').fadeOut('fast');
-              $("#divPaper").hide()
-              $('[name ="subtheme"]').prop( "checked", false );
+    $(document).ready(function () {
+      $('#paper').change(function () {
+        if (this.checked)
+          // $('#divPaper').fadeIn('fast'),
+          $("#divPaper").show()
+        else
+          // $('#divPaper').fadeOut('fast');
+          $("#divPaper").hide()
+        $('[name ="subtheme"]').prop("checked", false);
       });
     });
 
-  function validate() {
-    $("#file_error").html("");
-    $(".demoInputBox").css("border-color","#F0F0F0");
-    var file_size = $('#pic')[0].files[0].size;
-    if(file_size>5242880) {
-      $("#file_error").html("<font color='#F31616'>รูปภาพของท่านมีขนาดใหญ่เกิน 5 MB</font>");
-      $(".demoInputBox").css("border-color","#FF0000");
-      return false;
-    } 
-    return true;
-  }
+    function validate() {
+      $("#file_error").html("");
+      $(".demoInputBox").css("border-color", "#F0F0F0");
+      var file_size = $('#pic')[0].files[0].size;
+      if (file_size > 5242880) {
+        $("#file_error").html("<font color='#F31616'>รูปภาพของท่านมีขนาดใหญ่เกิน 5 MB</font>");
+        $(".demoInputBox").css("border-color", "#FF0000");
+        return false;
+      }
+      return true;
+    }
 
-  function cfFunction() {
-  confirm("ยืนยันการลงทะเบียน ตามข้อมูลที่ได้ระบุไว้");
-}
+    function cfFunction() {
+      confirm("ยืนยันการลงทะเบียน ตามข้อมูลที่ได้ระบุไว้");
+    }
   </script>
 
 </body>
+
 </html>

@@ -63,13 +63,8 @@
         </a>
       </div>
       <div class="row mb-2">
-        <a class="btn btn-lg  center btn-regis mt-2" href="publications_new_upload.php">
-          <h4>Upload บทความวิชาการใหม่ (สำหรับผู้ที่ Upload บทความครั้งแรก)</h4>
-        </a>
-      </div>
-      <div class="row mb-2">
         <a class="btn btn-lg  center btn-regis mt-2" href="publications_upload.php">
-          <h4>Upload บทความวิชาการฉบับแก้ไข (สำหรับผู้ที่ต้องการแก้ไขบทความเดิมในระบบ)</h4>
+          <h4>Upload บทความวิชาการ(สำหรับผู้ที่ต้องการแก้ไขบทความเดิมในระบบหรือผู้ที่ยังไม่ได้ส่งบทความวิชาการ)</h4>
         </a>
       </div>
       <hr style="border: 2px solid gray;">
