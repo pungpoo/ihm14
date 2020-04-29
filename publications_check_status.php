@@ -62,7 +62,7 @@
     <div class="container ">
       <div class="row">
         <div class=" col-md-12" id="single_regis">
-          <div class="card">
+          <div class="card" style="margin-bottom:300px;">
             <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum - ตรวจสอบสถานะบทความ
             </h5>
             <div class="card-body font-weight-bold">

@@ -64,13 +64,12 @@
         //   echo $email_check[0];
         // }
   ?>
-  <section class="bg-light mb-4" id="regis">
-    <div class="container ">
-      <div class="row">
+  <section class="bg-light mb-4" id="regis" >
+    <div class="container" >
+      <div class="row" >
         <div class=" col-md-12" id="single_regis">
-          <div class="card">
-            <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum - Upload บทความวิชาการ <font color="#800000">(ฉบับแก้ไข)</font>
-            </h5>
+          <div class="card" style="margin-bottom:350px;">
+            <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum - Upload บทความวิชาการ  </h5>
             <div class="card-body font-weight-bold">
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -171,8 +170,8 @@
                     <label class="custom-control-label" for="subtheme11">11.
                       เทคโนโลยีและการแพทย์ที่มีหัวใจความเป็นมนุษย์ (Technology and Humanized Medicine)</label>
                   </div>
-                  <div class="custom-control  ml-4 mb-2">
-                    <label style="color: red;"><b>**หมายเหตุ หากท่าน Upload ในหน้านี้ไฟล์ใหม่จะแทนที่ไฟล์เก่าของท่านที่มีอยู่ในระบบ</b></label>
+                  <div class="custom-control ml-4 mb-2">
+                    <label style="color: red;"><b>**หมายเหตุ สำหรับท่านที่ได้ทำการ Upload บทความวิชาการไปแล้ว หากท่าน Upload ในหน้านี้ไฟล์ใหม่จะแทนที่ไฟล์เก่าของท่านที่มีอยู่ในระบบ</b></label>
                   </div>
                 </div>
                 <div class="form-group mr-4 ml-4" id="upload">
@@ -205,13 +204,6 @@
       <!-- <label id="Callback_id2"></label>  
     <input type="text" id="inputId" name="inputId" />  -->
       </form>
-      <pre>
-                muanmard_m@yahoo.co.th
-          0877946087
-
-                busakorn.wjs@gmail.com
-          0842354496
-      </pre>
   </section>
   <!-- Footer -->
   <?php include "footer.html"; ?>

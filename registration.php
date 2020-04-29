@@ -343,7 +343,7 @@
 
   <!-- Modal -->
   <div class="modal fade" id="regis_guide" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">ขั้นตอนการลงทะเบียนและส่งบทความวิชาการ</h5>
@@ -352,14 +352,16 @@
           </button>
         </div>
         <div class="modal-body">
-          <p><i class="fas fa-angle-double-right"></i> ลงทะเบียนในระบบ <a href="registration.php" class="mark"> >>Click<<</a></p>
+          <p><i class="fas fa-angle-double-right"></i> ลงทะเบียนในระบบ <a href="registration.php" class="mark4"> >>Click<<</a></p>
           <p><i class="fas fa-angle-double-right"></i> 
             ในส่วนของการส่งบทความวิชาการ หากท่านต้องการส่งบทความวิชาการ ให้เลือกหัวข้องานที่ต้องการเข้าร่วม 
             <br><strong>"งานเวทีมนุษศาสตร์ วันที่ 8-9 กันยายน 2563 (2 วัน)"</strong> หรือ <strong>"เข้ารวมทั้ง 2 งาน วันที่ 7-11 กันยายน 2563 (5 วัน)"</strong> 
             <br>และช่องทำการเลือก <strong> "ส่งบทความวิชาการ"</strong>  จะปรากฎส่วนของการ Upload บทความวิชาการขึ้นมา ให้ทำการเลือกหัวข้อย่อยของบทความวิชาการและทำการเลือกไฟล์ที่ต้องการ Upload
             <strong> โดยไฟล์ที่ Upload ต้องเป็นไฟล์นามสกุล doc หรือ docx เท่านั้น และต้องมีขนาดไม่เกิน 5 MB.</strong> 
-            <img src="img/regis_guide.png" alt="">
+            <img src="img/regis_guide.png" class="responsive">
           </p>
+          <p><i class="fas fa-angle-double-right"></i> หากท่านลงทะเบียนโดยที่ไม่ได้ทำการส่งบทความวิชาการในครั้งแรกแล้วต้องการ ส่งบทความวิชาการในภายหลัง <a href="publications_upload.php" class="mark4"> >>Click<<</a></p>
+          <p><i class="fas fa-angle-double-right"></i> ตรวจสอบสถานะบทความ <a href="publications_check_status.php" class="mark4"> >>Click<<</a></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
