@@ -98,19 +98,34 @@
                     <span id="download_paper"></span>
                   </div>
                   <div class="col-6">
-                  <h6 class="mb-2 mx-auto" id="paper_status"></h6>
+                    <h6 class="mb-2 mx-auto" id="paper_status"></h6>
                   </div>
                 </div>
               </div>
               <!-- Revision -->
               <div id="check-revision" class="bg-gray">
-                <!-- <div class="form-row col-12">
-                  <h5 class="mb-2 bg-blue mx-auto" id="check_revision"></h5>
-                </div> -->
                 <div class="form-row p-4">
                   <div class="col-12">
                     <h6 class="mb-2mx-auto" id="revision_file_name"></h6>
                     <span id="download_paper_revision"></span>
+                  </div>
+                </div>
+                <div class="form-row p-4">
+                  <div class="col-12">
+                    <div class="card">
+                      <h5 class="card-header">Upload บทความที่แก้ไขตามการ Review แล้ว</h5>
+                      <div class="card-body">
+                        <form>
+                          <div class="form-group">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+
+
+                    <h6 class="mb-2mx-auto" id="revision_file_name"></h6>
+
                   </div>
                 </div>
               </div>
@@ -142,7 +157,7 @@
       $('#email,#phone').focusout(function () {
         if ($('#email').val() && $('#phone').val()) {
           console.log("Not Empty");
-          $("#checkmail").prop("disabled", false);
+          // $("#checkmail").prop("disabled", false);
         }
       });
       $('#checkmail').click(function () {
@@ -162,37 +177,55 @@
           },
           dataType: 'json',
           success: function (data) {
-            if (!data[0][3]){
+
+            if (!data[0][3]) {
               console.log(data);
               alert('ไม่พบข้อมูลบทความวิชาการของท่าน');
-                $("#upload-part").hide();
-                $('#check_status').html("");
-                $('#paper_name').html("");
-                $('#paper_status').html("");
-                // $('#download_paper').html(" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
-                
-            }
-            else{
-                // $('#check_status').html(data);
-                $('#check_status').html("ผู้ส่งบทความวิชาการ คุณ" + data[0][1] + " " + data[0][2]);
-                $('#paper_name').html("บทความ : " + data[0][4]+" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
-                $('#paper_status').html("สถานะบทความ : <font color='red'>" + data[0][5] +"</font>");
-                // $('#download_paper').html(" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
-                $("#upload-part").show();
-                
-                if(data[1] != false){
-                  $("#check-revision").show();
-                }
-                
-                $('#revision_file_name').html("บทความ(revision version) : " + data[1][2]+" &nbsp; &nbsp;<a href='publications/"+data[1][2]+"'class='badge badge-info'>Download</a> ");
-                // $('#download_paper_revision').html("<a href='publications/"+data[1][2]+"' class='badge badge-info'>Download</a> ");
+              $("#upload-part").hide();
+              $('#check_status').html("");
+              $('#paper_name').html("");
+              $('#paper_status').html("");
+              // $('#download_paper').html(" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
+              $("#check-revision").hide();
+              $('#paper_status').html("");
 
-                id = data[0][0]
-                console.log(data);
-                // console.log(id);
-                return uid = data[0][0];
+            } else {
+              // $('#check_status').html(data);
+              $('#check_status').html("ผู้ส่งบทความวิชาการ คุณ" + data[0][1] + " " + data[0][2]);
+              $('#paper_name').html("บทความ : " + data[0][4] + " &nbsp; &nbsp;<a href='publications/" +
+                data[0][4] + "' class='badge badge-info'>Download</a> ");
+              $('#paper_status').html("สถานะบทความ : <font color='red'>" + data[0][5] + "</font>");
+              // $('#download_paper').html(" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
+              $("#upload-part").show();
+
+              if (data[1] != false) {
+                $("#check-revision").show();
+              }else{
+                $("#check-revision").hide();
               }
+
+              $('#revision_file_name').html("บทความ(revision version) : " + data[1][2] +
+                " &nbsp; &nbsp;<a href='publications/" + data[1][2] +
+                "'class='badge badge-info'>Download</a> ");
+              // $('#download_paper_revision').html("<a href='publications/"+data[1][2]+"' class='badge badge-info'>Download</a> ");
+
+              id = data[0][0]
+              console.log(data);
+              // console.log(id);
+              return uid = data[0][0];
             }
+          },
+          error: function() {
+            alert('ข้อมูลการลงทะเบียนผิดพลาด โปรดตรวจสอบ Email และ เบอร์โทรศัพท์');
+            console.log("error");
+            $("#upload-part").hide();
+            $('#check_status').html("");
+            $('#paper_name').html("");
+            $('#paper_status').html("");
+            $("#check-revision").hide();
+            $('#paper_status').html("");
+            $('#revision_file_name').html("");
+          }
         });
       });
 

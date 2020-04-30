@@ -29,6 +29,13 @@
     <!-- Custom styles for this template -->
     <link href="css/agency.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <style>
+    .btnBack{
+        display: flex;
+        /* align-self: right; */
+        margin-right: 0 px;
+    }
+    </style>
 </head>
 
 <body id="page-top">
@@ -154,14 +161,14 @@
                                         <select class="form-control" id="paper_status" name="paper_status">
                                             <option value="<?php echo $row['paper_status']; ?>">
                                                 <?php echo $row['paper_status']; ?></option>
-                                            <option value="Uploaded">Uploaded</option>
-                                            <option value="Wait for review">Wait for review</option>
-                                            <option value="Accept">Accept</option>
-                                            <option value="Accept with minor revisions">Accept with minor revisions
+                                            <option value="Uploaded">uploaded</option>
+                                            <option value="Wait for review">reviewing</option>
+                                            <option value="Accept">accept</option>
+                                            <option value="Accept with minor revisions">accept with minor revisions
                                             </option>
-                                            <option value="Accept with major revisions">Accept with major revisions
+                                            <option value="Accept with major revisions">accept with major revisions
                                             </option>
-                                            <option value="Reject">Reject</option>
+                                            <option value="Reject">reject</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-2">
@@ -178,6 +185,9 @@
                                             data-target="#uploadform">
                                             Upload Publication Revisions
                                         </button>
+                                    </div>
+                                    <div class="form-group col-md-6 text-right">
+                                        <a href="admin_publication_info.php" class="btn btn-danger" > Back</a>
                                     </div>
                                 </div>
                         </div>

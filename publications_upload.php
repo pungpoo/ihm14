@@ -64,12 +64,13 @@
         //   echo $email_check[0];
         // }
   ?>
-  <section class="bg-light mb-4" id="regis" >
-    <div class="container" >
-      <div class="row" >
+  <section class="bg-light mb-4" id="regis">
+    <div class="container">
+      <div class="row">
         <div class=" col-md-12" id="single_regis">
           <div class="card" style="margin-bottom:350px;">
-            <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum - Upload บทความวิชาการ  </h5>
+            <h5 class="card-header text-center  bg-info">The 14th Thai Humanities Research Forum - Upload บทความวิชาการ
+            </h5>
             <div class="card-body font-weight-bold">
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -105,9 +106,9 @@
                   <div class="form-row ml-4  col-12">
                     <h6 id="upload-history"> ประวัติการ Upload</h6>
                   </div>
-                  <div class="form-row mx-auto col-12" id="submitfalse"> 
-                  <h6 class="center bg-red" id="submitfalse_msg"></h6>
-                </div>
+                  <div class="form-row mx-auto col-12" id="submitfalse">
+                    <h6 class="center bg-red" id="submitfalse_msg"></h6>
+                  </div>
                   <div class="form-row ml-4">
                     <h6>โปรดเลือกหัวข้อย่อยสำหรับการส่งบทความวิจัย/บทความวิชาการ (Please select sub-theme for article
                       submission)</h6>
@@ -171,7 +172,8 @@
                       เทคโนโลยีและการแพทย์ที่มีหัวใจความเป็นมนุษย์ (Technology and Humanized Medicine)</label>
                   </div>
                   <div class="custom-control ml-4 mb-2">
-                    <label style="color: red;"><b>**หมายเหตุ สำหรับท่านที่ได้ทำการ Upload บทความวิชาการไปแล้ว หากท่าน Upload ในหน้านี้ไฟล์ใหม่จะแทนที่ไฟล์เก่าของท่านที่มีอยู่ในระบบ</b></label>
+                    <label style="color: red;"><b>**หมายเหตุ สำหรับท่านที่ได้ทำการ Upload บทความวิชาการไปแล้ว หากท่าน
+                        Upload ในหน้านี้ไฟล์ใหม่จะแทนที่ไฟล์เก่าของท่านที่มีอยู่ในระบบ</b></label>
                   </div>
                 </div>
                 <div class="form-group mr-4 ml-4" id="upload">
@@ -188,11 +190,8 @@
                 </div>
                 <input type="hidden" id="inputId" name="inputId">
                 <input type="hidden" id="regis_publication" name="regis_publication">
-                <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3" value="Upload บทความ">
-                
-                <div class="form-row mx-auto col-12" id="11"> 
-                  <h6 class="center bg-red" ></h6>
-                </div>
+                <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
+                  value="Upload บทความ">
             </div>
             <!-- <input type="hidden" id="inputId" name="inputId">
             <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-6 offset-3"
@@ -244,41 +243,42 @@
           },
           dataType: 'json',
           success: function (data) {
-            if (data  == false){
+            if (data == false) {
               // console.log('error');
               alert('ไม่พบข้อมูลการลงทะเบียน');
-            }else{
-            $('#check_email').html(data);
-            $('#check_email').html("เข้าสู่ระบบโดยคุณ" + data[1] + " " + data[2]);
-            $('#Callback_id2').html(data[0]);
-            $('#inputId').val(data[0]);
-            $('#regis_publication').val(data.regis_publication);
+              $("#upload-part").hide();
+              $('#check_email').html("");
+              $('#inputId').val("");
+              $('#Callback_id2').html("");
+              $("#submitfalse").hide();
+              $("#submitfalse_msg").html("");
 
-            // $("#upload-history").show();
-            $("#upload-part").show();
+            } else {
+              $('#check_email').html(data);
+              $('#check_email').html("เข้าสู่ระบบโดยคุณ" + data[1] + " " + data[2]);
+              $('#Callback_id2').html(data[0]);
+              $('#inputId').val(data[0]);
+              $('#regis_publication').val(data.regis_publication);
+              $("#upload-part").show();
 
-            // if (!data.paper_status) {
-            //   alert('0000');
-            // }
+              if (!data[5]) {
+                $("#btnsubmit").prop("disabled", false);
+                $("#submitfalse").hide();
+                $("#submitfalse_msg").html("");
+              } else if (data[5] != "uploaded") {
+                $("#submitfalse").show();
+                $("#submitfalse_msg").html("บทความของท่านอยู่ในขั้นตอนการ Review ไม่สามารถทำการ Upload ได้");
+                $("#btnsubmit").prop("disabled", true);
+              } 
+              else if (data[5] == "uploaded"){
+                $("#submitfalse").hide();
+                $("#submitfalse_msg").html("");
+                $("#btnsubmit").prop("disabled", false);
+              }
 
-            if (!data[5]) {
-              $("#btnsubmit").prop("disabled", false);
-              $("#submitfalse_msg").hide();
-              $("#submitfalse").html("");
-            }else if(data[5] != "Uploaded" ){
-              $("#btnsubmit").prop("disabled", true);
-              $("#submitfalse").show();
-              $("#submitfalse_msg").html("บทความของท่านอยู่ในขั้นตอนการ Review ไม่สามารถทำการ Upload ได้");
-              
-            }else{
-              $("#btnsubmit").prop("disabled", false);
-              $("#submitfalse_msg").hide();
-              $("#submitfalse").html("");
-            }
-
-            id = data[0];
-            console.log(data);
-            return uid = data[0];
+              id = data[0];
+              console.log(data);
+              return uid = data[0];
             }
           }
         });
