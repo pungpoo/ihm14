@@ -115,15 +115,13 @@
                     <div class="card">
                       <h5 class="card-header">Upload บทความที่แก้ไขตามการ Review แล้ว</h5>
                       <div class="card-body">
-                        <form>
+                        <form enctype="multipart/form-data">
                           <div class="form-group">
                             <input type="file" class="form-control-file" id="exampleFormControlFile1">
                           </div>
                         </form>
                       </div>
                     </div>
-
-
                     <h6 class="mb-2mx-auto" id="revision_file_name"></h6>
 
                   </div>

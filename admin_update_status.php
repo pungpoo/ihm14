@@ -30,11 +30,11 @@
     <link href="css/agency.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <style>
-    .btnBack{
-        display: flex;
-        /* align-self: right; */
-        margin-right: 0 px;
-    }
+        .btnBack {
+            display: flex;
+            /* align-self: right; */
+            margin-right: 0 px;
+        }
     </style>
 </head>
 
@@ -161,14 +161,12 @@
                                         <select class="form-control" id="paper_status" name="paper_status">
                                             <option value="<?php echo $row['paper_status']; ?>">
                                                 <?php echo $row['paper_status']; ?></option>
-                                            <option value="Uploaded">uploaded</option>
-                                            <option value="Wait for review">reviewing</option>
-                                            <option value="Accept">accept</option>
-                                            <option value="Accept with minor revisions">accept with minor revisions
-                                            </option>
-                                            <option value="Accept with major revisions">accept with major revisions
-                                            </option>
-                                            <option value="Reject">reject</option>
+                                            <option value="uploaded">uploaded</option>
+                                            <option value="reviewing">reviewing</option>
+                                            <option value="accept">accept</option>
+                                            <option value="accept with minor revisions">accept with minor revisions</option>
+                                            <option value="accept with major revisions">accept with major revisions</option>
+                                            <option value="reject">reject</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-2">
@@ -187,7 +185,7 @@
                                         </button>
                                     </div>
                                     <div class="form-group col-md-6 text-right">
-                                        <a href="admin_publication_info.php" class="btn btn-danger" > Back</a>
+                                        <a href="admin_publication_info.php" class="btn btn-danger"> Back</a>
                                     </div>
                                 </div>
                         </div>
@@ -212,7 +210,6 @@
                     <form method="post" action="" enctype="multipart/form-data">
                         <input type="file" name="paper_upload" id="paper_upload" />
                         <p class="card-text">**File size up to 5MB. Type .doc .docx </p>
-                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

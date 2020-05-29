@@ -245,7 +245,7 @@
                         <label>สถานะบทความ</label>
                         <select name="paper_status" id="paper_status" class="form-control">
                             <option value="Uploaded">Uploaded</option>
-                            <option value="Wait for review">Wait for review</option>
+                            <option value="Reviewing">Reviewing</option>
                             <option value="Accept">Accept</option>
                             <option value="Accept with minor revisions">Accept with minor revisions</option>
                             <option value="Accept with major revisions">Accept with major revisions</option>
