@@ -39,8 +39,8 @@
   <section>
     <div>
       <img src="img/poster.jpg" class="center imgcover">
-      <a class="btn btn-xl text-uppercase js-scroll-trigger center btn-regis" href="registration.php">
-        <h2>Registration</h2>
+      <a class="btn btn-xl text-uppercase js-scroll-trigger center btn-regis" href="publications.php#publication_publish_list">
+        <h2>ประกาศรายชื่อผู้นำเสนอบทความ</h2>
       </a>
     </div>
   </section>
@@ -76,158 +76,7 @@
       <!-- </a> -->
     </div>
   </section>
-  <!-- keynote -->
-  <!-- <section class="bg-light" style="padding-bottom: 50px; padding-top: 50px;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center mb-3">
-          <h2 class="section-heading text-uppercase">Keynote Speaker</h2>
-        </div>
-      </div>
-      <div class="row">
-      <div class="col-sm-6">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/Assoc.Prof.Soranit.png" alt="">
-            <h5 class="mt-2">รองศาสตราจารย์ นพ.สรนิต ศิลธรรม</h5>
-            <p class="text-muted">ปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม </p>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/Chailerd.png" alt="">
-            <h5>รองศาสตราจารย์ ดร.นายแพทย์ ชัยเลิศ พิชิตพรชัย</h5>
-            <p class="text-muted">ผู้อำนวยการสถาบันนวัตกรรมการเรียนรู้ มหาวิทยาลัยมหิดล</p>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/dr.Thapanee.png" alt="">
-            <h5>รองศาสตราจารย์ ดร. ฐาปนีย์ ธรรมเมธา </h5>
-            <p class="text-muted">ผู้อำนวยการโครงการมหาวิทยาลัยไซเบอร์ไทย(TCU) </p>
-          </div>
-        </div>
-
-        <div class="col-sm-6">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/dr.Charee.png" alt="">
-            <h5>รองศาสตราจารย์ ดร. ชาลี เจริญลาภนพรัตน์</h5>
-            <p class="text-muted">รองอธิการบดีฝ่ายวิชาการ มหาวิทยาลัยธรรมศาสตร์</p>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/dr.Pansiri.png" alt="">
-            <h5>ศาสตราจารย์ ดร. ปานสิริ พันธุ์สุวรรณ</h5>
-            <p class="text-muted">รองอธิการบดีฝ่ายวิชาการ มหาวิทยาลัยศรีนครินทรวิโรฒ</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-8 mx-auto text-center">
-          <button class="btn btn-regis" onclick="window.location.href='keynote.php'">ดูเพิ่มเติม</button>
-        </div>
-    </div>
-
-  </section> -->
-  <!-- About -->
-  <!-- <section class="page-section" id="program">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase mb-2">Program</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <ul class="timeline">
-            <li>
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="img/program/open.jpg" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading mt-4">
-                  <h4>Day 1</h4>
-                  <h4 class="subheading">Opening</h4>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="img/program/D1_1.jpg" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>Day 1</h4>
-                  <h4 class="subheading">RDI for Disruptive Education</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">รองศาสตราจารย์ สรนิต ศิลธรรม </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="img/program/D1_2-2.jpg" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>Day 1</h4>
-                  <h4 class="subheading">Distance Learning (P, E, M, U- Learning, MOOC, SPOC, etc.)</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">รองศาสตราจารย์ ดร. ฐาปนีย์ ธรรมเมธา </p>
-                  <p class="text-muted">รองศาสตราจารย์ ภก.ดร. อนุชัย ธีระเรืองไชยศรี </p>
-                  <p class="text-muted">รองศาสตราจารย์ ดร. ชาลี เจริญลาภนพรัตน์ </p>
-                  <p class="text-muted">ผู้ช่วยศาสตราจารย์ ดร. มนัสนันท์ หัตถศักดิ์ (moderator) </p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="img/program/D2_1.png" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>Day 2</h4>
-                  <h4 class="subheading">Cognitive Neuroscience for Education</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">รองศาสตราจารย์ ดร.นายแพทย์ ชัยเลิศ พิชิตพรชัย
-                    ผู้อำนวยการสถาบันนวัตกรรมการเรียนรู้ มหาวิทยาลัยมหิดล
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="img/program/D2_3.png" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>Day 2</h4>
-                  <h4 class="subheading">เสวนา “Application of Cognitive Neuroscience for Disruptive Education”</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">ดร. ศราวิน เทพสถิตภรณ์ </p>
-                  <p class="text-muted">ดร. กิตติพันธุ์ อรุณพลังสันติ </p>
-                  <p class="text-muted">รองศาสตราจารย์ ดร.นายแพทย์ชัยเลิศ พิชิตพรชัย</p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <h4><a href="program.php" class="url-blue">ดูกำหนดการทั้งหมด</a></h4>
-              </div>
-            </li>
-          </ul>
-          <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-              <button class="btn btn-regis" onclick="window.location.href='program.php'">ดูกำหนดการทั้งหมด</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
+  
   <!-- VENUE -->
   <section class="page-section bg-gray" id="contact">
     <div class="container mt-4">
@@ -260,6 +109,31 @@
     </div>
   </section>
 
+  <!-- Modal -->
+  <div class="modal fade modalcenter" id="popupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h1 class="text-center modal-text">ประกาศรายชื่อผู้นําเสนอบทความ</h1>
+            <h4 class="text-center">การประชุมเวทีวิจัยมนุษยศาสตร์ไทย ครั้งที่ 14
+              <br>
+            </h4>
+            <h2 class="text-center  modal-text">วันที่ 8-9 กันยายน 2563 </h2>
+            <h4 class="text-center ">ณ คณะสังคมศาสตร์และมนุษยศาสตร์ มหาวิทยาลัยมหิดล</h4>
+          </div>
+          <div class="row mb-2">
+          <a class="btn btn-xl text-uppercase js-scroll-trigger center btn-regis" href="publications.php#publication_publish_list">ดูรายชื่อ</a>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-times-circle"></i>
+              Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <?php include "footer.html";?>
@@ -274,6 +148,11 @@
   <script src="js/agency.min.js"></script>
 
   <script>
+
+    $(document).ready(function () {
+      $('#popupModal').modal('show');
+    });
+
     var btn = $('#button');
     $(window).scroll(function () {
       if ($(window).scrollTop() > 300) {

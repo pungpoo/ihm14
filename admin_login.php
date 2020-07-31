@@ -47,7 +47,7 @@
             <div class="row mt-4">
                 <div class="col-md-10 mx-auto">
                     <div class="card  mb-4">
-                        <h5 class="card-header text-center text-uppercase bg-info">THRF14-Login ihumanities14</h5>
+                        <h5 class="card-header text-center text-uppercase bg-info">THRF14-Login</h5>
                         <div class="card-body font-weight-bold">
                             <div class="col-md-6 mx-auto">
                                 <form class="form" method="post" action="">
@@ -65,7 +65,6 @@
                                         <input type="password" class="form-control" id="password" name="password"
                                             placeholder="Password" required>
                                     </div>
-                                    <label for="">ihumanities14</label>
                                     <input type="submit" name="submit" class="btn btn-primary mb-2 btn-block" value="Login">
                                     <!-- <button type="submit" class="btn btn-primary mb-2  btn-block">Login</button> -->
                                 </form>

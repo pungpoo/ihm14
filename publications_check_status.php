@@ -40,7 +40,6 @@
         padding-top: 80px;
       }
     }
-
     /* footer{
       position: absolute;
       right: 0;
@@ -99,6 +98,7 @@
                   </div>
                   <div class="col-6">
                     <h6 class="mb-2 mx-auto" id="paper_status"></h6>
+                    <h6 class="mb-2 mx-auto alert alert-success" id="paper_status_msg"></h6>
                   </div>
                 </div>
               </div>
@@ -151,6 +151,7 @@
     $("#check-revision").hide();
 
     $(document).ready(function () {
+      $( "#paper_status_msg" ).removeClass( "alert alert-success" );
 
       $('#email,#phone').focusout(function () {
         if ($('#email').val() && $('#phone').val()) {
@@ -159,7 +160,6 @@
         }
       });
       $('#checkmail').click(function () {
-
         if (!$('#email').val() || !$('#phone').val()) {
           alert('กรุณากรอกข้อมูล');
           return false;
@@ -185,15 +185,18 @@
               $('#paper_status').html("");
               // $('#download_paper').html(" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
               $("#check-revision").hide();
-              $('#paper_status').html("");
+
+              $( "#paper_status_msg" ).removeClass( "alert alert-success" );
+              $('#paper_status_msg').html("");
 
             } else {
               // $('#check_status').html(data);
               $('#check_status').html("ผู้ส่งบทความวิชาการ คุณ" + data[0][1] + " " + data[0][2]);
               $('#paper_name').html("บทความ : " + data[0][4] + " &nbsp; &nbsp;<a href='publications/" +
-                data[0][4] + "' class='badge badge-info'>Download</a> ");
+                data[0][4] + "'class='badge badge-info'>Download</a> ");
               $('#paper_status').html("สถานะบทความ : <font color='red'>" + data[0][5] + "</font>");
-              // $('#download_paper').html(" &nbsp; &nbsp;<a href='publications/"+data[0][4]+"' class='badge badge-info'>Download</a> ");
+              $( "#paper_status_msg" ).addClass( "alert alert-success" );
+              $('#paper_status_msg').html("บทความของท่านได้ผ่านการรีวิวแล้วกรุณาตรวจสอบ Email ของท่าน");
               $("#upload-part").show();
 
               if (data[1] != false) {

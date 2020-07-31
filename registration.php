@@ -294,9 +294,10 @@
                 </div>
             </div>
           </div>
-          <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-12"
-            value="ยืนยันการลงทะเบียน" onclick="cfFunction()">
-          <!-- preview -->
+          <!-- <input type="submit" name="submit" id="btnsubmit" class="btn btn-success mb-2 mt-2 col-12"
+            value="ยืนยันการลงทะเบียน" onclick="cfFunction()"> -->
+            <div class="alert alert-danger text-center" role="alert"> <h4 class="alert-heading">ปิดรับการลงทะเบียนแล้ว</h4> </div>
+         
           <!-- <input type="button" name="btn" value="ตรวจสอบข้อมูล" id="submitBtn" data-toggle="modal"
             data-target="#confirm-submit" class="btn btn-success mb-3 col-6 offset-3 mt-4" /> -->
           <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
