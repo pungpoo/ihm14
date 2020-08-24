@@ -17,7 +17,7 @@ try {
     // $mail->Password   = 'BbilkB414148';                               // SMTP password
                   // SMTP username
     $mail->Username   = 'ihumanities14@gmail.com';                     // SMTP username
-    $mail->Password   = 'shmahidol2020';                               // SMTP password
+    $mail->Password   = '##';                               // SMTP password
     $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
     $mail->Port       = 587;                                    // TCP port to connect to
 
