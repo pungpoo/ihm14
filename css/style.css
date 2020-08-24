@@ -231,6 +231,16 @@ input[type=number] {
 red {
     color: red;
 }
+red_nav{
+    color: red;
+    text-shadow:
+    /* 3px 3px 0 #000,
+  -1px -1px 0 #000,  
+   1px -1px 0 #000, */
+   -1px 1px 0 #000,
+    1px 1px 0 #000;
+    /* text-shadow: 2px 2px 8px #000000; */
+  }
 
 blue {
     color: blue;

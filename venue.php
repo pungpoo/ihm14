@@ -60,23 +60,23 @@
       <div class="row">
         <div class="col-lg-12 text-center">
         <h2 class="section-heading text-uppercase">สถานที่จัดงาน</h2>
-          <h2 class="section-heading">มหิดลสิทธาคาร มหาวิทยาลัยมหิดล ศาลายา</h2>
-          <h4 class="section-heading text-muted">Prince Mahidol Hall</h4>
+          <h2 class="section-heading">คณะสังคมศาสตร์และมนุษยศาสตร์ มหาวิทยาลัยมหิดล</h2>
+          <h4 class="section-heading text-muted">Faculty of Social Sciences and Humanities,Mahidol University</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
             <div class="col-md-12">
-              <img src="img/mup.jpg" alt="" class="center responsive mb-2">
+              <img src="img/venue.jpg" alt="" class="center responsive mb-2">
             </div>
             <div class="col-md-12 mt-4 mx-auto embed-responsive embed-responsive-16by9">
-              <iframe class="center" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.821187498297!2d100.31900521527898!3d13.789650500129412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29389fcc146fb%3A0x51c5c2ffb391ee28!2z4Lih4Lir4Li04LiU4Lil4Liq4Li04LiX4LiY4Liy4LiE4Liy4Lij!5e0!3m2!1sth!2sth!4v1582086669283!5m2!1sth!2sth" width="800" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-            </div>
+              <iframe class="center" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3874.7829299188593!2d100.32209301852419!3d13.791955238416952!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbfd925b0129e10b7!2z4LiE4LiT4Liw4Liq4Lix4LiH4LiE4Lih4Lio4Liy4Liq4LiV4Lij4LmM4LmB4Lil4Liw4Lih4LiZ4Li44Lip4Lii4Lio4Liy4Liq4LiV4Lij4LmM!5e0!3m2!1sth!2sth!4v1596799652063!5m2!1sth!2sth" width="800" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+              </div>
             <div class="col-lg-12 text-center">
             <!-- <p class="section-heading"><i class="fas fa-map-marker-alt"></i> GPS 13.733251, 100.563911</p> -->
               <div id="success"></div>
-              <a class="btn btn-lg btn-regis mt-4" href="https://goo.gl/maps/HgPnnuQn9jGRW48K8">
+              <a class="btn btn-lg btn-regis mt-4" href="https://goo.gl/maps/KtpfT9tUUZ7YfFgn8">
                 <h5>Google Map</h5>
               </a>
             </div>

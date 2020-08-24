@@ -69,6 +69,10 @@
           <!-- <iframe src="img/publication_publish_list.pdf" width="100%" height="800px"></iframe> -->
           <embed src="img/publication_publish_list.pdf" type="application/pdf"
             width="100%" height="700px" />
+            <p class="mt-2">If your web browser doesn't have a PDF plugin.
+          Instead you can <a href="img/publication_publish_list.pdf" class="mark">click here to
+          download the PDF file.</a></p>
+
         </div>
       </div>
 

@@ -83,15 +83,15 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">สถานที่จัดงาน</h2>
-          <h2 class="section-heading">มหิดลสิทธาคาร มหาวิทยาลัยมหิดล ศาลายา</h2>
-          <h4 class="section-heading text-muted">Prince Mahidol Hall</h4>
+          <h2 class="section-heading">คณะสังคมศาสตร์และมนุษยศาสตร์ มหาวิทยาลัยมหิดล</h2>
+          <h4 class="section-heading text-muted">Faculty of Social Sciences and Humanities,Mahidol University</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
             <div class="col-md-12">
-              <img src="img/mup.jpg" alt="" class="center responsive mb-2">
+              <img src="img/venue.jpg" alt="" class="center responsive mb-2">
             </div>
             <div class="clearfix"></div>
             <div class="col-lg-12 text-center">
